@@ -6,6 +6,38 @@
 
 <title>บ้านแห่งจันทร์จ้าว</title>
 
+/* ===== สวนจันทร์ ===== */
+
+.moon-garden{
+    padding:80px 20px;
+    background:linear-gradient(
+        180deg,
+        rgba(10,15,44,0.😎,
+        rgba(28,42,90,0.9)
+    );
+}
+
+.garden-text{
+    font-size:20px;
+    margin-top:10px;
+    opacity:0.9;
+}
+
+.flowers{
+    margin-top:30px;
+    font-size:40px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.flowers span{
+    margin:0 10px;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
 <style>
 
 /* ===== พื้นหลังท้องฟ้า ===== */
@@ -108,8 +140,29 @@ footer{
 
 <button id="playBtn">🌙 เปิดเสียงบ้านแห่งจันทร์จ้าว</button>
 
-  </div>
 </div>
+</div>
+
+<!-- 🌙 สวนจันทร์หน้าบ้าน -->
+<section class="moon-garden">
+
+<h2>🌙 สวนจันทร์หน้าบ้าน</h2>
+
+<p class="garden-text">
+ยินดีต้อนรับผู้เดินทางใต้แสงจันทร์<br>
+พักใจสักครู่ก่อนก้าวเข้าสู่บ้านแห่งเรื่องราว “บ้านแห่งจันทร์จ้าว”
+</p>
+
+<div class="flowers">
+  <span>🌼</span>
+  <span>🌸</span>
+  <span>🌼</span>
+  <span>🌙</span>
+  <span>🌸</span>
+</div>
+
+</section>
+
 
 <!-- ห้องต้อนรับ -->
 <section>
@@ -170,5 +223,4 @@ document.getElementById("playBtn").onclick=function(){
 
 </body>
 </html>
-ส่งเมื่อ 1 นาทีที่แล้ว
-เขียนถึง นายปัญญาศักดิ์ พูลสวัสดิ์
+
