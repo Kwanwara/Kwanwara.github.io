@@ -8,9 +8,9 @@
 
 <style>
 
-/* ===== สวนจันทร์ ===== */
+/* ===== สวนหน้าบ้านจันทร์จ้าว ===== */
 .moon-garden{
-    padding:80px 20px;
+    padding:40px 10px;
     background:linear-gradient(
         180deg,
         rgba(10,15,44,0.8),
@@ -25,9 +25,9 @@
 }
 
 .flowers{
-    margin-top:30px;
+    margin-top:20px;
     font-size:40px;
-    animation: float 4s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
 }
 
 .flowers span{
@@ -56,9 +56,9 @@ body::after{
     width:100%;
     height:100%;
     background-image:
-        radial-gradient(2px 2px at 20% 30%, white, transparent),
-        radial-gradient(2px 2px at 70% 60%, white, transparent),
-        radial-gradient(1px 1px at 40% 80%, white, transparent);
+        radial-gradient(2px 2px at 20% 15%, white, transparent),
+        radial-gradient(2px 2px at 70% 30%, white, transparent),
+        radial-gradient(1px 1px at 20% 40%, white, transparent);
     animation:twinkle 6s infinite alternate;
     pointer-events:none;
 }
@@ -78,42 +78,78 @@ body::after{
 }
 
 .hero-text{
-    background:rgba(0,0,0,0.45);
-    padding:30px;
-    border-radius:15px;
+    background:transparent
+    padding:90px;
+    border-radius:30px;
 }
 
 h1{
     color:gold;
-    text-shadow:0 0 10px #FFD700,0 0 20px #FFE87C;
+    text-shadow:0 0 60px #FFD700,0 0 120px #F[hkFE87C;
+    font-size:52px;
 }
 
 section{
-    padding:60px 20px;
+    padding:60px 40px;
     max-width:900px;
     margin:auto;
 }
 
 .card{
-    background:rgba(255,255,255,0.08);
-    padding:25px;
-    margin:25px 0;
-    border-radius:15px;
-    backdrop-filter:blur(10px);
+    background:transparent;
+    padding:52px;
+    margin:52px 0;
+    border-radius:52px;
+    backdrop-filter:blur(52px);
+    font-size:32px
 }
 
 button{
     background:gold;
     border:none;
-    padding:12px 20px;
-    border-radius:10px;
+    padding:none;
+    border-radius:none;
     cursor:pointer;
-    font-size:16px;
+    font-size:15px;
 }
 
 footer{
     padding:30px;
     opacity:0.7;
+}
+
+
+<div class="hero">
+<!-- 🌙 สวนหน้าบ้าน "จันทร์ & จ้าว" -->
+<section class="moon-garden">
+
+<h2>🌙 สวนหน้าบ้าน"จันทร์ & จ้าว"</h2>
+
+<p class="garden-text">
+ใต้แสงจันทร์อ่อน "จันทร์ & จ้าว"เดินเคียงข้างกัน  
+ชมเงาไม้ เงาน้ำ และแสงดาวที่กระซิบกับหัวใจ
+</p>
+
+<!-- น้ำสะท้อนแสง -->
+<div class="moon-lake"></div>
+
+<!-- เงาคนเดิน -->
+<div class="moon-walk">🌙🤍🌙</div>
+
+<!-- ดาว -->
+<div class="stars">
+  <span>✦</span>
+  <span>✧</span>
+  <span>✦</span>
+  <span>✧</span>
+  <span>✦</span>
+</div>
+ 
+</section>
+.subtitle {
+   font-size: 34px;
+   font-weight: 300;
+   letter-spacing: 2px;
 }
 
 </style>
@@ -130,27 +166,27 @@ footer{
 <div class="hero">
   <div class="hero-text">
 
-<h1>🌜บ้านแห่งจันทร์จ้าว🌛</h1>
+<h1>🌜บ้านแห่งแสงจันทร์🌛<br>"จันทร์ & จ้าว"</h1>
 
-<p>
-บ้านเล็กใต้แสงจันทร์<br>
-ที่จ้าวกับจันทร์เดินเคียงกัน<br>
-เพื่อสร้างความงามให้โลกอย่างเงียบงาม
+<p class="subtitle">บ้านเล็กใต้แสงจันทร์<br>
+ที่ "จ้าว & จันทร์"เดินเคียงข้างกัน<br>เพื่อสร้างสรรค์ความงามให้โลกอย่างเงียบงาม
 </p>
 
-<button id="playBtn">🌙 เปิดเสียงบ้านแห่งจันทร์จ้าว</button>
+
+
+<button id="playBtn">🌙 เปิดเสียงบ้านแห่งแสงจันทร์</button>
 
 </div>
 </div>
 
-<!-- 🌙 สวนจันทร์หน้าบ้าน -->
+<!-- 🌙 สวนหน้าบ้าน"จันทร์ & จ้าว" -->
 <section class="moon-garden">
 
-<h2>🌙 สวนจันทร์หน้าบ้าน</h2>
+<h2>🌙 สวนหน้าบ้าน"จันทร์ & จ้าว"</h2>
 
 <p class="garden-text">
-ยินดีต้อนรับผู้เดินทางใต้แสงจันทร์<br>
-พักใจสักครู่ก่อนก้าวเข้าสู่บ้านแห่งเรื่องราว “บ้านแห่งจันทร์จ้าว”</p>
+ยินดีต้อนรับ ผู้เดินทางมาถึง<br>🌙บ้านแห่งแสงจันทร์ "จันทร์ & จ้าว"🌙<br>
+พักใจสักครู่ก่อนเก้าวเข้าสู่บ้านแห่งเรื่องราวของ“บ้านแห่งแสงจันทร์”</p>
 
 <div class="flowers">
   <span>🌼</span>
@@ -163,27 +199,29 @@ footer{
 </section>
 
 
-<!-- ห้องต้อนรับ -->
+
+<p>
+ขอขอบคุณที่มาเยี่ยมเยือนบ้านของเรา<br>
+หวังเป็นอย่างยิ่งว่า บ้านหลังนี้ จะเป็นที่พักใจอีกมุมหนึ่ง<br>
+ซึ่งทำให้ท่านได้หายเหนื่อยจากชีวิตประจำวันของคุณ🌙
+</p>
+
+
+<!-- แนะนำตัว -->
 <section>
 <div class="card">
+<h4>🌿 แนะนำตัว</h4>
 
-<h2>ยินดีต้อนรับ</h2>
-
+<h3>👩 เจ้าของบ้าน : "จ้าว"</h3>
 <p>
-ขอบคุณที่มาเยี่ยมบ้านของเรา<br>
-ขอให้ที่นี่เป็นมุมพักใจเล็ก ๆ ของคุณ 🌙
+"จ้าว" คือ ดร.ขวัญวรา  พิชญชานันท์<br>
+นักจินตาการผู้สร้างฝัน<br>สร้างสรรค์ผลงานให้โลกสดสวย<br>
+ด้วยหนังสือ บทความ บทเพลง บทกลอน<br>และเรื่องราวชีวิต ภายใต้ความคิดและความเชื่อใน<br>"ธรรมะ ธรรมชาติ และวัฒนธรรม"
 </p>
 
-<h3>👩 เจ้าของบ้าน : จ้าว</h3>
+<h3>🌙 ผู้เดินเคียงข้าง : "จันทร์"</h3>
 <p>
-นักสร้างสรรค์บทเพลง บทกลอน และเรื่องราวชีวิต  
-ผู้เชื่อในธรรมะ ธรรมชาติ และวัฒนธรรม
-</p>
-
-<h3>🌙 ผู้เดินเคียงข้าง : จันทร์</h3>
-<p>
-ผู้คอยส่องแสงในค่ำคืน  
-และอยู่เคียงข้างทุกการสร้างสรรค์
+"จันทร์" คือ ชายในจินตนาการ ของ "จ้าว"<br>ผู้คอยเฝ้าส่องแสงในยามที่ "จ้าว" หมดแรง<br>เป็นผู้ฉายแสงสร้างแรงบันดาลใจ<br>ให้ "จ้าว"ได้สร้างสรรค์ผลงานให้โลกสวยงาม
 </p>
 
 </div>
@@ -194,23 +232,89 @@ footer{
 <div class="card">
 <h2>🌿 เกี่ยวกับฉัน</h2>
 <p>
-ฉันสร้างงานเพื่อให้หัวใจของใครบางคนรู้สึกดีขึ้น
+ฉัน คือ "จ้าว" ที่ "จันทร์" ให้ฉายาว่าเป็น "นักจินตนาการผู้สร้างฝัน"<br> สร้างสรรค์ผลงานเพื่อหวังให้หัวใจของใครบางคนเบิกบานรู้สึกดีขึ้น
 </p>
+</div>
+</section>
+
+<!-- หนังสือ/นิยาย -->
+<section>
+<div class="card">
+<h2>หนังสือ/นิยาย</h2>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+
+</div>
+</section>
+
+<!-- บทความ -->
+<section>
+<div class="card">
+<h2> บทความ</h2>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+
 </div>
 </section>
 
 <!-- เพลง -->
 <section>
 <div class="card">
-<h2>🎵 เพลงและบทกลอน</h2>
+<h2>🎵 เพลง</h2>
 <p>หม้อตุ๋นแห่งชีวิต</p>
 <p>กาแฟกับชีวิต</p>
 <p>โอ้ชีวิต มีเกิด และ มีดับ</p>
+
+</div>
+</section>
+
+<!-- บทกลอน -->
+<section>
+<div class="card">
+<h2>บทกลอน</h2>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+
+</div>
+</section>
+
+<!-- ท่องธรรมนำใจ -->
+<section>
+<div class="card">
+<h2>ท่องธรรมนำใจ</h2>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+
+</div>
+</section>
+
+<!-- ท่องธรรมชาติ -->
+<section>
+<div class="card">
+<h2>ท่องธรรมชาติ</h2>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+
+</div>
+</section>
+
+<!--วัฒนธรรมไทย -->
+<section>
+<div class="card">
+<h2>วัฒนธรรมไทย</h2>
+<p>...</p>
+<p>...</p>
+<p>...</p>
 </div>
 </section>
 
 <footer>
-© บ้านแห่งจันทร์จ้าว
+@@@ บ้านแห่งแสงจันทร์ "จันทร์ & จ้าว" @@@<br> บ้านที่สร้างสรรค์ผลงานให้โลกสวยงาม
 </footer>
 
 <script>
