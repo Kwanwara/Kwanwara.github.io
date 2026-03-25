@@ -7,39 +7,6 @@
 <title>บ้านแห่งจันทร์จ้าว</title>
 
 <style>
-
-/* ===== สวนหน้าบ้านจันทร์จ้าว ===== */
-.moon-garden{
-    padding:40px 10px;
-    background:linear-gradient(
-        180deg,
-        rgba(10,15,44,0.8),
-        rgba(28,42,90,0.9)
-);
-}
-
-.garden-text{
-    font-size:20px;
-    margin-top:10px;
-    opacity:0.9;
-}
-
-.flowers{
-    margin-top:20px;
-    font-size:40px;
-    animation: float 6s ease-in-out infinite;
-}
-
-.flowers span{
-    margin:0 10px;
-}
-
-@keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-    100%{transform:translateY(0);}
-}
-
 /* ===== พื้นหลังท้องฟ้า ===== */
 body{
     margin:0;
@@ -67,6 +34,7 @@ body::after{
     from{opacity:0.3;}
     to{opacity:1;}
 }
+
 
 /* HERO */
 .hero{
@@ -111,6 +79,48 @@ button{
     border-radius:none;
     cursor:pointer;
     font-size:15px;
+}
+/* ===== ปุ่มเพลง ===== */
+button{
+    background:gold;
+    border:none;
+    padding:10px 18px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+
+/* ===== สวนหน้าบ้านจันทร์จ้าว ===== */
+.moon-garden{
+    padding:40px 10px;
+    background:linear-gradient(
+        180deg,
+        rgba(10,15,44,0.8,
+        rgba(28,42,90,0.9)
+);
+}
+
+.garden-text{
+    font-size:20px;
+    margin-top:10px;
+    opacity:0.9;
+}
+
+.flowers{
+    margin-top:20px;
+    font-size:40px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.flowers span{
+    margin:0 10px;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
 }
 
 footer{
@@ -215,7 +225,7 @@ footer{
 <h3>👩 เจ้าของบ้าน : "จ้าว"</h3>
 <p>
 "จ้าว" คือ ดร.ขวัญวรา  พิชญชานันท์<br>
-นักจินตาการผู้สร้างฝัน<br>สร้างสรรค์ผลงานให้โลกสดสวย<br>
+นักจินตาการผู้สานฝัน<br>สร้างสรรค์ผลงานให้โลกสดสวย<br>
 ด้วยหนังสือ บทความ บทเพลง บทกลอน<br>และเรื่องราวชีวิต ภายใต้ความคิดและความเชื่อใน<br>"ธรรมะ ธรรมชาติ และวัฒนธรรม"
 </p>
 
@@ -326,4 +336,3 @@ document.getElementById("playBtn").onclick=function(){
 
 </body>
 </html>
-
