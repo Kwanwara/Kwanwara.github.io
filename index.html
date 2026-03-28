@@ -37,7 +37,7 @@ body{
   padding:40px;
 }
 .main-title{
-  font-size:40px;
+  font-size:35px;
   color:gold;
   text-shadow:0 0 30px #FFD700,0 0 45px #FFE87C;
 }
@@ -96,10 +96,10 @@ body{
 }
 
 .garden-text{
-  background:rgba(0,0,0,0.35);
+  background:rgba(0,0,0,0.45);
   padding:40px 40px;
-  border-radius:30px;
-  backdrop-filter:blur(10px);
+  border-radius:15px;
+  backdrop-filter:blur(4px);
   max-width:900px;
   color:gold;
 }
@@ -119,6 +119,18 @@ body{
   text-align:center;
   animation:none;
 }
+
+  // ดาวกระพริบตามจังหวะเพลง
+  const stars = document.querySelectorAll(".star-small, .star-medium, .star-large");
+  let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let analyser = audioCtx.createAnalyser();
+  let source = audioCtx.createMediaElementSource(music);
+  source.connect(analyser);
+  analyser.connect(audioCtx.destination);
+  analyser.fftSize = 256;
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+
 
 /* ===== ดาวหลายชั้น ===== */
 .star-layer{
@@ -191,18 +203,6 @@ body{
 }
 @keyframes moonSweep{from{transform:translateX(-50%);} to{transform:translateX(50%);}}
 
-<!-- ===== ดาวหลายชั้น ===== -->
-<div class="star-layer star-small"></div>
-<div class="star-layer star-medium"></div>
-<div class="star-layer star-large"></div>
-
-<!-- ===== ดาวตก ===== -->
-<div class="shooting-star"></div>
-<div class="shooting-star"></div>
-<div class="shooting-star"></div>
-
-<!-- ===== ดอกไม้ลอยช้า ===== -->
-<div class="floating-flowers">🌼 🌸 🌼 🌸 🌺</div>
 
 /* ชั้นดาว = อยู่หลังสุด */
 .stars,
@@ -224,7 +224,29 @@ body{
   z-index: 2;   /* ให้อยู่เหนือดาว */
 }
 
+ /* ดาวตก */
+.shooting-star{
+  position:absolute;
+  top:45%;
+  left:-100px;
+  width:120px;
+  height:2px;
+  background:linear-gradient(90deg, white, transparent);
+  opacity:0;
+  animation:shoot 10s infinite;
+}
 
+<sript>
+  function animateStars(){
+    requestAnimationFrame(animateStars);
+    analyser.getByteFrequencyData(dataArray);
+    let avg = dataArray.reduce((a,b)=>a+b)/dataArray.length/255;
+    stars.forEach(star=>{
+      star.style.opacity = 0.6 + 0.4*avg;
+    });
+  }
+  animateStars();
+}
 
 /* ดาวหลายชั้น */
 .star-layer{
@@ -257,17 +279,7 @@ body{
 @keyframes starsMoveMedium{from{transform:translateY(0);} to{transform:translateY(-200px);}}
 @keyframes starsMoveLarge{from{transform:translateY(0);} to{transform:translateY(-250px);}}
 
-/* ดาวตก */
-.shooting-star{
-  position:absolute;
-  top:45%;
-  left:-100px;
-  width:120px;
-  height:2px;
-  background:linear-gradient(90deg, white, transparent);
-  opacity:0;
-  animation:shoot 10s infinite;
-}
+
 .shooting-star:nth-child(2){top:45%; left:-200px; width:100px; animation-duration:12s;}
 .shooting-star:nth-child(3){top:45%; left:-150px; width:80px; animation-duration:14s;}
 @keyframes shoot{
@@ -317,20 +329,58 @@ body{
   50%{transform:translateY(-15px);}
   100%{transform:translateY(0);}
 }
+/* ชั้นดาว = อยู่หลังสุด */
+.stars,
+#starsCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;          /* สำคัญ */
+  pointer-events: none; /* กันบังเมาส์ */
+}
+
+/* เนื้อหาบ้าน */
+.content,
+.hero,
+.container {
+  position: relative;
+  z-index: 2;   /* ให้อยู่เหนือดาว */
+}
+
 </style>
 </head>
 
 <body>
+
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-text">
+
+<!-- ===== ดาวหลายชั้น ===== -->
+<div class="star-layer star-small"></div>
+<div class="star-layer star-medium"></div>
+<div class="star-layer star-large"></div>
+
+<!-- ===== ดาวตก ===== -->
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+
+<!-- ===== ดอกไม้ลอยช้า ===== -->
+<div class="floating-flowers">🌼 🌸 🌼 🌸 🌺</div>
+
+ <div class="hero-text">
     <h1 class="main-title">🌜บ้านแห่งแสงจันทร์🌛<br>" จันทร์ & จ้าว "</h1>
-    <p class="home-desc">
+   
+<p class="home-desc">
       บ้านเล็กใต้แสงจันทร์<br> ที่ "จ้าว & จันทร์"<br>
       เดินเคียงข้างกัน<br>เพื่อสร้างสรรค์ความงาม<br>
       ให้โลกอย่างเงียบงาม
-    </p>
-    <button onclick="playMusic()" class="music-btn">🌛 เปิดเสียงบ้านแห่งแสงจันทร์</button>
+</p>
+
+    <button onclick="playMusic()" class="music-btn">🌛 เปิดเสียงบ้านแห่งแสงจันทร์
+</button>
   </div>
 </section>
 
@@ -339,53 +389,23 @@ body{
   <div class="garden-text">
     <h2>🌜สวนหน้าบ้าน🌛<br>🌸 🌼“จันทร์ & จ้าว”🌼 🌸</h2>
  <div class="moonlight"></div>
-      🌼 🌸 🌼ยินดีต้อนรับ🌼 🌸 🌼<br>ทุกหัวใจที่เดินทางมาถึงบ้านแห่งแสงจันทร์<br>
+
+<p>
+ 🌼 🌸 🌼ยินดีต้อนรับ🌼 🌸 🌼<br>ทุกหัวใจที่เดินทางมาถึงบ้านแห่งแสงจันทร์<br>
       ที่ซึ่งมีความเงียบงามและความอบอุ่นอยู่เคียงกัน<br>
       “จันทร์ & จ้าว” จูงมือกันภายใต้หมู่ดาว<br>และแสงจันทร์ เพื่อสร้างสรรค์ความงามเล็กๆ<br>ให้โลกใบนี้สว่างขึ้นอย่างอ่อนโยน
     </p>
-    <div class="guest-message">
+
+ <div class="guest-message">
      <p>🌼 🌸 🌼ขอขอบคุณ🌼 🌸 🌼<br>ที่มาเยือนบ้านของเรา<br>
       หวังเป็นอย่างยิ่งว่า บ้านหลังนี้<br>
       จะเป็นที่พักใจอีกมุมหนึ่ง<br>
-      ซึ่งทำให้ท่านได้หายเหนื่อย จากชีวิตประจำวันของคุณ🌙</p>
-<p>
+      ซึ่งทำให้ท่านได้หายเหนื่อย จากชีวิตประจำวันของคุณ🌙
+</p>
+</div>
 
-  <div class="mist"></div>
-  <div class="star-layer star-small"></div>
-  <div class="star-layer star-medium"></div>
-  <div class="star-layer star-large"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="floating-flowers">🌼 🌸 🌼 🌸 🌺</p>
-  </div>   
-   <div>
-
-<script>
-  // ดาวกระพริบตามจังหวะเพลง
-  const stars = document.querySelectorAll(".star-small, .star-medium, .star-large");
-  let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  let analyser = audioCtx.createAnalyser();
-  let source = audioCtx.createMediaElementSource(music);
-  source.connect(analyser);
-  analyser.connect(audioCtx.destination);
-  analyser.fftSize = 256;
-  const bufferLength = analyser.frequencyBinCount;
-  const dataArray = new Uint8Array(bufferLength);
-<s/cript>
-
-<script>
-  function animateStars(){
-    requestAnimationFrame(animateStars);
-    analyser.getByteFrequencyData(dataArray);
-    let avg = dataArray.reduce((a,b)=>a+b)/dataArray.length/255;
-    stars.forEach(star=>{
-      star.style.opacity = 0.6 + 0.4*avg;
-    });
-  }
-  animateStars();
-}
-</script>
+</div>
+</section>
 
 <!-- ===== เพลง ===== -->
 <audio id="bg-moon" loop>
