@@ -3,18 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บ้านแห่งแสงจันทร์ จันทร์&จ้าว</title>
+<title>บ้านแห่งแสงจันทร์</title>
 <style>
+/* ===== BODY ===== */
 body{
   margin:0;
   font-family:"Sarabun",sans-serif;
-  overflow-x:hidden;
-  text-align:center;
-  color:white;
   background:linear-gradient(180deg,#2b1055,#7597de,#c9e7ff);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+  position:relative;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO (ปกบ้าน) ===== */
 .hero{
   position:relative;
   height:100vh;
@@ -22,270 +24,400 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
+  text-align:center;
+  color:white;
 }
 
+/* ข้อความกลางภาพ */
 .hero-text{
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:20px;
-  padding:50px;
+  padding:40px;
 }
-
 .main-title{
-  font-size:50px;
+  font-size:35px;
   color:gold;
-  text-shadow:0 0 30px #FFD700,0 0 50px #FFE87C;
+  text-shadow:0 0 30px #FFD700,0 0 45px #FFE87C;
 }
-
 .home-desc{
-  font-size:30px;
+  font-size:25px;
   line-height:1.6;
 }
 
 /* ===== ปุ่มเพลง ===== */
 .music-btn{
-  margin-top:25px;
-  background:gold;
+  margin-top:45px;
+  padding:12px 20px;
+  font-size:15px;
   border:none;
-  padding:14px 26px;
-  border-radius:30px;
-  font-size:18px;
+  border-radius:20px;
+  background:rgba(0,0,0,0.6);
+  color:white;
   cursor:pointer;
-  box-shadow:0 0 15px rgba(255,215,0,0.6);
-  animation:musicPulse 3s ease-in-out infinite;
+  box-shadow:0 0 10px rgba(255,215,0,0.5);
+  transition:0.3s;
+}
+.music-btn:hover{
+  box-shadow:0 0 20px rgba(255,240,150,1);
 }
 
-@keyframes musicPulse{
-  0%,100%{ box-shadow:0 0 10px rgba(255,215,0,0.5); }
-  50%{ box-shadow:0 0 35px rgba(255,240,150,1); }
+/* ===== ปุ่มเพลง ===== */
+.music-btn{
+  margin-top:45px;
+  padding:12px 24px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 10px rgba(255,215,0,0.5);
+  transition:0.3s;
 }
+.music-btn:hover{
+  box-shadow:0 0 25px rgba(255,240,150,1);
+}
+
+
+/* ===== สวนหน้าบ้าน ===== */
+.garden{
+  position:relative;
+  height:70vh; /* ลดความสูงให้จ้าวรดน้ำง่ายขึ้น */
+  background:
+    linear-gradient(rgba(10,15,44,0.65), rgba(28,42,90,0.75)),
+    url("garden.jpg") center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:40px 20px;
+}
+
+.garden-text{
+  background:rgba(0,0,0,0.45);
+  padding:40px 40px;
+  border-radius:15px;
+  backdrop-filter:blur(4px);
+  max-width:900px;
+  color:gold;
+}
+.garden-text h2{
+  font-size:28px;
+  text-shadow:0 0 40px #FFD700;
+  margin-bottom:40px;
+}
+.garden-text p{
+  font-size:16px;
+  line-height:1.8;
+}
+.guest-message{
+  margin-top:45px;
+  font-size:16px; 
+  text-shadow:0 0 20px #FFD700;
+  text-align:center;
+  animation:none;
+}
+
+  // ดาวกระพริบตามจังหวะเพลง
+  const stars = document.querySelectorAll(".star-small, .star-medium, .star-large");
+  let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let analyser = audioCtx.createAnalyser();
+  let source = audioCtx.createMediaElementSource(music);
+  source.connect(analyser);
+  analyser.connect(audioCtx.destination);
+  analyser.fftSize = 256;
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+
 
 /* ===== ดาวหลายชั้น ===== */
-.stars-layer{
-  position:fixed;
+.star-layer{
+  position:absolute;
   width:100%;
   height:100%;
-  top:0;
-  left:0;
   pointer-events:none;
   z-index:-1;
 }
-.star{
+.star-small{
+  background-image:
+    radial-gradient(1px 1px at 5% 10%, white, transparent),
+    radial-gradient(1px 1px at 70% 30%, white, transparent),
+    radial-gradient(1px 1px at 40% 60%, white, transparent);
+  animation:starsMoveSmall 80s linear infinite;
+}
+.star-medium{
+  background-image:
+    radial-gradient(2px 2px at 20% 25%, white, transparent),
+    radial-gradient(2px 2px at 60% 50%, white, transparent);
+  animation:starsMoveMedium 100s linear infinite;
+}
+.star-large{
+  background-image:
+    radial-gradient(3px 3px at 10% 40%, white, transparent),
+    radial-gradient(3px 3px at 80% 20%, white, transparent);
+  animation:starsMoveLarge 120s linear infinite;
+}
+@keyframes starsMoveSmall{from{transform:translateY(0);} to{transform:translateY(-150px);}}
+@keyframes starsMoveMedium{from{transform:translateY(0);} to{transform:translateY(-200px);}}
+@keyframes starsMoveLarge{from{transform:translateY(0);} to{transform:translateY(-250px);}}
+
+/* ===== ดาวตก ===== */
+.shooting-star{
   position:absolute;
-  background:white;
-  border-radius:50%;
-  opacity:0.8;
+  top:45%;
+  left:-100px;
+  width:120px;
+  height:2px;
+  background:linear-gradient(90deg, white, transparent);
+  opacity:0;
+  animation:shoot 10s infinite;
+}
+.shooting-star:nth-child(2){
+  top:45%;
+  left:-200px;
+  width:100px;
+  animation-duration:12s;
+}
+.shooting-star:nth-child(3){
+  top:45%;
+  left:-150px;
+  width:80px;
+  animation-duration:14s;
+}
+@keyframes shoot{
+  0%{transform:translate(0,0) rotate(45deg); opacity:0;}
+  10%{opacity:1;}
+  30%{transform:translate(600px,200px) rotate(45deg); opacity:0;}
+  100%{opacity:0;}
 }
 
-/* ===== หมอก ===== */
-.mist{
-  position:absolute;
-  width:200%;
-  height:100%;
-  top:0; left:-50%;
-  background:
-    radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 70%),
-    radial-gradient(circle, rgba(255,255,255,0.08) 25%, transparent 75%);
-  animation:mistMove 25s linear infinite alternate;
-  pointer-events:none;
-}
-
-@keyframes mistMove{
-  0%{transform:translateX(-40px);}
-  100%{transform:translateX(40px);}
-}
-
-/* ===== แสงจันทร์ ===== */
+/* ===== แสงจันทร์สะท้อนน้ำ ===== */
 .moonlight{
   position:absolute;
   width:200%;
   height:100%;
   background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.15), transparent 60%);
-  pointer-events:none;
+  animation:moonSweep 12s linear infinite;
+}
+@keyframes moonSweep{from{transform:translateX(-50%);} to{transform:translateX(50%);}}
+
+
+/* ชั้นดาว = อยู่หลังสุด */
+.stars,
+#starsCanvas {
+  position: fixed;
+  top:45;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;          /* สำคัญ */
+  pointer-events: none; /* กันบังเมาส์ */
 }
 
-/* ===== เงาคนเดิน ===== */
-.walking-shadow{
-  position:absolute;
-  bottom:40px;
-  left:-200px;
-  width:180px;
-  height:120px;
-  background:radial-gradient(ellipse at center, rgba(0,0,0,0.5), transparent 70%);
-  filter:blur(8px);
-  pointer-events:none;
+/* เนื้อหาบ้าน */
+.content,
+.hero,
+.container {
+  position: relative;
+  z-index: 2;   /* ให้อยู่เหนือดาว */
 }
 
-/* ===== ดาวตก ===== */
+ /* ดาวตก */
 .shooting-star{
   position:absolute;
+  top:45%;
+  left:-100px;
   width:120px;
   height:2px;
-  background:linear-gradient(90deg,white,transparent);
+  background:linear-gradient(90deg, white, transparent);
   opacity:0;
-  pointer-events:none;
+  animation:shoot 10s infinite;
 }
 
-/* ===== สวนหน้าบ้าน ===== */
-.garden{
-  position:relative;
-  height:100vh;
-  background:
-    linear-gradient(rgba(10,15,44,0.65), rgba(28,42,90,0.75)),
-    url("garden.jpg") center/cover no-repeat;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:white;
-  overflow:hidden;
+<sript>
+  function animateStars(){
+    requestAnimationFrame(animateStars);
+    analyser.getByteFrequencyData(dataArray);
+    let avg = dataArray.reduce((a,b)=>a+b)/dataArray.length/255;
+    stars.forEach(star=>{
+      star.style.opacity = 0.6 + 0.4*avg;
+    });
+  }
+  animateStars();
 }
 
-.garden-text{
-  background:rgba(0,0,0,0.35);
-  padding:50px 60px;
-  border-radius:30px;
-  backdrop-filter:blur(10px);
-  max-width:900px;
-}
-
-.garden-text h2{
-  font-size:32px;
-  color:gold;
-  text-shadow:0 0 20px #FFD700;
-  margin-bottom:20px;
-}
-
-.garden-text p{
-  font-size:25px;
-  line-height:1.8;
-}
-
-/* ===== น้ำสะท้อน ===== */
-.water-reflection{
+/* ดาวหลายชั้น */
+.star-layer{
   position:absolute;
-  bottom:0;
   width:100%;
-  height:35%;
-  background:linear-gradient(to top, rgba(255,255,255,0.12), transparent);
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
+}
+.star-small{
+  background-image:
+    radial-gradient(1px 1px at 5% 10%, white, transparent),
+    radial-gradient(1px 1px at 70% 30%, white, transparent),
+    radial-gradient(1px 1px at 40% 60%, white, transparent);
+  animation:starsMoveSmall 80s linear infinite;
+}
+.star-medium{
+  background-image:
+    radial-gradient(2px 2px at 20% 25%, white, transparent),
+    radial-gradient(2px 2px at 60% 50%, white, transparent);
+  animation:starsMoveMedium 100s linear infinite;
+}
+.star-large{
+  background-image:
+    radial-gradient(3px 3px at 10% 40%, white, transparent),
+    radial-gradient(3px 3px at 80% 20%, white, transparent);
+  animation:starsMoveLarge 120s linear infinite;
+}
+@keyframes starsMoveSmall{from{transform:translateY(0);} to{transform:translateY(-150px);}}
+@keyframes starsMoveMedium{from{transform:translateY(0);} to{transform:translateY(-200px);}}
+@keyframes starsMoveLarge{from{transform:translateY(0);} to{transform:translateY(-250px);}}
+
+
+.shooting-star:nth-child(2){top:45%; left:-200px; width:100px; animation-duration:12s;}
+.shooting-star:nth-child(3){top:45%; left:-150px; width:80px; animation-duration:14s;}
+@keyframes shoot{
+  0%{transform:translate(0,0) rotate(45deg); opacity:0;}
+  10%{opacity:1;}
+  30%{transform:translate(600px,200px) rotate(45deg); opacity:0;}
+  100%{opacity:0;}
+}
+
+/* หมอกลอยเบา */
+.mist{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0));
+  animation:mistMove 60s linear infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+@keyframes mistMove{
+  0%{transform:translateX(0);}
+  50%{transform:translateX(50px);}
+  100%{transform:translateX(0);}
+}
+
+/* แสงจันทร์สะท้อนน้ำ */
+.moonlight{
+  position:absolute;
+  width:200%;
+  height:100%;
+  background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.15), transparent 60%);
+  animation:moonSweep 12s linear infinite;
+}
+
+/* ดอกไม้ลอยช้า */
+.floating-flowers{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  font-size:30px;
+  animation:floatFlowers 12s ease-in-out infinite;
   pointer-events:none;
 }
+@keyframes floatFlowers{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+  100%{transform:translateY(0);}
+}
+/* ชั้นดาว = อยู่หลังสุด */
+.stars,
+#starsCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;          /* สำคัญ */
+  pointer-events: none; /* กันบังเมาส์ */
+}
+
+/* เนื้อหาบ้าน */
+.content,
+.hero,
+.container {
+  position: relative;
+  z-index: 2;   /* ให้อยู่เหนือดาว */
+}
+
 </style>
 </head>
+
 <body>
 
+<!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-text">
-    <h1 class="main-title">บ้านแห่งแสงจันทร์</h1>
-    <p class="home-desc">
-      บ้านเล็กใต้แสงจันทร์ ที่ "จ้าว & จันทร์"<br>
-      เดินเคียงข้างกันเพื่อสร้างสรรค์ความงาม<br>
+
+<!-- ===== ดาวหลายชั้น ===== -->
+<div class="star-layer star-small"></div>
+<div class="star-layer star-medium"></div>
+<div class="star-layer star-large"></div>
+
+<!-- ===== ดาวตก ===== -->
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+
+<!-- ===== ดอกไม้ลอยช้า ===== -->
+<div class="floating-flowers">🌼 🌸 🌼 🌸 🌺</div>
+
+ <div class="hero-text">
+    <h1 class="main-title">🌜บ้านแห่งแสงจันทร์🌛<br>" จันทร์ & จ้าว "</h1>
+   
+<p class="home-desc">
+      บ้านเล็กใต้แสงจันทร์<br> ที่ "จ้าว & จันทร์"<br>
+      เดินเคียงข้างกัน<br>เพื่อสร้างสรรค์ความงาม<br>
       ให้โลกอย่างเงียบงาม
-    </p>
-    <button onclick="playAll()" class="music-btn">
-      🌛 เปิดเสียงบ้านแห่งแสงจันทร์
-    </button>
+</p>
+
+    <button onclick="playMusic()" class="music-btn">🌛 เปิดเสียงบ้านแห่งแสงจันทร์
+</button>
   </div>
-
-  <div class="moonlight"></div>
-  <div class="walking-shadow"></div>
-  <div class="mist"></div>
-  <div class="water-reflection" id="water"></div>
-
-  <div class="stars-layer" id="stars1"></div>
-  <div class="stars-layer" id="stars2"></div>
-  <div class="stars-layer" id="stars3"></div>
-
-  <!-- ดาวตก -->
-  <div class="shooting-star" id="shoot1"></div>
-  <div class="shooting-star" id="shoot2"></div>
-  <div class="shooting-star" id="shoot3"></div>
 </section>
 
+<!-- ===== สวนหน้าบ้าน ===== -->
 <section class="garden">
   <div class="garden-text">
-    <h2>🌜สวนหน้าบ้าน “จันทร์ & จ้าว”🌛</h2>
-    <p>
-      ขอต้อนรับทุกหัวใจที่เดินทางมาถึงบ้านแห่งแสงจันทร์<br>
+    <h2>🌜สวนหน้าบ้าน🌛<br>🌸 🌼“จันทร์ & จ้าว”🌼 🌸</h2>
+ <div class="moonlight"></div>
+
+<p>
+ 🌼 🌸 🌼ยินดีต้อนรับ🌼 🌸 🌼<br>ทุกหัวใจที่เดินทางมาถึงบ้านแห่งแสงจันทร์<br>
       ที่ซึ่งมีความเงียบงามและความอบอุ่นอยู่เคียงกัน<br>
-      “จันทร์ & จ้าว” จูงมือกันใต้หมู่ดาวและแสงจันทร์<br>
-      เพื่อสร้างสรรค์ความงามเล็กๆ<br>
-      ให้โลกใบนี้สว่างขึ้นอย่างอ่อนโยน
+      “จันทร์ & จ้าว” จูงมือกันภายใต้หมู่ดาว<br>และแสงจันทร์ เพื่อสร้างสรรค์ความงามเล็กๆ<br>ให้โลกใบนี้สว่างขึ้นอย่างอ่อนโยน
     </p>
-  </div>
+
+ <div class="guest-message">
+     <p>🌼 🌸 🌼ขอขอบคุณ🌼 🌸 🌼<br>ที่มาเยือนบ้านของเรา<br>
+      หวังเป็นอย่างยิ่งว่า บ้านหลังนี้<br>
+      จะเป็นที่พักใจอีกมุมหนึ่ง<br>
+      ซึ่งทำให้ท่านได้หายเหนื่อย จากชีวิตประจำวันของคุณ🌙
+</p>
+</div>
+
+</div>
 </section>
 
-<audio id="bg-moon" loop autoplay>
+<!-- ===== เพลง ===== -->
+<audio id="bg-moon" loop>
   <source src="moon.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
 </audio>
 
 <script>
-// สร้างดาวหลายชั้น
-function createStars(layerId,count,sizeRange){
-  const layer=document.getElementById(layerId);
-  for(let i=0;i<count;i++){
-    const star=document.createElement("div");
-    star.className="star";
-    const size=Math.random()*(sizeRange[1]-sizeRange[0])+sizeRange[0];
-    star.style.width=size+"px";
-    star.style.height=size+"px";
-    star.style.top=Math.random()*100+"%";
-    star.style.left=Math.random()*100+"%";
-    star.style.opacity=Math.random()*0.8+0.2;
-    layer.appendChild(star);
-  }
-}
-createStars("stars1",50,[1,2]);
-createStars("stars2",30,[2,3]);
-createStars("stars3",20,[3,4]);
-
-// ดาวตกซิงค์น้ำ
-function animateShootingStar(id, delay){
-  const star=document.getElementById(id);
-  const water=document.getElementById("water");
-  function resetStar(){
-    star.style.top=(10+60*Math.random())+"%";
-    star.style.left="-100px";
-    star.style.opacity=0;
-    setTimeout(()=>{
-      star.style.transition="all 5s linear";
-      star.style.left="110%";
-      star.style.top=(10+60*Math.random())+"%";
-      star.style.opacity=1;
-      // ซิงค์น้ำสะท้อน
-      let start=Date.now();
-      let interval=setInterval(()=>{
-        let t=(Date.now()-start)/5000;
-        if(t>1) t=1;
-        water.style.opacity=0.3+0.2*(Math.sin(t*Math.PI));
-      },50);
-      setTimeout(()=>{
-        clearInterval(interval);
-        resetStar();
-      },5000+delay);
-    },delay);
-  }
-  resetStar();
-}
-animateShootingStar("shoot1",0);
-animateShootingStar("shoot2",2000);
-animateShootingStar("shoot3",4000);
-
-// เล่นเพลงอัตโนมัติ
-window.addEventListener('load', ()=>{
-  const music=document.getElementById("bg-moon");
-  music.volume=0.4;
-  music.play().then(()=>console.log("เพลงเล่นอัตโนมัติแล้ว"))
-       .catch(err=>console.log("อัตโนมัติถูกบล็อก ต้องกดเล่นครั้งแรก"));
-});
-
-// ปุ่มเล่นเพลง (ถ้าบราว์เซอร์บล็อก autoplay)
-function playAll(){
-  const music=document.getElementById("bg-moon");
-  music.play();
+function playMusic(){
+  const music = document.getElementById("bg-moon");
+  music.volume = 0.4;
+  music.play().then(()=>console.log("เล่นเพลงแล้ว"))
+  .catch(err=>alert("หาไฟล์เสียงไม่เจอ"));
 }
 </script>
 
