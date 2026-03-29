@@ -84,7 +84,7 @@ body{
 /* ===== สวนหน้าบ้าน ===== */
 .garden{
   position:relative;
-  height:70vh; /* ลดความสูงให้จ้าวรดน้ำง่ายขึ้น */
+  height:100vh; /* ลดความสูงให้จ้าวรดน้ำง่ายขึ้น */
   background:
     linear-gradient(rgba(10,15,44,0.65), rgba(28,42,90,0.75)),
     url("garden.jpg") center/cover no-repeat;
@@ -349,6 +349,76 @@ body{
   z-index: 2;   /* ให้อยู่เหนือดาว */
 }
 
+body {
+   margin: 0;
+   padding: 0;
+
+.navbar {
+   display: flex;
+/* border: 1px solid odyred;  */
+   backgound-color: #333;
+   color: white
+}
+
+.logo {
+   width: 10%;
+   display: flex;
+   justify-content: center;
+   align-item: left;
+ /* border: 1px solid red; */
+}
+
+ ul {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-item: center;
+ /* border: 1px solid red;  */
+   list-style: none;
+}
+ ul li {
+   margin: 0 1rem;
+}
+ul li a: #fff;
+   text-decororation: none;
+
+header { 
+  height: 650px;
+  background:url("banner1.jpg");
+  center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:gold;
+}
+
+.header-info {
+   text-align: center;
+   width: 600px;
+   height: 600px;
+   color:gold;
+}
+
+.header-info a {
+   display: block;
+   width: 80px;
+   margin-top: 1rem;
+   margin-left: auto;
+   margin-right: auto;
+   background-color: none;
+   color: gold;
+   padding: 0.5rem 1rem;
+   test-decoration: none;
+}
+
+footer {
+  background: #333;
+  padding: 1rem;
+  text-align:  center;
+  color: #fff;
+}
+
 </style>
 </head>
 
@@ -420,6 +490,56 @@ function playMusic(){
   .catch(err=>alert("หาไฟล์เสียงไม่เจอ"));
 }
 </script>
+
+<!-- ===== Logo ===== -->
+<section class="navbar>
+   <div class="logo"></div>
+     <h3>My Logo</h3>
+   <ul>
+     <li><a href="#">Home</a></li>
+     <li><a href="#">My page</a></li>
+     <li><a href="#">หนังสือ / บทความ</a></li>
+          <li><a href="#">บทกวี / บทกลอน</a></li>
+     <li><a href="#">นิยาย / นิทาน</a></li>
+     <li><a href="#">ดูหนัง / ฟังเพลง</a></li>
+          <li><a href="#">3 ธรรม นำชีวิต</a></li>
+     <li><a href="#">Blog</a></li>
+     <li><a href="#">Contact</a></li>
+   </ul>
+</section>
+
+<header>
+   <div class="header-info">
+   <hi>About me and Chao & Jan</h1>
+   <p>
+🌿 เกี่ยวกับฉัน 🌿
+   <p>Me คือ ฉัน ฉัน คือ "จ้าว"<br>ที่ "จันทร์" ให้ฉายาว่าเป็น<br>
+"นักจินตนาการผู้สร้างฝัน"<br>
+สร้างสรรค์ผลงานเพื่อหวังให้หัวใจ<br>
+ของใครบางคนเบิกบานรู้สึกดีขึ้น<br>
+   </p>
+   
+👩Me: เจ้าของบ้าน :"จ้าว"👩<br>
+<p>"จ้าว" คือ ดร.ขวัญวรา พิชญชานันท์<br>
+นักจินตาการผู้สานฝันสร้างสรรค์<br>ผลงานให้โลกสดสวย<br>
+ด้วยหนังสือ บทความ <br>บทเพลง
+บทกลอน <br>และเรื่องราวชีวิต ภายใต้<br>ความคิดและความเชื่อใน<br>
+"ธรรมะ ธรรมชาติ และวัฒนธรรม"
+   </p>
+   
+🌙Jan: ผู้เดินเคียงข้าง :"จันทร์"🌙
+<p>"จันทร์" คือ ชายในจินตนาการ<br> ของ "จ้าว"
+ผู้คอยเฝ้าส่องแสงในยามที่<br> "จ้าว" หมดแรง
+เป็นผู้ฉายแสง<br>สร้างแรงบันดาลใจให้ "จ้าว"<br>
+ได้สร้างสรรค์ผลงานให้โลกสวยงาม
+   </p>
+   <a href="#" class="header-btn">Learn More</a>
+</header>
+
+
+<footer>
+  <p> @@@ บ้านแห่งแสงจันทร์ "จันทร์ & จ้าว" @@@<br> บ้านที่สร้างสรรค์ผลงานให้โลกสวยงาม</>
+</footer>
 
 </body>
 </html>
