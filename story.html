@@ -499,11 +499,7 @@ body{
   width:auto;
 }
 
-/*=============================================================== เมนู */
-.moon-nav nav{
-  display:flex;
-  gap:18px;
-}
+
 /*=========================================================คลาสของห้อง */
 .reveal{
   opacity:0;
@@ -1050,6 +1046,47 @@ function calculate(){
   text-decoration:none;
   color:#7fe7ff;
 }
+/*=============================================================== เมนู */
+.moon-nav nav{
+  display:flex;
+  gap:18px;
+}
+.menu {
+  color: #d4af37;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.menu {
+  transition: all 0.3s ease;
+}
+
+.menu {
+  background: transparent;   /* 👈 เอาพื้นออก */
+  color: #d4af37;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu:hover {
+  color: #ffe08a;
+  text-shadow: 
+    0 0 10px rgba(255, 224, 138, 0.😎,
+    0 0 20px rgba(212, 175, 55, 0.4);
+  transform: translateX(4px);
+}
+.menu-container {
+  padding-top: 10px;
+}
+
+.menu {
+  position: relative;
+  z-index: 10;
+}
+
+
+
 /*========================================================= Footer */
 .footer{
   height:100px;
@@ -1701,10 +1738,15 @@ function toggleTOC(){
 
 const storyTitles = {
   1: "คืนหนึ่งใต้แสงจันทร์",
-  2: "เสียงน้ำสะท้อนใจ",
-  3: "........",
-  4: "........",
-  5: "ห้องพักใจ"
+  2: "ถามไป AI ตอบ",
+  3: "คำตอบ..ที่ยังไม่จบ",
+  4: "การค้นพบ…ที่ไม่ต้องรีบ",
+  5: "“ผู้สร้างฝันในแสงจันทร์”",
+   6: "คืนหนึ่งใต้แสงจันทร์",
+  7: "ถามไป AI ตอบ",
+  8: "คำตอบ..ที่ยังไม่จบ",
+  9: "การค้นพบ…ที่ไม่ต้องรีบ",
+ 10: "“ผู้สร้างฝันในแสงจันทร์”"
 };
 
 /* ===============================

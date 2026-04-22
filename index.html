@@ -178,7 +178,6 @@ header {
   position:relative;
   height:100vh; /* ลดความสูงให้จ้าวรดน้ำง่ายขึ้น */
   background:
-    linear-gradient(rgba(10,15,44,0.65), rgba(28,42,90,0.75)),
     url("garden.jpg") center/cover no-repeat;
   display:flex;
   flex-direction:column;
@@ -188,10 +187,10 @@ header {
 }
 
 .garden-text{
-  background:rgba(0,0,0,0.45);
-  padding:40px 40px;
+  background:none;
+  padding:40px;
   border-radius:15px;
-  backdrop-filter:blur(4px);
+  backdrop-filter:none;
   max-width:900px;
   color:gold;
 }
@@ -352,30 +351,6 @@ header {
   100%{opacity:0;}
 }
 
-/* ========================================================หมอกลอยเบา */
-.mist{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0));
-  animation:mistMove 60s linear infinite;
-  pointer-events:none;
-  z-index:-1;
-}
-@keyframes mistMove{
-  0%{transform:translateX(0);}
-  50%{transform:translateX(50px);}
-  100%{transform:translateX(0);}
-}
-
-/*====================================================== แสงจันทร์สะท้อนน้ำ */
-.moonlight{
-  position:absolute;
-  width:200%;
-  height:100%;
-  background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.15), transparent 60%);
-  animation:moonSweep 12s linear infinite;
-}
 
 /*========================================================== ดอกไม้ลอยช้า */
 .floating-flowers{
@@ -434,7 +409,7 @@ header {
 /*======================================================= ปุ่มเมนูแต่ละห้อง */
 .moon-nav nav a{
   text-decoration:none;
-  color:#c8f3ff;
+  color:goal;
 
   font-size:18px;        /* ⭐ ขยายตัวหนังสือ */
   font-weight:600;       /* ⭐ ตัวหนาสวย */
@@ -562,7 +537,7 @@ header {
   border-radius:50px;
 
   background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(12px);
+  backdrop-filter:goal(12px);
 
   box-shadow:0 0 25px rgba(255,255,255,0.15);
 
@@ -656,7 +631,7 @@ header {
   box-sizing:border-box;
 
   background:rgba(10,10,25,0.65);
-  backdrop-filter:blur(12px);
+  backdrop-filter:goal(12px);
 
   z-index:9999;
 }
@@ -671,6 +646,39 @@ header {
 .moon-nav nav{
   display:flex;
   gap:18px;
+}
+.menu {
+  color: #d4af37;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.menu {
+  transition: all 0.3s ease;
+}
+
+.menu {
+  background: transparent;   /* 👈 เอาพื้นออก */
+  color: #d4af37;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu:hover {
+  color: #ffe08a;
+  text-shadow: 
+    0 0 10px rgba(255, 224, 138, 0.😎,
+    0 0 20px rgba(212, 175, 55, 0.4);
+  transform: translateX(4px);
+}
+.menu-container {
+  padding-top: 10px;
+}
+
+.menu {
+  position: relative;
+  z-index: 10;
 }
 /*=========================================================คลาสของห้อง */
 .reveal{
@@ -759,11 +767,9 @@ header {
 
                                                                  <body>
 
-/*========================================================ใส่คลาสให้ห้อง */
-Body
-<section class="reveal">
-  เนื้อหาเรื่องเล่าของจ้าว...
-</section>
+
+
+
 
 <!-- ===== HERO ===== -->
 <section class="hero">
