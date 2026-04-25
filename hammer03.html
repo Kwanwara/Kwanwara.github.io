@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตำนานฆ้อน - ตอนที่ 1 ภาค 1</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    color: white;
+
+    /* 🌙 ใส่ภาพพื้นเองตรงนี้ */
+    background: url("hammer1.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 🌙 ชั้นมืดให้อ่านง่าย */
+.overlay {
+    min-height: 100vh;
+    background: rgba(0,0,0,0.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 60px;
+}
+
+/* 🌜 หัวข้อเรื่องลอยเรืองแสง */
+.title {
+    font-size: 34px;
+    color: gold;
+    text-align: center;
+
+    text-shadow: 
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px rgba(255,215,0,0.6);
+
+    animation: floatTitle 2s ease-out;
+}
+
+/* ตอน */
+.subtitle {
+    font-size: 22px;
+    margin-top: 10px;
+    color: white;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+/* ✨ ลอยนุ่ม */
+@keyframes floatTitle {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 📖 เนื้อเรื่อง (ไม่มีพื้น) */
+.story {
+    margin-top: 80px;
+    width: 65%;
+    max-width: 700px;
+
+    text-align: center;
+    line-height: 2;
+    font-size: 18px;
+
+    animation: fadeUp 1.5s ease;
+}
+
+/* ✨ ลอยขึ้นแล้วนิ่ง */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔘 ปุ่ม */
+.nav {
+    margin-top: 40px;
+}
+
+.nav a {
+    margin: 10px;
+    padding: 10px 16px;
+
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: gold;
+    color: black;
+}
+
+/* 🎵 เพลงล่างกลาง */
+.music {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 12px;
+
+    box-shadow: 0 0 15px gold;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 90px;  /* 🔥 อยู่เหนือเพลง */
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 20px;
+}
+
+.bottom-nav a {
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.bottom-nav a:hover {
+    background: gold;
+    color: black;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <!-- 🌜 หัวข้อ -->
+    <div class="title">🔨ตำนานฆ้อนบ้านแห่งแสงจันทร์🌙</div>
+    <div class="subtitle">🧱 ภาคที่ 1: คืนที่งง แต่ไม่ยอมแพ้<br>🔨ตอนที่ 3: วันที่เริ่มหัวเราะกับสิ่งเดิม </div>
+
+    <!-- 📖 เนื้อเรื่อง -->
+    <div class="story">
+
+สิ่งเดิมยังอยู่
+โค้ดยังงง
+ตำแหน่งยังเลื่อน
+
+แต่คนที่นั่งอยู่หน้าจอ…ไม่เหมือนเดิมแล้ว
+
+แทนที่จะถอนหายใจ
+กลับมีเสียงหัวเราะเบา ๆ
+
+“อ้าว…มาอีกแล้วเหรอ”
+
+มันไม่ใช่การยอมแพ้
+แต่มันคือการ “เริ่มไม่กลัว”
+
+ครูเห็นแล้วก็รู้ทันที
+
+จุดเปลี่ยน…ไม่ได้อยู่ที่โค้ด
+แต่อยู่ที่ใจ
+
+และฆ้อน…เริ่มกลายเป็นแค่ของประกอบฉาก 🔨🌙
+
+    </div>
+
+      <!-- 🔘 ปุ่ม -->
+    <div class="nav">
+    <a href="hammer02.html">⬅ ตอนก่อนหน้า</a>
+    <a href="hammer.html">📑 สารบัญ</a>
+    <a href="hammer04.html">➡ ตอนต่อไป</a>
+</div>
+
+</div>
+
+<!-- 🎵 เพลง -->
+<div class="music">
+    🎵🎵เพลงตำนานฆ้อนบ้านแห่งแสงจันทร์🎵🎵  <br>
+    <audio controls autoplay loop>
+        <source src="hammersong.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+                                                    

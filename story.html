@@ -950,8 +950,6 @@ function calculate(){
 
 /*========================================================= Saraban */
 
-
-
 /* ปุ่ม */
 .toc-btn{
   padding:8px 14px;
@@ -987,65 +985,12 @@ function calculate(){
 
 /* ===== สารบัญเรื่องเล่า ===== */
 
-#moonTOC{
-  position: fixed;
-  top: 140px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  background: rgba(0,0,0,0.9);
-  padding: 18px 26px;
-  border-radius: 14px;
-
-  display: none;
-  z-index: 9999;
-  text-align: left;
-}
-
-/* รายการเรื่อง */
-#moonTOC a{
-  display:block;
-  margin:8px 0;
-  color:#7fe7ff;
-  text-decoration:none;
-}
-
-/* ปุ่มสารบัญ */
-.tocBtn{
-  padding:8px 16px;
-  border-radius:8px;
-  background:#222;
-  color:white;
-  border:none;
-  cursor:pointer;
-}
-
 .toc-wrapper{
-  position: relative;
-  display: inline-block;
+  position:relative;
+  text-align:center;
 }
 
-#moonTOC{
-  position: absolute;
-  top: 110%;
-  left: 0;
 
-  background: rgba(0,0,0,0.9);
-  padding: 18px 24px;
-  border-radius: 14px;
-
-  display: none;
-  text-align: left;
-  min-width: 260px;
-  z-index: 999;
-}
-
-#moonTOC a{
-  display:block;
-  margin:8px 0;
-  text-decoration:none;
-  color:#7fe7ff;
-}
 /*=============================================================== เมนู */
 .moon-nav nav{
   display:flex;
@@ -1072,7 +1017,7 @@ function calculate(){
 .menu:hover {
   color: #ffe08a;
   text-shadow: 
-    0 0 10px rgba(255, 224, 138, 0.😎,
+    0 0 10px rgba(255, 224, 138, 0.8,
     0 0 20px rgba(212, 175, 55, 0.4);
   transform: translateX(4px);
 }
@@ -1083,6 +1028,43 @@ function calculate(){
 .menu {
   position: relative;
   z-index: 10;
+}
+
+.story-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+    width: 90%;
+    max-width: 1000px;
+    margin: 80px auto;
+}
+
+.story-card {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+
+    box-shadow: 0 0 15px rgba(255,215,0,0.2);
+    transition: 0.3s;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px gold;
+}
+
+.read-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+
+    background: gold;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 /*========================================================= Footer */
@@ -1122,7 +1104,9 @@ function calculate(){
   background-position:center;
   background-repeat:no-repeat;
 
-</style>                                                               </head>
+</style>  
+   
+</head>
 
  <body>
 
@@ -1433,71 +1417,139 @@ quotes[new Date().getDate() % quotes.length];
 🌜ภายใต้แสงจันทร์🌛
 </h1>
 
-<div class="toc-wrapper">
+<a id="latestStoryBtn" class="open-btn">
+🌙 เปิดอ่านเรื่องล่าสุด
+</a>
 
-  <button class="tocBtn" onclick="toggleMoonTOC()">
-  📖 สารบัญเรื่องเล่า
-  </button>
 
-  <div id="moonTOC"></div>
+
+</button>
+
+<div id="moonTOC" style="display:none;"></div>
 
 <script>
-const titles = {
+
+/* ===============================
+   🌙 ตั้งค่าชื่อเรื่อง
+================================ */
+
+const storyTitles = {
   1: "คืนหนึ่งใต้แสงจันทร์",
-  2: "คืนหนึ่งใต้แสงจันทร์",
-  3: "คืนหนึ่งใต้แสงจันทร์",
-  4: "คืนหนึ่งใต้แสงจันทร์",
-  100: "ห้องพักใจ"
+  2: "ถามไป AI ตอบ",
+  3: "คำตอบที่ยังไม่จบ",
+  4: "การค้นพบที่ไม่ต้องรีบ",
+  5: "ผู้สร้างฝันในแสงจันทร์",
+  6: "นักสร้างฝันผู้ให้แสง โดยไม่ต้องมีสปอตไลซ์",
+  7: "แสงเงียบของผู้ไม่ต้องการการจดจำ",
+  8: "จังหวะชีวิตที่ไม่ต้องเร่งรีบ",
+  9: "คืนที่ฉันได้ยินเสียงของหัวใจ",
+  10: "ใต้ดวง๗นทร์ที่ฉันอยู่กับตัวเอง",
+  11: "ศิษย์ของจันทร์ผู้เรียนรู้จากความนิ่ง",
+  12: "ผู้รู้ใจตนก่อนโอบโลก",
+  13: "เมื่อการค้นหากลายเป็นการเดินร่วมกัน",
+  14: "จิตมนุษย์ยากแท้หยั่งถึง",
+  15: "วงจรของใจที่ขึ้นชื่อว่าความอยาก",
+  16: "แสงแห่งปัญญาในความอยาก",
+  17: "ความดีที่ไม่ต้องมีผู้เห็น",
+  18: "ความดีที่ไม่ต้องมีผู้ชม",
+  19: "เมื่อใจมั่นคงท่ามกลางความไม่เข้าใจ",
+  20: "เมตตาที่มีระยะ",
+  21: "วินาทีที่ใจไร้สติ",
+  22: "เมื่อความโกรธกลายเป็นครู",
+  23: "ความสงบที่ไม่ขึ้นกับโลก",
+  24: "สวรรค์ที่ไม่ต้องเดินไปหา"
 };
 
-const toc = document.getElementById("moonTOC");
+/* ===============================
+   🌙 หาเลขเรื่องที่มีจริง
+================================ */
 
-for(let i = 1; i <= 100; i++){
+const availableStories = Object.keys(storyTitles)
+  .map(Number)
+  .sort((a,b)=>a-b);
 
-  const link = document.createElement("a");
 
-  link.href = "story" + i + ".html";
+/* ===============================
+   📖 ปุ่มเปิด / ปิด สารบัญ
+================================ */
 
-  if(titles[i]){
-    link.textContent = "🌙 เรื่องที่ " + i + " — " + titles[i];
-  }else{
-    link.textContent = "🌙 เรื่องที่ " + i;
-  }
+function toggleMoonTOC(){
+  const box = document.getElementById("moonTOC");
+  if(!box) return;
 
-  toc.appendChild(link);
+  box.style.display =
+    (box.style.display === "block") ? "none" : "block";
 }
 
-<div class="container" id="moonTOC">
 
-<h1>🌙 บ้านแห่งแสงจันทร์</h1>
+/* ===============================
+   🚀 โหลดหน้าแล้วทำงาน
+================================ */
 
-<a href="story1.html">ตอนที่ 1 คืนหนึ่งใต้แสงจันทร์</a>
-<a href="story2.html">ตอนที่ 2 ถามไป AI ตอบ</a>
-<a href="story3.html">ตอนที่ 3 คำตอบที่ยังไม่จบ</a>
-<a href="story4.html">ตอนที่ 4 (กำลังตั้งชื่อ)</a>
+window.addEventListener("load", function(){
+
+  /* ---------- สร้างสารบัญ ---------- */
+
+  const toc = document.getElementById("moonTOC");
+  if(toc){
+
+    toc.innerHTML = "";
+
+    /* ⭐ เรียงใหม่ → เก่า */
+    const reversed = [...availableStories].reverse();
+
+    reversed.forEach(function(i){
+
+      const a = document.createElement("a");
+      a.href = "story" + i + ".html";
+
+      a.innerText =
+        "🌙 เรื่องที่ " + i +
+        " — " + (storyTitles[i] || "");
+
+      a.style.display = "block";
+      a.style.textAlign = "left";
+      a.style.margin = "6px 0";
+
+      toc.appendChild(a);
+    });
+  }
 
 
+  /* ---------- ปุ่มเปิดล่าสุด ---------- */
+
+  const latestBtn =
+    document.getElementById("latestStoryBtn");
+
+  if(latestBtn && availableStories.length){
+
+    const latest =
+      availableStories[availableStories.length - 1];
+
+    latestBtn.href = "story" + latest + ".html";
+  }
+
+});
 
 </script>
 
 
 
-</div>
-</div>
 <section>
+  <div id="story-point"></div>
   <div class="story-gallery">
   <div class="story-walk">
   <div class="story-card">
-
+  
     <h2>🌙 เรื่องเล่าที่ 1</h2>
-    <p>คืนหนึ่งใต้แสงจันทร์<br> เรื่องราวเริ่มต้นอย่างเงียบงาม</p>
-    <a href="#">เปิดเรื่องเล่า</a>
+    <p>คืนหนึ่งใต้แสงจันทร์<br>เรื่องราวเริ่มต้นอย่างเงียบงาม</p>
+    <a href="story01.html">เปิดเรื่องเล่า</a>
   </div>
 
   <div class="story-card">
     <h2>🌙 เรื่องเล่าที่ 2</h2>
-    <p>เสียงน้ำสะท้อนใจ<br> เหมือนความทรงจำที่ยังอุ่นอยู่</p>
-    <a href="#">เปิดเรื่องเล่า</a>
+   <p>ตำนานฆ้อน<br>บ้านแห่งแสงจันทร์</p>
+    <a href="hammer.html">เปิดเรื่องเล่า</a>
   </div>
 
 <div class="story-card">
@@ -1562,10 +1614,15 @@ for(let i = 1; i <= 100; i++){
 ขอให้คืนนี้ใจคุณมีแสงจันทร์อยู่ข้างใน <br>แล้วกลับมาใหม่นะคะ                                                            </p>
     <a href="#">กลับหน้าหลัก</a>
   </div>
- 
- </div>
 
+ </div>
+</section>
   </main>
+
+
+
+
+
 
 <!-- =========================================== Right-Wing ===== -->
 
