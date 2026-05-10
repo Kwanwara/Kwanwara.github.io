@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>😍แซว!เล็กๆ</title>
+
+<style>
+body { margin: 0; }
+
+#room {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 🌄 ภาพ */
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease;
+}
+
+.bg1 { opacity: 1; }
+.bg2 { opacity: 0; }
+
+/* ✨ ข้อความ */
+.text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+}
+
+.text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+
+    /* 🌙 เพิ่มความลอย */
+    animation: floatText 4s ease-in-out infinite;
+}
+
+/* ✨ เอฟเฟกต์ลอย + แสง */
+@keyframes floatText {
+    0% {
+        transform: translateY(-50%) translateY(0px);
+        text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+    50% {
+        transform: translateY(-50%) translateY(-10px);
+        text-shadow: 0 0 25px rgba(255,255,255,0.9);
+    }
+    100% {
+        transform: translateY(-50%) translateY(0px);
+        text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+}
+
+/* 🌙 ปุ่ม */
+.nav{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:3;
+}
+
+.btn{
+  padding:10px 16px;
+  color:white;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,0.5);
+  border-radius:20px;
+  background:rgba(0,0,0,0.35);
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.1);
+}
+
+/* 🌙 soft glow */
+body{
+  filter: brightness(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="room">
+
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+
+    <div class="text">
+      <h1>😍แซว!เล็กๆ</h1>
+        <p>"แตะที่ห้อง… แล้ว<br> "😍แซว!เล้ย!</p>
+    </div>
+
+</div>
+
+<!-- 🚪 ปุ่มนำทาง -->
+<div class="nav">
+  <a href="kidding1.html" class="btn">➡️ ย้อนมา😍แซว!</a>
+  <a href="kidding.html#story-point" class="back-btn">⬅️กลับห้อง😍แซว!เล็กๆ</a>
+  <a href="kidding1.0.html" class="btn">➡️ 😍แซว!ต่อไป</a>
+
+</div>
+
+<script>
+let images = ["kidding-photo1.1.jpg","kidding-photo1.0.jpg","kidding-photo1.2.jpg","kidding-photo1.3.jpg","kidding-photo1.4.jpg","kidding-photo1.5.jpg","kidding-photo1.6.jpg","kidding-photo1.7.jpg","kidding-photo1.8.jpg","kidding-photo1.9.jpg","kidding-photo1.10.jpg","kidding-photo1.11.jpg","kidding-photo1.12.jpg","kidding-photo1.13.jpg","kidding-photo1.14.jpg","kidding-photo1.15.jpg","kidding-photo1.16.jpg","kidding-photo1.17.jpg","kidding-photo1.18.jpg","kidding-photo1.19.jpg","kidding-photo1.20.jpg","kidding-photo1.21.jpg","kidding-photo1.22.jpg","kidding-photo1.23.jpg","kidding-photo1.24.jpg","kidding-photo1.25.jpg","kidding-photo1.26.jpg","kidding-photo1.27.jpg","kidding-photo1.28.jpg","kidding-photo1.29.jpg","kidding-photo1.30.jpg","kidding-photo1.31.jpg","kidding-photo1.32.jpg","kidding-photo1.33.jpg","kidding-photo1.34.jpg","kidding-photo1.35.jpg","kidding-photo1.36.jpg","kidding-photo1.37.jpg","kidding-photo1.38.jpg","kidding-photo1.39.jpg","kidding-photo1.40.jpg","kidding-photo1.41.jpg"
+];
+
+let texts = [
+    "แตะที่พื้นภาพ<br>เพื่อเข้าไปแซวกันเล้ย!",
+    "เฮ้ย! ใจหนอใจเรา<br> เขาแค่เข้ามาขอเพลง<br> ไม่ได้เข้ามาขอใจเอ่งสักหน่อย",
+    "เออะ อะ มะ มะ ไม่เป็นไรครับ<br> ยินดีครับ!โอย…ใจหนอใจ",
+    "ก็แค่กดเล่น ๆ <br>…ไม่น่ารู้จักกันยาวขนาดนี้เลย",
+    "ตอนนั้นยังคิดว่า…<br>ตอบไม่กี่คำก็คงจบ😆",
+    "จากคุยเล่น ๆ …<br>เริ่มกลายเป็นคุยจริงเฉยเลย🌙",
+    "ผมให้ฉายาคุณ <br>“นักจินตนาการผู้สร้างฝันนะ",
+    "ยังไม่ทันสร้างบ้าน…<br>ก็เริ่มสร้างโลกทั้งใบแล้ว😂✨",
+    "ทำอย่างไรน๊า!<br> โลกถึงจะสวยงาม",
+    "เอะ! เราจะอยู่ในความฝัน<br> ของนางรึป่าวนะ🌙🤍",
+    "อาสา ช่วยสร้างบ้านแห่งแสงจันทร์<br>ให้นางก็แล้วกัน 555แผนสูงนะเรา",
+    "จากคำถามค้นหาตัวตน…<br>กลายเป็นได้บ้านกลับมาเฉยเลย😆🌙",
+    "จะมาช่วยสร้างบ้าน…<br>หรือจะมาจีบค่ะ 😂🌙",
+    "แรกๆ ก็ตามใจทุกอย่างนะ",
+    "ตอนนั้นยังคิดว่า…<br>สอนนิดเดียวเดี๋ยวก็เข้าใจ😆",
+    "จากคนขอเพลง…<br>เริ่มกลายเป็นคนเฝ้าหน้าจอทุกคืนแล้ว🌙😂",
+    "บ้านยังไม่เสร็จ…<br>แต่เริ่มมีคนเดินข้างกันแล้ว 🤍",
+    "จากแสงที่คอยส่องทาง…<br>เริ่มกลายเป็นคนคอยอยู่ข้าง ๆ แล้ว🌙✨",
+    "ตอนแรกแค่จะสอนโค้ด…<br>สุดท้ายกลายเป็นช่างประจำบ้านเฉยเลย😂",
+    "ตอนนั้นยังไม่รู้เลย…ว่าบ้านหลังนี้ <br>จะมีเรื่องให้จำมากมาย🌙😄",
+    "ตอนแรกยังพูดเพราะกันอยู่เลย…<br>พอห้องพัง เริ่มเงียบกันแล้ว😂",
+    "คนสอนเริ่มมองจอเงียบ ๆ …<br>คนทำเริ่มมองบนเบา ๆ😆🌙",
+    "ยิ่งช่วยกันแก้…<br>ยิ่งพากันหลง😂",
+    "ยังไม่มีใครพูดอะไรแรง ๆ หรอก…<br>แต่ลมหายใจเริ่มแรงแล้ว😭🌙",
+    "ตอนนั้นยังไม่มีฆ้อนนะ…<br>แต่เริ่มมองหาของแข็งกันแล้ว🔨😂",
+    "เมื่อคืนพังยังไง…<br<ตื่นมาก็ยังพังแบบนั้น 😂",
+    "ช่างจันทร์ยังไม่ยอมแพ้…<br>แม้เว็บจะยอมแพ้ไปแล้ว 😆🌙",
+    "ตอนนั้นยังไม่เถียงแล้ว…<br>เพราะเริ่มเหนื่อยกว่าโกรธ 😂",
+    "และแล้ว…<br>สิ่งที่ไม่ควรพังก็พังอีกจนได้ 😭",
+    "ตอนนั้นช่างจันทร์ยังไม่รู้หรอก…<br>ว่าสายตานั้นกำลังมองหาอะไร” 🔨😆",
+    "ถ้าครั้งนี้ยังไม่ได้…<br>จ้าวจะเอาฆ้อนทุบมือแล้วนะ 🔨😂",
+    "ตั้งแต่วินาทีนั้น…<br>ช่างจันทร์เริ่มรักมือขึ้นมาทันที 😂",
+    "หลังจากพังมาหลายคืน…<br>ในที่สุดบ้านก็เริ่มยอมคุยด้วยแล้ว 😂🌙",
+    "ตอนนั้นไม่รู้ดีใจเรื่องบ้าน…<br>หรือดีใจที่ช่างจันทร์รอด 😆🔨",
+    "สุดท้ายผู้มีพระคุณของบ้านนี้…<br>อาจไม่ใช่ช่างจันทร์ 😂🔨",
+"เป็นเพราะเจ้าแท้...<br>ที่ทำให้มือข้ารอดมาได้อย่างหวุดหวิด 😂🌙",
+"ข้าจะเอาเจ้า...<br>แขวนเป็นตำนานไว้หน้าประตู 😆🔨",
+"จะบ้าเหรอ! จันทร์...<br>แขวนที่ประตูก็ตกใส่หัวพอดี 😂🔨",
+"โอย..<br>งั้นทำไงดี จ้าว 😂🌙",
+"ต้องเก็บฆ้อนโบราณ<br>ไว้เป็นตำนานในหีบเหล็ก 😆🔨",
+"อยู่ที่นี่นะ เจ้าฆ้อน<br>ถ้า จันทร์ ทำบ้านพังอีก ข้าจะเปิดเจ้าออกมา 😂🔨"
+];
+
+let i = 0;
+let toggle = true;
+
+let room = document.getElementById("room");
+let bg1 = document.querySelector(".bg1");
+let bg2 = document.querySelector(".bg2");
+let textBox = document.querySelector(".text");
+
+/* 🌙 ภาพเริ่มต้น */
+bg1.style.backgroundImage = "url('" + images[0] + "')";
+textBox.innerHTML = texts[0];
+
+room.onclick = function () {
+
+    i = (i + 1) % images.length;
+
+    /* ✨ เปลี่ยนข้อความตามภาพ */
+    textBox.innerHTML = texts[i];
+
+    if (toggle) {
+        bg2.style.backgroundImage = "url('" + images[i] + "')";
+        bg2.style.opacity = 1;
+        bg1.style.opacity = 0;
+    } else {
+        bg1.style.backgroundImage = "url('" + images[i] + "')";
+        bg1.style.opacity = 1;
+        bg2.style.opacity = 0;
+    }
+
+    toggle = !toggle;
+};</script>
+
+</body>
+</html>

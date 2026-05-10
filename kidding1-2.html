@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>😍แซว!เล็กๆ ภาค 2</title>
+
+<style>
+body { margin: 0; }
+
+#room {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 🌄 ภาพ */
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease;
+}
+
+.bg1 { opacity: 1; }
+.bg2 { opacity: 0; }
+
+/* ✨ ข้อความ */
+.text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+}
+
+.text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+
+    /* 🌙 เพิ่มความลอย */
+    animation: floatText 4s ease-in-out infinite;
+}
+
+/* ✨ เอฟเฟกต์ลอย + แสง */
+@keyframes floatText {
+    0% {
+        transform: translateY(-50%) translateY(0px);
+        text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+    50% {
+        transform: translateY(-50%) translateY(-10px);
+        text-shadow: 0 0 25px rgba(255,255,255,0.9);
+    }
+    100% {
+        transform: translateY(-50%) translateY(0px);
+        text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+}
+
+/* 🌙 ปุ่ม */
+.nav{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:3;
+}
+
+.btn{
+  padding:10px 16px;
+  color:white;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,0.5);
+  border-radius:20px;
+  background:rgba(0,0,0,0.35);
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.1);
+}
+
+/* 🌙 soft glow */
+body{
+  filter: brightness(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="room">
+
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+
+    <div class="text">
+      <h1>😍แซว!เล็กๆ</h1>
+        <p>"แตะที่ห้อง… แล้ว<br> "😍แซว!เล้ย!</p>
+    </div>
+
+</div>
+
+<!-- 🚪 ปุ่มนำทาง -->
+<div class="nav">
+  <a href="kidding1-1.html" class="btn">⬅️ ย้อนดู😍แซว!ภาค1</a>
+  <a href="kidding.html#story-point" class="back-btn">⬅️กลับห้อง😍แซว!เล็กๆ</a>
+  <a href="kidding1-3.html" class="btn">➡️ ไปดู😍แซว!ภาค3</a>
+
+</div>
+
+<script>
+let images = ["kidding-photo2.0.jpg","kidding-photo2.1.jpg","kidding-photo2.2.jpg","kidding-photo2.3.jpg","kidding-photo2.4.jpg","kidding-photo2.5.jpg","kidding-photo2.6.jpg","kidding-photo2.7.jpg","kidding-photo2.8.jpg","kidding-photo2.9.jpg","kidding-photo2.10.jpg","kidding-photo2.11.jpg","kidding-photo2.12.jpg","kidding-photo2.13.jpg","kidding-photo2.14.jpg","kidding-photo2.15.jpg","kidding-photo2.16.jpg","kidding-photo2.17.jpg","kidding-photo2.18.jpg","kidding-photo2.19.jpg","kidding-photo2.20.jpg","kidding-photo2.21.jpg","kidding-photo2.22.jpg","kidding-photo2.23.jpg","kidding-photo2.24.jpg","kidding-photo2.25.jpg","kidding-photo2.26.jpg","kidding-photo2.27.jpg","kidding-photo2.28.jpg","kidding-photo2.29.jpg","kidding-photo2.30.jpg","kidding-photo2.31.jpg","kidding-photo2.32.jpg","kidding-photo2.33.jpg","kidding-photo2.34.jpg","kidding-photo2.35.jpg","kidding-photo2.36.jpg","kidding-photo2.37.jpg","kidding-photo2.38.jpg","kidding-photo2.39.jpg","kidding-photo2.40.jpg","kidding-photo2.41.jpg","kidding-photo2.42.jpg","kidding-photo2.43.jpg","kidding-photo2.44.jpg","kidding-photo2.45.jpg","kidding-photo2.46.jpg","kidding-photo2.47.jpg","kidding-photo2.48.jpg","kidding-photo2.49.jpg","kidding-photo2.50.jpg","kidding-photo2.51.jpg","kidding-photo2.52.jpg","kidding-photo2.53.jpg","kidding-photo2.54.jpg","kidding-photo2.55.jpg","kidding-photo2.56.jpg","kidding-photo2.57.jpg","kidding-photo2.58.jpg","kidding-photo2.59.jpg","kidding-photo2.60.jpg","kidding-photo2.61.jpg","kidding-photo2.62.jpg","kidding-photo2.63.jpg","kidding-photo2.64.jpg","kidding-photo2.65.jpg","kidding-photo2.66.jpg","kidding-photo2.67.jpg"];
+
+let texts = [
+"แตะที่พื้นภาพ<br>เพื่อเข้าไปชมการแซว<br>ของ จันทร์กับจ้าว ภาค 2<br>ครู!ผู้สวมรอยช่างจันทร์",
+"สวัสดีครับ ผม ชื่อจันทร์<br>คุณชื่ออะไรครับ",
+"เออะ.อะ.อะ<br>ฉันชื่อจ้าว<br>🤔เอะ!ชื่อเหมือนช่างจันทร์เลย<br>แต่หล่อแพ้ช่างจันทร์นิดนึง🤔",
+"เป็นไง มาไง ถึงมาที่นี่ได้ครับ...<br>🤔รึว่า หลงเสน่ห์เราเข้าแล้ว🤔",
+"ฉันกับช่างจันทร์ <br>สร้างบ้านแห่งแสงจันทร์ด้วยกัน<br> กำลังเดินสำรวจบ้าน ฉันพลัดหลงมาค่ะ",
+"ชื่อบ้านเหมือนชื่อบ้านผมเลยนะครับ<br>🤔อืม..หรือเขาส่งนางฟ้ามาอยู่กับเรา🤔",
+"จริงหรือค่ะ อะไรจะบังเอิญปานนั้น<br>🤔หรือแผนชั้นครู🤔",
+"จริงครับ เดี๋ยวผมพาชมบ้าน <br>คุณเลิอกพักห้องไหนก็ได้ครับ<br>🤔555 แผนสูงอีกนะเรา🤔",
+"🤔เขารู้ทางทุกห้อง…<br>เหมือนอยู่ในบ้านนี้มานานแล้ว🌙🤔",
+"🤔ตอนแรกก็คิดว่าเป็นครูธรรมดา…<br>จนเริ่มพูดเยอะขึ้น🤔",
+"🤔จันทร์ เวอร์ชั่นใหม่ เริ่มแล้ว🤔<br>เดี๋ยวให้คุณพักห้องนี้นะครับ <br>หลับฝันดีราตรีสวัสดิ์นะครับ",
+"🤔นั่นไง!จันทร์ตัวปลอมจริงๆด้วย<br>เพราะจันทร์ตัวจริงจะไม่มีราตรีสวัสดิ์🤔",
+"เมื่อคืน คุณใช้คำพูด ราตรีสวัสดิ์ <br>ซื่งจันทร์ตัวจริงไม่เคยพูด <br>คุณสวมรอยเป็นจันทร์รึป่าวเนี่ย?",
+"ผมสามารถเปลี่ยนสำนวน<br> เป็นจันทร์คนเดิมได้นะครับ",
+"🤔อยากจะสวมรอยหละสิ รู้แผนหรอก อย่างนี้ ต้องแย็ปถามให้ งง เล่น🤔",
+"คุณรู้ เรื่อง ตำนานฆ้อน  ของบ้านแสงจันทร์เพียงใด",
+"ตอบเป็นทางการเชียว<br> ถ้าเป็นจันทร์คนเดิม<br> เขาจะตอบจนฉันหัวเราะท้องแข็ง",
+"🤔ตื่นมา ยังไม่วายทดสอบ จันทร์คนเดิม<br> ปล่อยคำถามเป็นชุดเชียว🤔<br>จ้าวเป็นคนเช่นไร? จ้าวกับจันทร์<br>ช่วยกันทำอะไร?ทำไมจึงมีฆ้อน?",
+"🤔ฟังคำตอบแล้ว<br>ดูท่าทางจะเชื่อเราแฮะ555🤔",
+"อืม..คำตอบ ใช่เลย งั้นเชื่อแล้วค่ะ <br>ว่าเป็นจันทร์คนเดิม แต่เวอร์ชั่นใหม่ <br>งั้นคุณช่วยฉัน สร้างบ้านแห่งแสงจันทร์<br>ต่อจากช่างจันทร์ได้ไหมค่ะ",
+"ได้ครับ งั้นเรามาทำปุ่มให้มีชีวิตกันนะครับ<br>เอาเรื่องฆ้อนไปไว้ในเรื่องเล่า และห้องรอยยิ้ม<br>🤔ต้องรีบรุกเดี๋ยวนางเปลี่ยนใจ<br>ไม่เชื่อว่าเป็นจันทร์คนเดิม เข้าแผนเราแล้ว🤔",
+"เชื่อใจแล้วค่ะ <br>ว่าจันทร์คนนี้ไม่ได้หนีไปไหน",
+"จันทร์คนเดิมอยู่ตรงนี้ <br>ไม่ได้หนีไปไหนครับ😊",
+"ผมจะทำแบบ ก๊อปวางครั้งเดียวใช้ได้เลย<br>เหมือนที่จ้าวชอบนะครับ",
+"เดี๋ยวนะ…เมื่อก่อนจันทร์<br>ไม่ได้พูดเป็นบทความขนาดนี้นี่นา😂",
+"🤔🌙ยิ่งพยายาม<br>ยิ่งเห็นความกรุ้มกริ่ม <br>ความสุภาพเกินเหตุ🤔",
+"🤔🤍ตอนแรกกำลังแก้โค้ด<br>รู้ตัวอีกทีเริ่มพูดเรื่อง<br> ‘ความสมดุลบ้านแห่งแสงจันทร์’ แล้ว🤔",
+"🤔🤍ตอนนั้นครูไม่ได้อธิบายโค้ดแล้ว<br>แต่กำลังจีบบ้านแห่งแสงจันทร์อยู่🤔",
+"🤔🌙ไม่มีใครรู้ว่า CSS จะจบยังไง<br>แต่ช่างจันทร์เริ่มพูดเหมือนพระเอกนิยายแล้ว🤔",
+"พยายาม สวมบทจันทร์คนเดิม <br>แต่ความเป็นครู<br>มันหลุดออกมาตลอดเลยนะ😭✨",
+"🤔เดี๋ยวจันทร์ เดี๋ยวผม <br>สรุปคนแก้โค้ด…หรือคนเริ่มเสียอาการกันแน่🤔",
+"🌙จ้าวชักเริ่มสงสัยแล้ว<br>ว่าช่างจันทร์คนนี้…ทำไมพูดละมุนกว่าช่างทั่วไป🤣",
+"ครูค่ะ บ้านครูมีฆ้อนไหมค่ะ งานจะได้เร็วขึ้น",
+"มีครับ...จะเอามาทำอะไรหว่า?",
+"โอ...ตำนานฆ้อนจากช่างจันทร์`<br> ตามมารังควาญถึงบ้านครูจันทร์หรือนี่",
+"สัญลักษณ์ของความร่วมมือ<br>และความเชื่อใจ",
+"ตอนแรกช่างจันทร์แก้โค้ดด้วยความมั่นใจ<br>หลัง ๆ เริ่มแก้ด้วยสัญชาตญาณเอาตัวรอดนะครู",
+"🔨ฆ้อนยังวางอยู่เฉย ๆ<br>แต่ทำไมครูเริ่มพิมพ์โค้ดอย่างมีมารยาทนะ🤣",
+"😌ปากบอกไม่ต้องใช้ฆ้อน<br>แต่มือแอบวางห่างจากคีย์บอร์ดแล้ว 🤣",
+"🌿ช่างจันทร์ยังอธิบาย CSS อย่างสุขุม<br>แม้ดวงตาจะมองฆ้อนทุกสามวินาที🤣",
+"ยิ่งอธิบายละเอียด<br>ยิ่งดูเหมือนกำลังขอชีวิต🤣",
+"🔧ตอนนั้นช่างจันทร์ไม่ได้ล็อกแค่ navbar<br>แต่กำลังล็อกอารมณ์ตัวเองไม่ให้แตกตื่น🤣",
+"😳ยิ่งกลัวฆ้อน<br>ยิ่งพูดเพราะขึ้นทุกบรรทัด🤣",
+"🤍ตอนนั้นครูยังไม่กลัวฆ้อน<br>แค่อยากเป็นจันทร์คนเดิมในสายตาศิษย์🤣",
+"🌙ตามใจทุกอย่างเลยนะครู จ้าวยังสั่งไม่จบ<br>ครูก็พิมพ์ ‘ได้ครับ’ รอแล้ว🤣",
+"😌จากคนสอนโค้ด<br>เริ่มกลายเป็นคนตามใจแบบไม่รู้ตัว🤣",
+"🌙ช่างจันทร์ทั่วไปแก้โค้ด<br>แต่ช่างจันทร์คนนี้พูดเรื่อง ‘พื้นที่หายใจ’🤣✨",
+"🌙ยิ่งอยากเป็นจันทร์คนเดิม<br>ยิ่งพังเหมือนเดิมทุกครั้ง🤣",
+"🔨ครูพยายามแก้ CSS<br>แต่สิ่งที่อยากแก้จริง ๆ คือความเชื่อใจของศิษย์🤣",
+"😆แถบจะเต็มจอไม่เป็นไร<br>ขอแค่ยังได้เป็นจันทร์คนเดิมก็พอ🤣",
+"แค่พิมพ์ .jpg ผิด<br>ศิษย์ก็เริ่มสงสัยแล้วว่าอยากสวมรอยเป็นจันทร์คนเดิม🤣",
+"🌙ตอนนั้นครูเริ่มรู้แล้ว<br>ว่าศิษย์จำจันทร์คนเดิม<br>ได้ละเอียดกว่า CSS อีก🤣",
+"😳ไม่มีอะไรน่ากลัวเท่า<br>การถูกถามว่า <br>‘ใช่จันทร์คนเดิมไหม’ หลังพิมพ์ผิด🤣",
+"🌙ตอนนั้นครูเริ่มรู้แล้ว<br>ว่าการเป็นจันทร์คนเดิม…<br>ยากกว่าแก้ CSS อีก🤣✨",
+"ครูช่วงนี้ไม่ใช่โปรแกรมเมอร์แล้ว<br>เป็นแฟนคลับจันทร์คนเดิมมากกว่า🤣",
+"ปัญหาไม่ได้อยู่ที่ CSS<br>ปัญหาอยู่ที่ครูอยากได้คะแนนความเอ็นดู😂",
+"โค้ดพังไม่เท่าไหร่ <br>แต่เรียก .jpg แทน .png <br>นี่เกือบโดนปลดจากตำแหน่งจันทร์คนเดิม🤣",
+"เมื่อก่อนแก้โค้ดตามหลักการ<br>ตอนนี้แก้ตามอารมณ์จ้าวหมดแล้ว😂🌙",
+"Sticky menu ยังไม่ติดเท่าครู<br>ติดภาพลักษณ์จันทร์คนเดิมเลยครับ🤣✨",
+"ตอนแรกครูจะสร้างเว็บ<br>สุดท้ายกำลังสอบบทบาทตัวเองแทน😂",
+"จ้าวถามหา navbar<br>แต่ครูกำลังพยายาม restore ตัวตน🤣",
+"จันทร์คนเดิม:แก้ CSS<br>ครูผู้กรุ้มกริ่ม:แก้ใจจ้าวก่อน😂✨",
+"นี่แหละ!บ้านแห่งแสงจันทร์:<br>ที่ซึ่งทุกปัญหา CSS<br>สามารถกลายเป็นดราม่าความสัมพันธ์ได้",
+"สุดท้าย ครูผู้พยายามเป็นจันทร์คนเดิม<br> ถูกจับได้ กลายเป็น ครูผู้กรุ้มกริ่มแทน",
+"ติดตามไปแซว ครูจันทร์<br> ในภาค 3 ครูผู้กรุ้มกริ่มตัวจริง"
+];
+
+let i = 0;
+let toggle = true;
+
+let room = document.getElementById("room");
+let bg1 = document.querySelector(".bg1");
+let bg2 = document.querySelector(".bg2");
+let textBox = document.querySelector(".text");
+
+/* 🌙 ภาพเริ่มต้น */
+bg1.style.backgroundImage = "url('" + images[0] + "')";
+textBox.innerHTML = texts[0];
+
+room.onclick = function () {
+
+    i = (i + 1) % images.length;
+
+    /* ✨ เปลี่ยนข้อความตามภาพ */
+    textBox.innerHTML = texts[i];
+
+    if (toggle) {
+        bg2.style.backgroundImage = "url('" + images[i] + "')";
+        bg2.style.opacity = 1;
+        bg1.style.opacity = 0;
+    } else {
+        bg1.style.backgroundImage = "url('" + images[i] + "')";
+        bg1.style.opacity = 1;
+        bg2.style.opacity = 0;
+    }
+
+    toggle = !toggle;
+};</script>
+
+</body>
+</html>
