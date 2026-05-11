@@ -27,27 +27,76 @@ body { margin: 0; }
 .bg2 { opacity: 0; }
 
 /* ✨ ข้อความ */
-.text {
-    position: relative;
-    z-index: 2;
-    color: white;
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 28px;
+
+.text{
+
+    position:fixed;
+
+    left:50%;
+    bottom:90px;
+
+    transform:translateX(-50%);
+
+    width:88%;
+
+    z-index:9999;
+
+    color:white;
+
+    text-align:center;
+
+    font-size:32px;
+
+    line-height:1.7;
+
+    text-shadow:
+      0 0 10px rgba(0,0,0,0.9);
+
 }
 
-.text {
-    position: relative;
-    z-index: 2;
-    color: white;
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 28px;
+.nav{
 
-    /* 🌙 เพิ่มความลอย */
-    animation: floatText 4s ease-in-out infinite;
+  position:fixed;
+
+  bottom:10px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:95%;
+
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+
+  gap:12px;
+
+  z-index:99999;
+}
+
+.nav a{
+
+  background:white !important;
+
+  color:#1e5eff !important;
+
+  border:2px solid #1e5eff !important;
+
+  text-decoration:none;
+
+  padding:14px 20px;
+
+  border-radius:28px;
+
+  font-size:18px;
+
+  font-weight:bold;
+
+  min-width:220px;
+
+  text-align:center;
+
+  box-shadow:0 0 15px rgba(255,255,255,0.35);
 }
 
 /* ✨ เอฟเฟกต์ลอย + แสง */
@@ -66,32 +115,6 @@ body { margin: 0; }
     }
 }
 
-/* 🌙 ปุ่ม */
-.nav{
-  position:absolute;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:10px;
-  z-index:3;
-}
-
-.btn{
-  padding:10px 16px;
-  color:white;
-  text-decoration:none;
-  border:1px solid rgba(255,255,255,0.5);
-  border-radius:20px;
-  background:rgba(0,0,0,0.35);
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
-  background:rgba(255,255,255,0.1);
-}
-
 /* 🌙 soft glow */
 body{
   filter: brightness(1.05);
@@ -99,6 +122,7 @@ body{
 
 </style>
 </head>
+
 
 <body>
 
