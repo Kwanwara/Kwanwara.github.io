@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>🔆แสงธรรม 3🔆</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    color: white;
+
+    /* 🌙 ใส่ภาพพื้นเองตรงนี้ */
+    background: url("dharma-photo2.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 🌙 ชั้นมืดให้อ่านง่าย */
+.overlay {
+    min-height: 100vh;
+    background: rgba(0,0,0,0.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 60px;
+}
+
+/* 🌜 หัวข้อเรือง */
+.title {
+    font-size: 34px;
+    color: gold;
+    text-align: center;
+
+    text-shadow: 
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px rgba(255,215,0,0.6);
+
+    animation: floatTitle 2s ease-out;
+}
+
+/* ตอน */
+.subtitle {
+    font-size: 22px;
+    margin-top: 10px;
+    color: white;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+/* ✨ ลอยนุ่ม */
+@keyframes floatTitle {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 📖 เนื้อเรื่อง (ไม่มีพื้น) */
+.story {
+    margin-top: 40px;
+    width: 65%;
+    max-width: 700px;
+
+    text-align: center;
+    line-height: 2;
+    font-size: 18px;
+
+    animation: fadeUp 1.5s ease;
+}
+
+/* ✨ ลอยขึ้นแล้วนิ่ง */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔘 ปุ่ม */
+.nav {
+    margin-top: 40px;
+}
+
+.nav a {
+    margin: 10px;
+    padding: 10px 16px;
+
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: gold;
+    color: black;
+}
+
+/* 🎵 เพลงล่างกลาง */
+.music {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 12px;
+
+    box-shadow: 0 0 15px gold;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 90px;  /* 🔥 อยู่เหนือเพลง */
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 20px;
+}
+
+.bottom-nav a {
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.bottom-nav a:hover {
+    background: gold;
+    color: black;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+   <!-- 🌜 หัวข้อ -->
+    <div class="title">🔆แสงธรรม 3🔆
+</div>
+    <div class="subtitle">🤍3. ปล่อยวาง…ไม่ใช่ปล่อยปละ🤍</div>
+    <div class="subtitle">3.3 “ยอมรับสิ่งที่เกิดขึ้นแล้ว” </div>
+
+    <!-- 📖 เนื้อเรื่อง -->
+    <div class="story">
+
+การปล่อยวางเริ่มต้นจากการเห็นความจริงว่า  
+บางสิ่งได้เกิดขึ้นแล้ว และไม่สามารถย้อนกลับไปแก้ไขได้  
+
+เมื่อเราพยายามปฏิเสธสิ่งที่เกิดขึ้น  
+ใจจะยิ่งต้านและหนักขึ้นโดยไม่จำเป็น  
+
+แต่เมื่อเริ่มยอมรับว่า “มันเกิดขึ้นแล้ว”  
+ใจจะค่อย ๆ คลายจากแรงต้านนั้น  
+
+การยอมรับไม่ใช่การชอบทุกอย่าง  
+แต่คือการหยุดต่อสู้กับความจริง  
+
+เมื่อไม่ต้องสู้กับสิ่งที่เป็น  
+ใจจะเริ่มมีพื้นที่ให้หายใจมากขึ้น 🌙  
+
+🌿 ยอมรับ = หยุดต้านความจริง  
+🌿 ไม่ยอมรับ = ใจยังต่อสู้กับสิ่งเดิม
+
+</div>
+
+       <!-- 🔘 ปุ่ม -->
+    <div class="nav">
+
+     <a href="dharma3-2.html">⬅ ตอนก่อนหน้า</a>
+     <a href="dharma.html#story-point" class="back-btn">
+        ⬅️ กลับสารบัญ🔆แสงธรรม🔆
+    </a>
+    <a href="dharma3-4.html">➡ ตอนต่อไป</a>
+
+</div>
+
+<!-- 🎵 เพลง -->
+<div class="music">
+   
+    <audio controls autoplay loop>
+        <source src="dharma-song.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+</body>
+</html>
+       
+
+
+
+
+
+
+
+                                                    

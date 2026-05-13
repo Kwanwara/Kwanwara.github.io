@@ -11,26 +11,798 @@
 
 /* ===== BODY ===== */
 body{
-  height:100%
   margin:0;
-  font-family:sans-serif;
-  background:linear-gradient(180deg,#2b1055,#7597de,#c9e7ff);
-  color:white;
+  font-family:"Sarabun",sans-serif;
+  color:#f3d27a;
   text-align:center;
   overflow-x:hidden;
   position:relative;
+  background:linear-gradient(
+      to bottom,
+      #0b0f1a,
+      #141c2b,
+      #1d2b3f,
+      #2f2a1f
+    );
 }
 
 /* ===== HERO (ปกบ้าน) ===== */
 .hero{
   position:relative;
   height:100vh;
-  background:url("story-room.jpg") center/cover no-repeat;
+  background:url("banner.jpg") center/cover no-repeat;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
+  color:gold;
+  min-height:105vh;
+  background-position:center bottom;
+}
+
+ 
+/* ===== ดาวตก ===== */
+.shooting-star{
+  position:absolute;
+  top:45%;
+  left:-100px;
+  width:120px;
+  height:2px;
+  background:linear-gradient(90deg, white, transparent);
+  opacity:0;
+  animation:shoot 10s infinite;
+}
+.shooting-star:nth-child(2){
+  top:45%;
+  left:-200px;
+  width:100px;
+  animation-duration:12s;
+}
+.shooting-star:nth-child(3){
+  top:45%;
+  left:-150px;
+  width:80px;
+  animation-duration:14s;
+}
+@keyframes shoot{
+  0%{transform:translate(0,0) rotate(45deg); opacity:0;}
+  10%{opacity:1;}
+  30%{transform:translate(600px,200px) rotate(45deg); opacity:0;}
+  100%{opacity:0;}
+}
+
+/* ===== แสงจันทร์สะท้อนน้ำ ===== */
+.moonlight{
+  position:absolute;
+  width:200%;
+  height:100%;
+  background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.15), transparent 60%);
+  animation:moonSweep 12s linear infinite;
+}
+@keyframes moonSweep{from{transform:translateX(-50%);} to{transform:translateX(50%);}}
+
+
+/* ชั้นดาว = อยู่หลังสุด */
+.stars,
+#starsCanvas {
+  position: fixed;
+  top:45;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;          /* สำคัญ */
+  pointer-events: none; /* กันบังเมาส์ */
+}
+
+/* เนื้อหาบ้าน */
+.content,
+.hero,
+.container {
+  position: relative;
+  z-index: 2;   /* ให้อยู่เหนือดาว */
+}
+
+/* ข้อความกลางภาพ */
+.hero-text{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+  padding:40px;
+}
+
+/* ===== ป้ายบ้าน===== */
+
+.main-title{
+  font-size:39px;
+  color:gold;
+  text-shadow:0 0 30px #FFD700,0 0 45px #FFE87C;
+  line-height:1.5;
+}
+
+/* ===== ป้ายบ้านกลางจอ ===== */
+
+.hero-text{
+  position:relative;
+  z-index:10;
+  margin-top:130px;
+  text-align:center;
+  animation:moonFloat 4s ease-in-out infinite;
+}
+
+/* ===== คำโปรย ===== */
+
+.home-desc{
+  font-size:24px;
+  color:gold;
+  text-shadow:0 0 30px #FFD700,0 0 45px #FFE87C;
+  line-height:1.6;
+  text-shadow:
+    0 0 8px rgba(0,0,0,0.6);
+}
+
+/* ===== ลอยเบา ๆ ===== */
+
+@keyframes moonFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+
+/* ===============================================================โลโก้ */
+.logo{
+  height:70px;
+  width:auto !important;
+}
+
+.moon-nav{
+  height:auto;
+  display:block;
+  align-items:center;
+  gap:20px
+  padding:10px 20px;
+}
+
+
+header { 
+  height: 700px;
+  background:url("banner1.jpg");
+  center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:gold;
+}
+
+.header-info {
+   text-align: center;
+   width: 600px;
+   height: 600px;
+   color:gold;
+   font-size:1.2rem;
+}
+
+.header-info a {
+   display: block;
+   width: 80px;
+   margin-top: 1rem;
+   margin-left: auto;
+   margin-right: auto;
+   background-color: none;
+   color: gold;
+   padding: 0.5rem 1rem;
+   test-decoration: none;
+}
+
+/* ==================================================== ปุ่มเพลง ===== */
+.music-btn{
+  margin-top:30px;
+  padding:12px 24px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:rgba(0,0,0,0.6);
   color:white;
+  cursor:pointer;
+  box-shadow:0 0 10px rgba(255,215,0,0.5);
+  transition:0.3s;
+}
+.music-btn:hover{
+  box-shadow:0 0 25px rgba(255,240,150,1);
+}
+
+/* ================================================== สวนหน้าบ้าน ===== */
+.garden{
+  position:relative;
+  height:100vh; /* ลดความสูงให้จ้าวรดน้ำง่ายขึ้น */
+  background:
+    url("garden.jpg") center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:40px 20px;
+}
+
+.garden-text{
+  background:none;
+  padding:40px;
+  border-radius:15px;
+  backdrop-filter:none;
+  max-width:900px;
+  color:gold;
+}
+.garden-text h2{
+  font-size:34px;
+  margin-bottom:40px;
+}
+.garden-text p{
+  font-size:20px;
+  line-height:1.8;
+}
+.guest-message{
+  margin-top:50px;
+  font-size:20px; 
+  text-shadow:0 0 20px #FFD700;
+  text-align:center;
+  animation:none;
+}
+
+  // ดาวกระพริบตามจังหวะเพลง
+  const stars = document.querySelectorAll(".star-small, .star-medium, .star-large");
+  let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let analyser = audioCtx.createAnalyser();
+  let source = audioCtx.createMediaElementSource(music);
+  source.connect(analyser);
+  analyser.connect(audioCtx.destination);
+  analyser.fftSize = 256;
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+
+
+/* =================================================== ดาวหลายชั้น ===== */
+.star-layer{
+  position:absolute;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
+}
+.star-small{
+  background-image:
+    radial-gradient(1px 1px at 5% 10%, white, transparent),
+    radial-gradient(1px 1px at 70% 30%, white, transparent),
+    radial-gradient(1px 1px at 40% 60%, white, transparent);
+  animation:starsMoveSmall 80s linear infinite;
+}
+.star-medium{
+  background-image:
+    radial-gradient(2px 2px at 20% 25%, white, transparent),
+    radial-gradient(2px 2px at 60% 50%, white, transparent);
+  animation:starsMoveMedium 100s linear infinite;
+}
+.star-large{
+  background-image:
+    radial-gradient(3px 3px at 10% 40%, white, transparent),
+    radial-gradient(3px 3px at 80% 20%, white, transparent);
+  animation:starsMoveLarge 120s linear infinite;
+}
+@keyframes starsMoveSmall{from{transform:translateY(0);} to{transform:translateY(-150px);}}
+@keyframes starsMoveMedium{from{transform:translateY(0);} to{transform:translateY(-200px);}}
+@keyframes starsMoveLarge{from{transform:translateY(0);} to{transform:translateY(-250px);}}
+
+
+.shooting-star:nth-child(2){
+  top:45%;
+  left:-200px;
+  width:100px;
+  animation-duration:12s;
+}
+.shooting-star:nth-child(3){
+  top:45%;
+  left:-150px;
+  width:80px;
+  animation-duration:14s;
+}
+@keyframes shoot{
+  0%{transform:translate(0,0) rotate(45deg); opacity:0;}
+  10%{opacity:1;}
+  30%{transform:translate(600px,200px) rotate(45deg); opacity:0;}
+  100%{opacity:0;}
+}
+
+/* ============================================= แสงจันทร์สะท้อนน้ำ ===== */
+.moonlight{
+  position:absolute;
+  width:200%;
+  height:100%;
+  background:linear-gradient(120deg, transparent 40%,      
+  rgba(255,255,255,0.15), transparent 60%);
+  animation:moonSweep 12s linear infinite;
+}
+@keyframes moonSweep{from{transform:translateX(-50%);} to{transform:translateX(50%);}}
+
+
+ /*============================================================= ดาวตก */
+.shooting-star{
+  position:absolute;
+  top:45%;
+  left:-100px;
+  width:120px;
+  height:2px;
+  background:linear-gradient(90deg, white, transparent);
+  opacity:0;
+  animation:shoot 10s infinite;
+}
+
+<sript>
+  function animateStars(){
+    requestAnimationFrame(animateStars);
+    analyser.getByteFrequencyData(dataArray);
+    let avg = dataArray.reduce((a,b)=>a+b)/dataArray.length/255;
+    stars.forEach(star=>{
+      star.style.opacity = 0.6 + 0.4*avg;
+    });
+  }
+  animateStars();
+}
+
+/*=========================================================== ดาวหลายชั้น */
+.star-layer{
+  position:absolute;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
+}
+.star-small{
+  background-image:
+    radial-gradient(1px 1px at 5% 10%, white, transparent),
+    radial-gradient(1px 1px at 70% 30%, white, transparent),
+    radial-gradient(1px 1px at 40% 60%, white, transparent);
+  animation:starsMoveSmall 80s linear infinite;
+}
+.star-medium{
+  background-image:
+    radial-gradient(2px 2px at 20% 25%, white, transparent),
+    radial-gradient(2px 2px at 60% 50%, white, transparent);
+  animation:starsMoveMedium 100s linear infinite;
+}
+.star-large{
+  background-image:
+    radial-gradient(3px 3px at 10% 40%, white, transparent),
+    radial-gradient(3px 3px at 80% 20%, white, transparent);
+  animation:starsMoveLarge 120s linear infinite;
+}
+@keyframes starsMoveSmall{from{transform:translateY(0);} to{transform:translateY(-150px);}}
+@keyframes starsMoveMedium{from{transform:translateY(0);} to{transform:translateY(-200px);}}
+@keyframes starsMoveLarge{from{transform:translateY(0);} to{transform:translateY(-250px);}}
+
+.shooting-star:nth-child(2){top:45%; left:-200px; width:100px; animation-duration:12s;}
+.shooting-star:nth-child(3){top:45%; left:-150px; width:80px; animation-duration:14s;}
+@keyframes shoot{
+  0%{transform:translate(0,0) rotate(45deg); opacity:0;}
+  10%{opacity:1;}
+  30%{transform:translate(600px,200px) rotate(45deg); opacity:0;}
+  100%{opacity:0;}
+}
+
+
+/*========================================================== ดอกไม้ลอยช้า */
+.floating-flowers{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  font-size:30px;
+  animation:floatFlowers 12s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes floatFlowers{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+  100%{transform:translateY(0);}
+}
+/*==================================================== ชั้นดาว = อยู่หลังสุด */
+.stars,
+#starsCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;          /* สำคัญ */
+  pointer-events: none; /* กันบังเมาส์ */
+}
+
+/*=========================================================== เนื้อหาบ้าน */
+.content,
+.hero,
+.container {
+  position: relative;
+  z-index: 2;   /* ให้อยู่เหนือดาว */
+}
+
+
+/*=========================================================== กล่องเมนู */
+.moon-nav nav{
+  display:flex;
+  gap:35px;              /* ⭐ ระยะห่างแต่ละห้อง */
+  margin-left:20px;
+  flex-wrap:wrap;
+}
+
+/* ====================================================== 🌙 ปุ่ม ===== */
+.moon-btn{
+  text-decoration:none;
+  color:white;
+  font-size:16px;
+  padding:8px 16px;
+  border-radius:25px;
+  transition:all 0.4s ease;
+
+
+/*======================================================= ปุ่มเมนูแต่ละห้อง */
+.moon-nav nav a{
+  text-decoration:none;
+  color:goal;
+
+  font-size:18px;        /* ⭐ ขยายตัวหนังสือ */
+  font-weight:600;       /* ⭐ ตัวหนาสวย */
+  letter-spacing:1px;    /* ⭐ โปร่ง อ่านง่าย */
+
+  padding:8px 14px;      /* ⭐ ทำให้ห้องกว้างขึ้น */
+  border-radius:20px;
+
+  transition:0.3s;
+}
+
+.moon-btn.active{
+  background: white;      /* พื้นหลังขาว */
+  color: #1a2a4a;         /* ตัวหนังสือเข้ม */
+  box-shadow: 0 0 15px rgba(255,255,255,0.8);
+  background: white !important;
+  color: black !important;
+  color: white !important;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+.menu a,
+nav a,
+.main-menu a,
+#menu a,
+a.menu-link{
+  display:inline-block !important;
+
+  border:2px solid #1e5eff !important;
+  border-radius:28px !important;
+
+  padding:10px 16px !important;
+  margin:6px !important;
+
+  font-size:20px !important;
+  font-weight:bold !important;
+
+  text-decoration:none !important;
+  text-align:center !important;
+
+  box-shadow:0 0 12px rgba(255,255,255,0.45) !important;
+}
+
+/*====================================================== 🌙 ท้องฟ้าดาว */
+.stars{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
+
+  background:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 70% 60%, white, transparent),
+    radial-gradient(1px 1px at 40% 80%, white, transparent),
+    radial-gradient(2px 2px at 90% 20%, white, transparent);
+
+  animation:starMove 40s linear infinite;
+}
+
+@keyframes starMove{
+  from{ transform:translateY(0); }
+  to{ transform:translateY(-200px); }
+}
+
+/*======================================================= 🌙 โลโก้ต้อนรับ */
+.moon-logo{
+  height:42px;
+  animation:logoWelcome 3s ease forwards;
+}
+
+@keyframes logoWelcome{
+  0%{
+    opacity:0;
+    transform:scale(0.7);
+    filter:blur(6px);
+  }
+  60%{
+    opacity:1;
+    transform:scale(1.1);
+  }
+  100%{
+    transform:scale(1);
+    filter:blur(0);
+    }
+}
+
+/*====================================================== 🌙 แสงไหลใต้ปุ่ม */
+.moon-btn{
+  position:relative;
+  overflow:hidden;
+}
+
+/* =============================================================เส้นแสง */
+.moon-btn::before{
+  content:;
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+
+  transition:0.6s;
+}
+
+/*======================================================= เมื่อเอาเมาส์ผ่าน */
+.moon-btn:hover::before{
+  left:100%;
+}
+
+เว้นไว้ใส่ข้อ3
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ============================================== 🌙 แถบเมนูหลัก ===== */
+.moon-nav{
+  position:fixed;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:999;
+
+  display:flex;
+  align-items:center;
+  gap:30px;
+
+  padding:10px 28px;
+  border-radius:50px;
+
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:goal(12px);
+
+  box-shadow:0 0 25px rgba(255,255,255,0.15);
+
+  transition:all 0.4s ease;
+}
+
+/* ============================================= 🌙 ลอยนุ่มตอนเลื่อน ===== */
+.moon-nav.scrolled{
+  top:8px;
+  box-shadow:0 0 35px rgba(255,255,255,0.25);
+}
+
+/*====================================== 🌙 โลโก้ (แก้ปัญหาใหญ่เต็มจอ) ===== */
+.moon-logo{
+  height:42px;
+  width:auto;
+  display:block;
+}
+
+/* ==================================================== 🌙 เมนู ===== */
+.moon-menu{
+  display:flex;
+  gap:18px;
+}
+
+
+  /* ========================================================เรืองแสงช้า */
+  animation:moonGlow 4s ease-in-out infinite;
+}
+
+
+/* ======================================================🌙 ห้องที่เปิดอยู่ */
+.moon-btn.active{
+  background:rgba(255,255,255,0.2);
+  box-shadow:0 0 18px rgba(255,255,255,0.6);
+}
+
+
+/*============================================================ 🌙 hover */
+.moon-btn:hover{
+  background:rgba(255,255,255,0.15);
+  transform:translateY(-2px);
+}
+
+
+/* ============================================== 🌙 แสงจันทร์เต้นช้า ===== */
+@keyframes moonGlow{
+  0%{ text-shadow:0 0 5px rgba(255,255,255,0.3); }
+  50%{ text-shadow:0 0 14px rgba(255,255,255,0.9); }
+  100%{ text-shadow:0 0 5px rgba(255,255,255,0.3); } 
+}
+
+.moon-btn{
+  font-size:14px;     /* ⭐ ลดขนาดตัวอักษร */
+  font-weight:600;    /* ยังหนาเหมือนเดิม */
+
+  padding:6px 14px;   /* ⭐ ลดความอ้วนปุ่มนิดเดียว */
+
+  text-decoration:none;
+  color:white;
+  border-radius:25px;
+  transition:all 0.4s ease;
+}
+
+/* ===============================================================แถบบน */
+.topbar{
+  width:100%;
+  height:20px;
+  background:rgba(0,0,0,0.5);
+
+  display:flex;
+  align-items:center;
+  gap:20px;
+
+  padding:0 30px;
+}
+
+/* ========================================== FIX แถบบ้านแห่งแสงจันทร์ ===== */
+
+.moon-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:14px 32px;
+  box-sizing:border-box;
+
+  background:rgba(10,10,25,0.65);
+  backdrop-filter:goal(12px);
+
+  z-index:9999;
+}
+
+/*=============================================================== โลโก้ */
+.moon-nav img{
+  height:60px;
+  width:auto;
+}
+
+/*=========================================================คลาสของห้อง */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+/*==========================================================การจัดห้อง==/
+
+/*===== ห้องเรื่องเล่า=====*/
+
+.story-room{
+  text-align:center;
+  padding:80px 20px;
+}
+
+.story-category{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:25px;
+  margin-top:40px;
+}
+
+.story-box{
+  width:220px;
+  padding:30px;
+  background:rgba(255,255,255,0.08);
+  border-radius:15px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  transition:0.4s;
+}
+
+.story-box:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+/*=============================================================== เมนู */
+
+.moon-menu{
+  position:fixed;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:99999;
+
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+
+  width:90%;
+  padding:10px;
+
+  background:none;
+  border-radius:18px;
+}
+
+.moon-menu a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:34px;
+  padding:0 12px;
+  border-radius:999px;
+  background:#c79b2c;
+  color:white !important;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,0.35);
+  box-shadow:0 2px 6px rgba(0,0,0,0.25);
+  font-size:17px;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.moon-menu a:visited{
+  color:white !important;
+}
+
+.moon-menu a.active{
+  background:white;
+  color:#5a3b12 !important;
+  font-weight:bold;
 }
 
 /* ===== ดาวตก ===== */
@@ -1113,10 +1885,10 @@ function calculate(){
   <!--===================================================== แถบบน -->
 <header class="moon-nav">
   
+   <nav class="moon-menu">
   <img src="logo.png" alt="logo" class="logo">
 
-<nav>
-    <a href="home.html" class=moon-btn">
+    <a href="home.html" class="moon-btn">
     🏡Home 
 </a>
     <a href="rest.html" class=moon-btn"> 
@@ -1125,32 +1897,26 @@ function calculate(){
     <a href="light.html" class=moon-btn"> 
     ✨แสงนำทาง
 </a>
+    <a href="dharma.html" class=moon-btn"> 
+        🔆แสงธรรม
+</a>
+   <a href="story.html" class=moon-btn active"> 
+    📖เรื่องเล่า
+</a>
     <a href="books.html" class=moon-btn"> 
     📚หนังสือ/นิยาย
 </a>
       <a href="poem.html" class=moon-btn"> 
     🪶กลอน/บทกวี
 </a>
-      <a href="movies.html" class=moon-btn"> 
-    🎬Movies
-</a>
      <a href="music.html" class=moon-btn"> 
-    🎵ห้องเพลง
+    🎵เพลง
 </a>
         <a href="smile.html" class=moon-btn"> 
     💛รอยยิ้ม
-</a>
-      <a href="story.html" class=moon-btn active"> 
-    📖เรื่องเล่า
-</a>
-    <a href="Just-kidding" class=moon-btn"> 
+</a> 
+    <a href="kidding.html" class=moon-btn"> 
     📖แซว!เล่นๆ
-</a>
-      <a href="foods.html" class=moon-btn"> 
-    💌อาหารการกิน
-</a>
-      <a href="Travel-Thailand.html" class=moon-btn"> 
-    💛เที่ยวทั่วไทย
 </a>
       <a href=feel.html" class=moon-btn"> 
     💌ฝากความรู้สึก
