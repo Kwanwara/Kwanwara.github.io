@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>บ้านแห่งแสงจันทร์</title>
 
 <style>
@@ -25,23 +24,6 @@ body{
     );
 }
 
-body{
-  color:#d9a92f;
-}
-
-.main-title,
-.hero-text,
-.hero-text p,
-.story-card,
-.story-card h2,
-.story-card p{
-  color:#d9a92f !important;
-
-  text-shadow:
-    0 0 6px rgba(0,0,0,0.85),
-    0 0 14px rgba(0,0,0,0.65);
-}
-
 /* ===== HERO (ปกบ้าน) ===== */
 .hero{
   position:relative;
@@ -54,19 +36,77 @@ body{
   color:gold;
   min-height:105vh;
   background-position:center bottom;
-  flex-direction:column;
 }
-/* ===== ข้อความทั้งหมด ===== */
 
+.home-desc{
+  font-size:clamp(16px,5vw,22px);
+  line-height:1.7;
+  color:#d9a92f;
+}
+
+/* ===== ดาวตก ===== */
+.shooting-star{
+  position:absolute;
+  top:45%;
+  left:-100px;
+  width:120px;
+  height:2px;
+  background:linear-gradient(90deg, white, transparent);
+  opacity:0;
+  animation:shoot 10s infinite;
+}
+.shooting-star:nth-child(2){
+  top:45%;
+  left:-200px;
+  width:100px;
+  animation-duration:12s;
+}
+.shooting-star:nth-child(3){
+  top:45%;
+  left:-150px;
+  width:80px;
+  animation-duration:14s;
+}
+@keyframes shoot{
+  0%{transform:translate(0,0) rotate(45deg); opacity:0;}
+  10%{opacity:1;}
+  30%{transform:translate(600px,200px) rotate(45deg); opacity:0;}
+  100%{opacity:0;}
+}
+
+/* ===== แสงจันทร์สะท้อนน้ำ ===== */
+.moonlight{
+  position:absolute;
+  width:200%;
+  height:100%;
+  background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.15), transparent 60%);
+  animation:moonSweep 12s linear infinite;
+}
+@keyframes moonSweep{from{transform:translateX(-50%);} to{transform:translateX(50%);}}
+
+
+/* ชั้นดาว = อยู่หลังสุด */
+.stars,
+#starsCanvas {
+  position: fixed;
+  top:45;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;          /* สำคัญ */
+  pointer-events: none; /* กันบังเมาส์ */
+}
+
+/* เนื้อหาบ้าน */
+.content,
 .hero,
-.hero *{
-  color:#f2c35b;
-  text-shadow:
-    0 0 6px rgba(0,0,0,0.88),
-    0 0 16px rgba(0,0,0,0.65);
+.container {
+  position: relative;
+  z-index: 2;   /* ให้อยู่เหนือดาว */
 }
 
- .hero-text{
+/* ข้อความกลางภาพ */
+.hero-text{
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -74,58 +114,21 @@ body{
   padding:40px;
   position:relative;
   z-index:10;
-  margin-top:35px;
+  margin-top:130px;
   text-align:center;
   animation:moonFloat 4s ease-in-out infinite;
-   font-size:22px;
-  max-width:800px;
-  font-size:(34px,6vw,58px);
 }
 
-@media(max-width:768px){
-
-  .main-title{
-    line-height:1.35 !important;
-  padding-top:80px;
-    color:#d9a92f;
-  font-weight:bold;
-  text-shadow:
-    0 0 8px rgba(0,0,0,0.85),
-    0 0 18px rgba(0,0,0,0.65);
-  text-align:center;
-  margin-bottom:24px;
-}}
+/* ===== ป้ายบ้าน===== */
 
 .main-title{
- font-size:clamp(28px,vw,42px);
-  }
-
-.hero-text p{
-  font-size:1.6rem;
-  line-height:1.7;
+  font-size:36px;
+  color:gold;
+  text-shadow:0 0 30px #FFD700,0 0 45px #FFE87C;
+  line-height:1.5;
 }
 
-<!-- ===== Moon Music ===== -->
 
-.moon-music{
-  position:absolute;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.moon-music audio{
-  width:260px;
-  max-width:90%;
-}
-
-/*เนื้อหาบ้าน */
-.content,
-.hero,
-.container {
-  position: relative;
-  z-index: 2;   /* ให้อยู่เหนือดาว */
-}
 
 /* ===== ลอยเบา ๆ ===== */
 
@@ -221,95 +224,89 @@ body{
   pointer-events: none; /* กันบังเมาส์ */
 }
 
+/* ==================================================== ปุ่มเพลง ===== */
+.music-btn{
+  margin-top:30px;
+  padding:12px 24px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 10px rgba(255,215,0,0.5);
+  transition:0.3s;
+}
+.music-btn:hover{
+  box-shadow:0 0 25px rgba(255,240,150,1);
+}
 
 /* ================================================== welcome ===== */
 
-.moon-home-title{
-  font-size:36px;
-  color:#f3d27a;
-  text-align:center;
-  margin-bottom:22px;
-  text-shadow:
-    0 0 12px rgba(243,210,122,0.35),
-    0 0 24px rgba(0,0,0,0.85);
-}
-
 /* ===== Welcome + ขอบคุณ ===== */
 .welcome-title{
-  font-size:20px;
-  color:#f3d27a;
+  font-size:22px;
+  color:#d9a92f;
   text-align:center;
   margin:20px 0;
-  text-shadow:
-    0 0 10px rgba(243,210,122,0.3),
-    0 0 20px rgba(0,0,0,0.85);
+  text-shadow:none;
 }
 .welcome-text{
-  font-size:17px;
+  font-size:20px;
   line-height:1.8;
-  color:#f3d27a;
+  color:#d9a92f;
 }
 
-/* ================================================= MENU */
-/* ===== พื้นเมนู ===== */
-.moon-nav{
-  background:transparent;
-  box-shadow:none;
-  backdrop-filter:none;
-}
+/*=============================================================== เมนู */
+
 .moon-menu{
+  position:fixed;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:99999;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  width:90%;
+  padding:10px;
+  background:none;
+  border-radius:18px;
+}
+
+.moon-menu a{
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-}
-/* ===== ปุ่มเมนู ===== */
-.moon-menu a{
-  background:
-    rgba(255,255,255,0.08);
-  border:
-    1px solid rgba(243,210,122,0.16);
-  color:#f8e7b0;
-  text-shadow:
-    0 0 6px rgba(0,0,0,0.85),
-    0 0 14px rgba(0,0,0,0.65);
+  height:34px;
+  padding:0 12px;
+  border-radius:999px;
+  background:#c79b2c;
+  color:white !important;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,0.35);
+  box-shadow:0 2px 6px rgba(0,0,0,0.25);
+  font-size:17px;
+  line-height:1;
+  white-space:nowrap;
 }
 
-/* ===== hover ===== */
-.moon-menu a:hover{
-  background:
-    rgba(255,255,255,0.14);
-  color:#fff2c9;
+.moon-menu a:visited{
+  color:white !important;
 }
 
+.moon-menu a.active{
+  background:white;
+  color:#5a3b12 !important;
+  font-weight:bold;
+}
 /* ===== โลโก้ ===== */
 
 .logo{
   width:54px;
   height:auto;
   margin-right:10px;
-}
-
-/* ===== ปุ่มเมนู ===== */
-.moon-menu a{
-  display:inline-block;
-  padding:7px 14px;
-  border-radius:999px;
-  background:rgba(0,0,0,0.72);
-  border:
-    1px solid rgba(243,210,122,0.28);
-  color:#f3d27a;
-  text-decoration:none;
-  font-size:14px;
-  transition:0.25s;
-}
-
-/* ===== hover ===== */
-.moon-menu a:hover{
-  background:rgba(243,210,122,0.14);
-  box-shadow:
-    0 0 10px rgba(243,210,122,0.25);
 }
 
 
@@ -445,7 +442,6 @@ border:
   }
 }
 
-
 /* ===== MOBILE ===== */
 @media(max-width:768px){
 
@@ -495,7 +491,6 @@ border:
   background:rgba(243,210,122,0.12);
   transform:scale(1.03);
 }
-
 
 .bottom-actions{
   text-align:center;
@@ -876,12 +871,10 @@ visitor-temp{
 
 <!--=====================================================MENU -->
 
-<header class="moon-nav">
-  <nav class="moon-menu">
+<nav class="moon-menu">
   <img src="logo.png" alt="logo" class="logo">
 
-<nav class="moon-menu">
-<a href="home.html" class="moon-btn">
+    <a href="home.html" class="moon-btn">
     🏡Home 
 </a>
     <a href="rest.html" class=moon-btn"> 
@@ -917,56 +910,103 @@ visitor-temp{
 </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-text">
-    <h1 class="main-title">ห้อง🔆แสงธรรม<br>🌜บ้านแห่งแสงจันทร์🌛</h1>
-    <p>
-      “แสงที่ไม่ส่องออกไปภายนอก<br>
-      แต่ค่อย ๆ สว่างขึ้นจากข้างใน”
-    </p>
-  </div>
+  <section class="hero">
 
-<!-- ===== Moon Music ===== -->
-<div class="moon-music">
-<audio controls autoplay loop>
-  <source src="dharma-song.mp3" type="audio/mpeg">
-</audio>
-</div>
-</section>
-
-<!-- ===== WELCOME ===== -->
-<section class="hero">
 <div class="star-layer star-small"></div>
 <div class="star-layer star-medium"></div>
 <div class="star-layer star-large"></div>
 <div class="shooting-star"></div>
 <div class="shooting-star"></div>
 <div class="shooting-star"></div>
-<div class="moon-home-title">
-🌜บ้านแห่งแสงจันทร์🌛
-</div>
-<div class="welcome-title">
-🌼 🌸 🌼Welcome🌼 🌸 🌼
-</div>
-<p class="welcome-text">
-ยินดีต้อนรับสู่ “ห้องแสงธรรม”<br>
-แห่งบ้านแสงจันทร์ ของ "จันทร์&จ้าว"<br>
-ห้องที่ไม่ได้ให้คำตอบสำเร็จรูป<br>
-แต่ชวนให้ค่อย ๆ มอง…ค่อย ๆ เข้าใจ<br>
-บางคำอาจเรียบง่าย แต่หากหยุดอ่านสักนิด<br>
-อาจพบคำตอบที่อยู่ในใจตัวเอง
+
+<div class="floating-flowers">🌼 🌸 🌼 🌸 🌺</div>
+
+ <div class="hero-text">
+    <h1 class="main-title">ห้อง🔆แสงธรรม🔆<br>🌜บ้านแห่งแสงจันทร์🌛</h1>
+   
+<p class="home-desc">
+     แสงธรรมนำทางใจ ให้สงบเบา<br>
+         วางทุกเรื่องราวชั่วคราว ให้เป็นเพียงความฝัน<br>
+          รู้เท่าทัน ปล่อยวาง สร้างทางให้ใจเป็นอิสระ
 </p>
+
+    <button onclick="playMusic()" class="music-btn">🌛 เปิดเสียงห้องแสงธรรม
+</button>
+  </div>
+</section>
+
+<section>
+<audio id="bg-moon" loop>
+  <source src="dharma-song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playMusic(){
+  const music = document.getElementById("bg-moon");
+  music.volume = 0.4;
+  music.play().then(()=>console.log("เล่นเพลงแล้ว"))
+  .catch(err=>alert("หาไฟล์เสียงไม่เจอ"));
+}
+</script>
+</section>
+
+<script>
+function openRoom(roomId){
+  const rooms = document.querySelectorAll('.room-content');
+  rooms.forEach(room => room.style.display = 'none');
+  const target = document.getElementById(roomId);
+  if(target){target.style.display = 'block';}
+}
+
+  window.onload = function(){
+  openRoom('home');
+}
+</script>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+
+<!-- ===== ดาวหลายชั้น ===== -->
+<div class="star-layer star-small"></div>
+<div class="star-layer star-medium"></div>
+<div class="star-layer star-large"></div>
+
+<!-- ===== ดาวตก ===== -->
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+
+ <div class="-text">
+
 <div class="welcome-title">
-🌼 🌸 🌼คำขอบคุณ🌼 🌸 🌼
+ <h2>🌼 🌸 🌼Welcome🌼 🌸 🌼</h2>
 </div>
-<p class="welcome-text">
-ขอบคุณทุกการแวะเข้ามา<br>
-ไม่ว่าจะตั้งใจหรือบังเอิญ<br>
-ทุกการอ่าน คือการให้เวลากับใจตัวเอง<br>
-ขอให้แสงเล็ก ๆ จากห้องนี้<br>
-ค่อย ๆ อยู่เป็นเพื่อน…ในวันที่ต้องการ 🌙
+
+ <div class="welcome-text">
+    <p>ยินดีต้อนรับ สู่ห้องแสงธรรม<br>
+       แห่งบ้านแสงจันทร์ ของ"จันทร์&จ้าว"<br>
+    ห้องที่ไม่ได้ให้คำตอบสำเร็จรูป<br>
+        แต่ชวนให้ค่อยๆมอง..ค่อยๆเข้าใจ<br>
+    บางคำอาจเรียบง่าย แต่หากหยุดอ่านสักนิด<br> 
+       คุณอาจพบคำตอบที่อยู่ในใจตัวเอง
 </p>
 </div>
+
+
+ <div class="welcome-title">
+     <p>🌼 🌸 🌼คำขอบคุณ🌼 🌸 🌼</p>
+</div>
+
+ <div class="welcome-text">
+   <p>ขอบคุณทุกการแวะเข้ามา<br>
+       ไม่ว่าจะตั้งใจ หรือบังเอิญ<br>
+    ทุกการอ่าน คือการให้เวลากับใจตัวเอง<br>
+        ขอให้แสงเล็กๆ จากห้องนี้<br>
+    ค่อยๆ อยู่เป็นเพื่อน...ในวันที่คุณต้องการ<br> 
+</p>
+</div>
+
+<p>🌼 🌸 🌼🌼 🌸 🌼 🌼 🌸🌼 🌼 🌸🌼</p>
 </div>
 </section>
 </header>
@@ -1499,13 +1539,13 @@ quotes2[new Date().getDate() % quotes2.length];
     </div>
   </aside>
 
-  <footer class="footer">
-   <p>@@@ บ้านแห่งแสงจันทร์ "จันทร์ & จ้าว" @@@</p>
-<p>🌼 🌸 🌼🤍✨ บ้านที่อยากสร้างพลังบวกและการส่งต่อความดี
-ให้โลกนี้มีรอยยิ้มและสวยงาม  ✨🤍🌼 🌸 🌼</p> 
-  </footer>
+<footer class="footer">
+<p>@@@ บ้านแห่งแสงจันทร์ "จันทร์ & จ้าว" @@@</p>
+<p>🤍✨ บ้านที่อยากสร้างพลังบวก✨🤍</p>
+<p> 🌸 🌼และการส่งต่อความดี 🌼 🌸 </p> 
+<p>🌼 🌸 🌼ให้โลกนี้มีรอยยิ้มและสวยงาม🌼 🌸 🌼</p> 
+</footer>
 
-</section>
-
-</body>
-</html>
+ </body>
+                                                               
+ </html>
