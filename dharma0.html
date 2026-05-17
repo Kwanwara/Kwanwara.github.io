@@ -389,7 +389,7 @@ border:
    color:gold;
 }
 .story-card p{
-  font-size:0.95rem;
+  font-size:1.10rem;
   line-height:1.6;
 }
 .story-card a{
@@ -415,7 +415,7 @@ border:
   margin:10px auto 34px;
   border-radius:999px;
   background:
-    rgba(0,0,0,0.42);
+    rgba(20,25,35,0.28);
   backdrop-filter:blur(8px);
   border:
     1px solid rgba(243,210,122,0.30);
@@ -478,51 +478,6 @@ border:
     width:92%;
     margin:auto;
   }
-}
-
-/* ================================================= ปุ่มเปิดอ่าน */
-
-.open-btn{
-  display:inline-block;
-  margin:28px auto;
-  padding:12px 24px;
-  border-radius:999px;
-  background:rgba(0,0,0,0.72);
-  border:
-    1px solid rgba(243,210,122,0.28);
-   color:gold;
-  text-decoration:none;
-  font-size:20px;
-  text-align:center;
-  box-shadow:
-    0 0 12px rgba(243,210,122,0.12);
-  transition:0.25s;
-}
-
-/* ===== hover ===== */
-
-.open-btn:hover{
-  background:rgba(243,210,122,0.12);
-  transform:scale(1.03);
-}
-
-.bottom-actions{
-  text-align:center;
-  margin:40px 0 30px;
-}
-
-.music-btn,
-.back-top-btn{
-  display:inline-block;
-  padding:10px 22px;
-  margin:8px;
-  border-radius:999px;
-  background:rgba(0,0,0,0.72);
-  border:
-    1px solid rgba(243,210,122,0.35);
-   color:gold;
-  font-size:18px;
-  text-decoration:none;
 }
 
 
@@ -872,10 +827,33 @@ visitor-temp{
 
 /* ===== FOOTER ===== */
 .footer{
-  grid-column:1 / 4;
-  text-align:center;
-  padding:35px 20px;
+
+  background:
+    linear-gradient(
+      rgba(20,25,35,0.22),
+      rgba(20,25,35,0.22)
+    ),
+    url("footer.jpg")
+    center/cover no-repeat;
+  backdrop-filter:blur(8px);
+  border-top:
+    1px solid rgba(243,210,122,0.22);
   color:#f3d27a;
+}
+
+/* ===== ปุ่มย้อนกลับบน ===== */
+
+.back-top-btn{
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:999px;
+  background:rgba(20,25,35,0.32);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(243,210,122,0.30);
+  color:#f3d27a;
+  font-size:18px;
+  text-decoration:none;
+  box-shadow:0 0 12px rgba(243,210,122,0.15);
 }
 
 </style>
@@ -1260,131 +1238,88 @@ function moonCalculate(){
   
     <h2>🔆แสงธรรม 1</h2>
     <p>สวรรค์ในอก นรกในใจ<br>👉สุขหรือทุกข์ อยู่ที่ใจของเราเอง</p>
-    <a href="dharma1.html">เปิดอ่าน</a>
+    <a href="dharma1.html" class="open-btn">เปิดอ่าน</a>
   </div>
 
   <div class="story-card">
     <h2>🔆แสงธรรม 2</h2>
    <p>ใจที่รู้ทัน<br>👉 ว่าด้วยการ “เห็นความคิด” โดยไม่หลงไปกับมัน</p>
-    <a href="dharma2.html">เปิดอ่าน</a>
+    <a href="dharma2.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
 <div class="story-card">
     <h2>🔆แสงธรรม 3</h2>
     <p>ปล่อยวาง…ไม่ใช่ปล่อยปละ<br>👉 เข้าใจความต่างระหว่างการวาง กับการหนี</p>
-   <a href="dharma3.html">เปิดอ่าน</a>
+   <a href="dharma3.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
   <div class="story-card">
     <h2>🔆แสงธรรม 4</h2>
     <p>ทุกข์…เพราะยึด<br>👉จุดเริ่มต้นของความทุกข์ที่เกิดจากการยึดถือ</p>
-   <a href="dharma4.html">เปิดอ่าน</a>
+   <a href="dharma4.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
 <div class="story-card">
     <h2>🔆แสงธรรม 5</h2>
     <p> พอ…คือพอดี<br> 👉 ความสุขจากความพอ ไม่ใช่การมีมาก</p>
-    <a href="dharma5.html">เปิดอ่าน</a>
+    <a href="dharma5.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
   <div class="story-card">
     <h2>🔆แสงธรรม 6</h2>
     <p>ความเงียบที่ไม่ว่างเปล่า<br>👉 ความสงบที่มี “ความหมาย” อยู่ข้างใน</p>
-    <a href="dharma6.html">เปิดอ่าน</a>
+    <a href="dharma6.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
 <div class="story-card">
     <h2>🔆แสงธรรม 7</h2>
     <p>ความคิด…ไม่ใช่ความจริง<br> 👉 แยก “สิ่งที่คิด” ออกจาก “สิ่งที่เป็น”</p>
-    <a href="dharma7.html">เปิดอ่าน</a>
+    <a href="dharma7.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
   <div class="story-card">
     <h2>🔆แสงธรรม 8</h2>
     <p> อยู่กับปัจจุบัน<br>👉 ไม่ดึงอดีต ไม่กังวลอนาคต</p>
-    <a href="dharma8.html">เปิดอ่าน</a>
+    <a href="dharma8.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
   <div class="story-card">
     <h2>🔆แสงธรรม 9</h2>
     <p>เมตตา…เริ่มที่ใจเรา<br> 👉 การอ่อนโยนกับตัวเองและผู้อื่น</p>
-    <a href="dharma9.html">เปิดอ่าน</a>
+    <a href="dharma9.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
  <div class="story-card">
     <h2>🔆แสงธรรม 10</h2>
     <p>ทางสายกลาง<br>👉 ไม่สุดโต่ง ไม่กด ไม่ปล่อยเกิน</p>
-    <a href="dharma10.html">เปิดอ่าน</a>
+    <a href="dharma10.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
   <div class="story-card">
     <h2>🔆แสงธรรม 11</h2>
     <p>ความธรรมดาที่ไม่ธรรมดา<br>👉เห็นคุณค่าของสิ่งเรียบง่าย</p>
-    <a href="dharma11.html">เปิดอ่าน</a>
+    <a href="dharma11.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
 <div class="story-card">
     <h2>🔆แสงธรรม  12 </h2>
     <p>แสงที่ไม่ต้องตามหา<br> 👉 สิ่งที่ตามหา…จริง ๆ อยู่กับเรามาตลอด</p>
-    <a href="dharma12.html">เปิดอ่าน</a>
+    <a href="dharma12.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
   <div class="story-card">
     <h2>🔆แสงธรรม 13</h2>
     <p>เมตตา…เริ่มที่ใจเรา<br> 👉 การอ่อนโยนกับตัวเองและผู้อื่น</p>
-    <a href="dharma13.html">เปิดอ่าน</a>
+    <a href="dharma13.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
  <div class="story-card">
     <h2>🔆แสงธรรม 14</h2>
     <p>ทางสายกลาง<br>👉 ไม่สุดโต่ง ไม่กด ไม่ปล่อยเกิน</p>
-    <a href="dharma14.html">เปิดอ่าน</a>
-  </div>
-
-  <div class="story-card">
-    <h2>🔆แสงธรรม 15</h2>
-    <p>ความธรรมดาที่ไม่ธรรมดา<br>👉เห็นคุณค่าของสิ่งเรียบง่าย</p>
-    <a href="dharma15.html">เปิดอ่าน</a>
-  </div>
-
-<div class="story-card">
-    <h2>🔆แสงธรรม  16 </h2>
-    <p>แสงที่ไม่ต้องตามหา<br> 👉 สิ่งที่ตามหา…จริง ๆ อยู่กับเรามาตลอด</p>
-    <a href="dharma12.html">เปิดอ่าน</a>
-  </div>
-
-  <div class="story-card">
-    <h2>🔆แสงธรรม 17</h2>
-    <p>เมตตา…เริ่มที่ใจเรา<br> 👉 การอ่อนโยนกับตัวเองและผู้อื่น</p>
-    <a href="dharma13.html">เปิดอ่าน</a>
-  </div>
-
- <div class="story-card">
-    <h2>🔆แสงธรรม 18</h2>
-    <p>ทางสายกลาง<br>👉 ไม่สุดโต่ง ไม่กด ไม่ปล่อยเกิน</p>
-    <a href="dharma14.html">เปิดอ่าน</a>
-  </div>
-
-  <div class="story-card">
-    <h2>🔆แสงธรรม 19</h2>
-    <p>เมตตา…เริ่มที่ใจเรา<br> 👉 การอ่อนโยนกับตัวเองและผู้อื่น</p>
-    <a href="dharma13.html">เปิดอ่าน</a>
-  </div>
-
- <div class="story-card">
-    <h2>🔆แสงธรรม 20</h2>
-    <p>ทางสายกลาง<br>👉 ไม่สุดโต่ง ไม่กด ไม่ปล่อยเกิน</p>
-    <a href="dharma14.html">เปิดอ่าน</a>
+    <a href="dharma14.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
  </div>
-
-<!-- ===== Moon Music ===== -->
-<div class="moon-music">
-<audio controls autoplay loop>
-  <source src="dharma-song.mp3" type="audio/mpeg">
-</audio>
-</div>
 
   <a href="#door1" class="back-top-btn">
     ⬆ ย้อนกลับบน
