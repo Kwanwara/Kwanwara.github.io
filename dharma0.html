@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บ้านแห่งแสงจันทร์</title>
+<title>ห้อง แสงธรรม</title>
 
 <style>
 
@@ -39,7 +39,7 @@ body{
 }
 
 .home-desc{
-  font-size:clamp(16px,5vw,22px);
+  font-size:clamp(15px,3vw,20px);
   line-height:1.7;
   color:gold;
 }
@@ -133,7 +133,7 @@ body{
 /* ===== ป้ายบ้าน===== */
 
 .main-title{
-  font-size:36px;
+  font-size:32px;
   color:gold;
   text-shadow:0 0 30px #FFD700,0 0 45px #FFE87C;
   line-height:1.5;
@@ -271,7 +271,7 @@ body{
 /*=============================================================== เมนู */
 
 .moon-menu{
-  position:fixed;
+  position:relative;
   top:10px;
   left:50%;
   transform:translateX(-50%);
@@ -301,7 +301,7 @@ body{
    border:
     1px solid rgba(180,220,255,0.22);
   box-shadow:0 2px 6px rgba(0,0,0,0.25);
-  font-size:17px;
+  font-size:16.5px;
   line-height:1;
   white-space:nowrap;
 }
@@ -324,8 +324,10 @@ body{
 }
 
 nav a.active{
+
   background:
     rgba(243,210,122,0.18);
+
   color:#ffe8a3;
   border:
     1px solid rgba(243,210,122,0.55);
@@ -336,8 +338,8 @@ nav a.active{
 /* ===== HALL ===== */
 .layout{
   display:grid;
-  grid-template-columns:360px 600px 280px;
-  gap:20px;
+  grid-template-columns:360px 700px 280px;
+  gap:0px;
   justify-content:center;
   align-items:start;
   padding:40px 20px;
@@ -380,7 +382,7 @@ border:
 .story-walk{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:14px;
+  gap:0px;
 }
 .story-card{
   background:none;
@@ -511,16 +513,11 @@ border:
 
 /* =================================== Visitors ===== */
 
-<div class="visitor-temp">000888</div>
-
-.visitor-temp{
-  display:inline-block;
-  padding:8px 16px;
-  background:none;
-  color:#f3d27a;
-  font-size:22px;
-  letter-spacing:3px;
-  border-radius:10px;
+.visitor-counter{
+  width:140px;
+  display:block;
+  margin:12px auto;
+  opacity:0.95;
 }
 
 /* =================================== Vintage Moon Clock ===== */
@@ -834,6 +831,77 @@ visitor-temp{
   margin:0 auto 14px;
 }
 
+#moon-quote{
+  font-size:20px;
+  line-height:1.8;
+  color:#fff4d0;
+}
+
+#moon-quote2{
+  font-size:20px;
+  line-height:1.8;
+  color:#fff4d0;
+}
+
+/* ===== ท้ายบ้าน ===== */
+
+.bottom-layout{
+  display:flex;
+  justify-content:center;
+  gap:0px;
+  flex-wrap:wrap;
+  margin:40px auto 20px;
+}
+
+.about-box img{
+  width:80px;
+  margin:6px;
+  border-radius:10px;
+}
+
+.back-top-btn{
+  display:block;
+  width:fit-content;
+  margin:30px auto;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(4,1fr);
+  gap:0px;
+  justify-items:center;
+}
+
+.about-grid img{
+  width:58px;
+  border-radius:10px;
+}
+
+/* ===== ปุ่มย้อนกลับบน ===== */
+
+.back-top-btn{
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:999px;
+  background:rgba(20,25,35,0.32);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(243,210,122,0.30);
+  color:#f3d27a;
+  font-size:18px;
+  text-decoration:none;
+  box-shadow:0 0 12px rgba(243,210,122,0.15);
+  width:fit-content;
+  margin:30px auto 0;
+  clear:both;
+}
+
+.back-wrap{
+  width:100%;
+  text-align:center;
+  margin:28px 0 20px;
+}
+
 /* ===== FOOTER ===== */
 .footer{
 
@@ -850,21 +918,6 @@ visitor-temp{
   color:#f3d27a;
 }
 
-/* ===== ปุ่มย้อนกลับบน ===== */
-
-.back-top-btn{
-  display:inline-block;
-  padding:10px 22px;
-  border-radius:999px;
-  background:rgba(20,25,35,0.32);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(243,210,122,0.30);
-  color:#f3d27a;
-  font-size:18px;
-  text-decoration:none;
-  box-shadow:0 0 12px rgba(243,210,122,0.15);
-}
-
 </style>
 </head>
 
@@ -878,34 +931,34 @@ visitor-temp{
     <a href="home.html" class="moon-btn">
     🏡Home 
 </a>
-    <a href="rest.html" class=moon-btn"> 
+    <a href="rest.html" class="moon-btn"> 
     🌿ห้องพักใจ
 </a>
-    <a href="light.html" class=moon-btn"> 
+    <a href="light.html" class="moon-btn"> 
     ✨แสงนำทาง
 </a>
-    <a href="dharma0.html" class=moon-btn active"> 
+    <a href="dharma0.html" class="moon-btn active"> 
         🔆แสงธรรม
 </a>
-   <a href="story.html" class=moon-btn"> 
+   <a href="story.html" class="moon-btn"> 
     📖เรื่องเล่า
 </a>
-    <a href="books.html" class=moon-btn"> 
+    <a href="books.html" class="moon-btn"> 
     📚หนังสือ/นิยาย
 </a>
-      <a href="poem.html" class=moon-btn"> 
+      <a href="poem.html" class="moon-btn"> 
     🪶กลอน/บทกวี
 </a>
-     <a href="music.html" class=moon-btn"> 
+     <a href="music.html" class="moon-btn"> 
     🎵เพลง
 </a>
-        <a href="smile.html" class=moon-btn"> 
+        <a href="smile.html" class="moon-btn"> 
     💛รอยยิ้ม
 </a> 
-    <a href="kidding.html" class=moon-btn"> 
+    <a href="kidding.html" class="moon-btn"> 
     📖แซว!เล่นๆ
 </a>
-      <a href=feel.html" class=moon-btn"> 
+      <a href=feel.html" class="moon-btn"> 
     💌ฝากความรู้สึก
 </a>
 </nav>
@@ -1025,8 +1078,15 @@ function openRoom(roomId){
 <!-- ===== Moon Visitors ===== -->
 <div class="moon-box visitor-box">
   <h3>🌙 Moon Visitors</h3>
-  <div class="visitor-temp">000888</div>
+  <div class="visitor-temp"><a href="<a href="https://visitorbadge.io/status?path=https%3A%2F%2Fkwanwara.github.io">
+  <img
+    src="https://api.visitorbadge.io/api/daily?path=https%3A%2F%2Fkwanwara.github.io&label=000000&countColor=%23ff8a65&style=plastic&labelStyle=upper"
+    class="visitor-counter"
+    alt="Moon Visitors"/>
+</a>
 </div>
+</div>
+
 
 <!-- ===== Moon Clock ===== -->
 <!-- Clock -->
@@ -1328,15 +1388,41 @@ function moonCalculate(){
     <a href="dharma14.html"class="open-btn">เปิดอ่าน</a>
   </div>
 
- </div>
+ <div class="story-card">
+ <div class="bottom-layout">
+ <div class="moon-box visitor-box">
+    <h3>🌙 Moon Visitors</h3>
+   <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fkwanwara.github.io">
+   <img src="https://api.visitorbadge.io/api/daily?path=https%3A%2F%2Fkwanwara.github.io&label=000000&countColor=%23ff8a65&style=plastic&labelStyle=upper"
+        class="visitor-counter"
+        alt="Moon Visitors">
+    </a>
+  </div>
+  </div>
+</div>
 
-  <a href="#door1" class="back-top-btn">
+ <div class="story-card">
+    <h2>about Jao</h2>
+<div class="about-grid">
+<a href="https://www.facebook.com/phichychananthdrkhwaywra/"><img src="icon-my-fb.png" width="100"></a>
+<a href="https://www.instagram.com/kwunwara_pichayachanan/"><img src="icon-my-ig.png" width="100"></a>
+<a href="https://www.youtube.com/results?search_query=%40%E0%B8%AA%E0%B8%AD%E0%B8%87%E0%B8%95%E0%B8%B2%E0%B8%A2%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B9%84%E0%B8%9B%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B8%96%E0%B8%B4%E0%B9%88%E0%B8%99/"><img src="icon-ta-yay.png" width="100"></a>
+<a href="https://www.facebook.com/profile.php?id=100076154902785/"><img src="icon-yay.png" width="100"></a>
+<a href="https://www.facebook.com/profile.php?id=61559261327954/"><img src="icon-thailand.png" width="100"></a>
+<a href="https://www.facebook.com/bin.deiyw.theiyw.thiy/"><img src="icon-tiawthaialone.png" width="100"></a>
+<a href="https://www.facebook.com/profile.php?id=100063246969593/"><img src="icon-food0.png" width="100"></a>
+<a href="https://www.facebook.com/profile.php?id=100066780887905/"><img src="icon-doonang.png" width="100"></a>
+  </div>
+</div>
+
+</div> <!-- ปิด bottom-layout -->
+
+<div class="back-wrap">
+  <a href="#top" class="back-top-btn">
     ⬆ ย้อนกลับบน
   </a>
-
 </div>
 </section>
-
   </main>
 
  <!-- =========================================== Right-Wing ===== -->
