@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บ้านแห่งแสงจันทร์</title>
+<title>Home</title>
 
 <style>
 
@@ -457,11 +457,11 @@ header {
   text-decoration:none;
   color:goal;
 
-  font-size:17px;        /* ⭐ ขยายตัวหนังสือ */
-  font-weight:600;       /* ⭐ ตัวหนาสวย */
+  font-size:10px;        /* ⭐ ขยายตัวหนังสือ */
+  font-weight:500;       /* ⭐ ตัวหนาสวย */
   letter-spacing:1px;    /* ⭐ โปร่ง อ่านง่าย */
 
-  padding:8px 14px;      /* ⭐ ทำให้ห้องกว้างขึ้น */
+  padding:8px 13px;      /* ⭐ ทำให้ห้องกว้างขึ้น */
   border-radius:20px;
 
   transition:0.3s;
@@ -491,7 +491,7 @@ a.menu-link{
   padding:10px 16px !important;
   margin:6px !important;
 
-  font-size:20px !important;
+  font-size:18px !important;
   font-weight:bold !important;
 
   text-decoration:none !important;
@@ -589,28 +589,7 @@ a.menu-link{
   transform:translateY(0);
 }
 
-/* ============================================== 🌙 แถบเมนูหลัก ===== */
-.moon-nav{
-  position:fixed;
-  top:15px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:999;
 
-  display:flex;
-  align-items:center;
-  gap:30px;
-
-  padding:10px 28px;
-  border-radius:50px;
-
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:goal(12px);
-
-  box-shadow:0 0 25px rgba(255,255,255,0.15);
-
-  transition:all 0.4s ease;
-}
 
 /* ============================================= 🌙 ลอยนุ่มตอนเลื่อน ===== */
 .moon-nav.scrolled{
@@ -623,12 +602,6 @@ a.menu-link{
   height:42px;
   width:auto;
   display:block;
-}
-
-/* ==================================================== 🌙 เมนู ===== */
-.moon-menu{
-  display:flex;
-  gap:18px;
 }
 
 
@@ -658,50 +631,52 @@ a.menu-link{
   100%{ text-shadow:0 0 5px rgba(255,255,255,0.3); } 
 }
 
-.moon-btn{
-  font-size:14px;     /* ⭐ ลดขนาดตัวอักษร */
-  font-weight:600;    /* ยังหนาเหมือนเดิม */
+/*=============================================================== เมนู */
 
-  padding:6px 14px;   /* ⭐ ลดความอ้วนปุ่มนิดเดียว */
-
-  text-decoration:none;
-  color:white;
-  border-radius:25px;
-  transition:all 0.4s ease;
-}
-
-/* ===============================================================แถบบน */
-.topbar{
-  width:100%;
-  height:20px;
-  background:rgba(0,0,0,0.5);
-
-  display:flex;
-  align-items:center;
-  gap:20px;
-
-  padding:0 30px;
-}
-
-/* ========================================== FIX แถบบ้านแห่งแสงจันทร์ ===== */
-
-.moon-nav{
+.moon-menu{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:99999;
 
   display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+
+  width:90%;
+  padding:10px;
+
+  background:none;
+  border-radius:18px;
+}
+
+.moon-menu a{
+  display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:center;
+  height:34px;
+  padding:0 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.35);
+  color:white !important;
+  text-decoration:none;
+  border:1px solid rgba(20,25,35,0.42);
+  box-shadow:0 2px 6px rgba(0,0,0,0.25);
+  font-size:15.5px;
+  line-height:1;
+  white-space:nowrap;
+}
 
-  padding:14px 32px;
-  box-sizing:border-box;
+.moon-menu a:visited{
+  color:white !important;
+}
 
-  background:rgba(10,10,25,0.65);
-  backdrop-filter:goal(12px);
-
-  z-index:9999;
+.moon-menu a.active{
+  background:white;
+  color:#5a3b12 !important;
+  font-weight:bold;
 }
 
 /*=============================================================== โลโก้ */
@@ -756,80 +731,21 @@ a.menu-link{
   box-shadow:0 0 20px rgba(255,255,255,0.4);
 }
 
-/*=============================================================== เมนู */
-
-.moon-menu{
-  position:fixed;
-  top:10px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:99999;
-
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:8px;
-
-  width:90%;
-  padding:10px;
-
-  background:none;
-  border-radius:18px;
-}
-
-.moon-menu a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:34px;
-  padding:0 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.35);
-  color:white !important;
-  text-decoration:none;
-  border:1px solid rgba(20,25,35,0.42);
-  box-shadow:0 2px 6px rgba(0,0,0,0.25);
-  font-size:16px;
-  line-height:1;
-  white-space:nowrap;
-}
-
-.moon-menu a:visited{
-  color:white !important;
-}
-
-.moon-menu a.active{
-  background:white;
-  color:#5a3b12 !important;
-  font-weight:bold;
-}
-
+/* ===== FOOTER ===== */
 .footer{
-
-  width:100%;
-
-  padding:45px 20px;
-
-  margin-top:2px;
 
   background:
     linear-gradient(
-      to bottom,
-      #0b0f1a,
-      #141c2b,
-      #1d2b3f,
-      #2f2a1f
-    );
-
-  color:#f3d27a;
-
-  text-align:center;
-
+      rgba(20,25,35,0.22),
+      rgba(20,25,35,0.22)
+    ),
+    url("footer.jpg")
+    center/cover no-repeat;
+  backdrop-filter:blur(8px);
   border-top:
-    1px solid rgba(243,210,122,0.25);
-
+    1px solid rgba(243,210,122,0.22);
+  color:#f3d27a;
 }
-
 
     </style>
     </head>
