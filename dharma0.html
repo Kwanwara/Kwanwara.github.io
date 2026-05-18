@@ -37,6 +37,50 @@ body{
   min-height:105vh;
   background-position:center bottom;
 }
+/* เนื้อหาบ้าน */
+.content,
+.hero,
+.container {
+  position: relative;
+  z-index: 2;   /* ให้อยู่เหนือดาว */
+}
+
+/* ข้อความกลางภาพ */
+.hero-text{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+  padding:40px;
+  position:relative;
+  z-index:10;
+  margin-top:-5px;
+  text-align:center;
+  animation:moonFloat 4s ease-in-out infinite;
+}
+
+/* ===== ป้ายบ้าน===== */
+
+.main-title{
+  font-size:32px;
+  color:gold;
+  text-shadow:0 0 30px #FFD700,0 0 45px #FFE87C;
+  line-height:2;
+}
+
+/* ===== ลอยเบา ๆ ===== */
+
+@keyframes moonFloat{
+  0%{
+    transform:translateY(0px);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
+  100%{
+    transform:translateY(0px);
+  }
+}
 
 .home-desc{
   font-size:clamp(15px,3vw,20px);
@@ -106,53 +150,6 @@ body{
   height: 100%;
   z-index: 0;          /* สำคัญ */
   pointer-events: none; /* กันบังเมาส์ */
-}
-
-/* เนื้อหาบ้าน */
-.content,
-.hero,
-.container {
-  position: relative;
-  z-index: 2;   /* ให้อยู่เหนือดาว */
-}
-
-/* ข้อความกลางภาพ */
-.hero-text{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:20px;
-  padding:40px;
-  position:relative;
-  z-index:10;
-  margin-top:130px;
-  text-align:center;
-  animation:moonFloat 4s ease-in-out infinite;
-}
-
-/* ===== ป้ายบ้าน===== */
-
-.main-title{
-  font-size:32px;
-  color:gold;
-  text-shadow:0 0 30px #FFD700,0 0 45px #FFE87C;
-  line-height:1.5;
-}
-
-
-
-/* ===== ลอยเบา ๆ ===== */
-
-@keyframes moonFloat{
-  0%{
-    transform:translateY(0px);
-  }
-  50%{
-    transform:translateY(-8px);
-  }
-  100%{
-    transform:translateY(0px);
-  }
 }
 
 /* ===== ดาวตก ===== */
@@ -900,9 +897,9 @@ visitor-temp{
   width:100%;
   text-align:center;
   margin:28px 0 20px;
-}
+}/*
 
-/* ===== FOOTER ===== */
+ ===== FOOTER ===== */
 .footer{
 
   background:
@@ -1406,12 +1403,12 @@ function moonCalculate(){
 <div class="about-grid">
 <a href="https://www.facebook.com/phichychananthdrkhwaywra/"><img src="icon-my-fb.png" width="100"></a>
 <a href="https://www.instagram.com/kwunwara_pichayachanan/"><img src="icon-my-ig.png" width="100"></a>
-<a href="https://www.youtube.com/results?search_query=%40%E0%B8%AA%E0%B8%AD%E0%B8%87%E0%B8%95%E0%B8%B2%E0%B8%A2%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B9%84%E0%B8%9B%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B8%96%E0%B8%B4%E0%B9%88%E0%B8%99/"><img src="icon-ta-yay.png" width="100"></a>
-<a href="https://www.facebook.com/profile.php?id=100076154902785/"><img src="icon-yay.png" width="100"></a>
-<a href="https://www.facebook.com/profile.php?id=61559261327954/"><img src="icon-thailand.png" width="100"></a>
-<a href="https://www.facebook.com/bin.deiyw.theiyw.thiy/"><img src="icon-tiawthaialone.png" width="100"></a>
-<a href="https://www.facebook.com/profile.php?id=100063246969593/"><img src="icon-food0.png" width="100"></a>
-<a href="https://www.facebook.com/profile.php?id=100066780887905/"><img src="icon-doonang.png" width="100"></a>
+<a href="https://www.youtube.com/@kwunwarapichayachanan7597/"><img src="icon-ta-yay.png" width="100"></a>
+<a href="https://www.youtube.com/channel/UCLb5no4cm-9LHJAF6ZJR4vA/"><img src="icon-jane.png" width="100"></a>
+<a href="https://www.youtube.com/@panyasak1/"><img src="icon-panyasak.png" width="100"></a>
+<a href="https://www.youtube.com/watch?v=icA7V_LfE70/"><img src="icon-tiawthaialone.png" width="100"></a>
+<a href="https://www.youtube.com/watch?v=Fi7gTAAB0Kc/"><img src="icon-food0.png" width="100"></a>
+<a href="https://www.youtube.com/watch?v=L1zv-h_ZyS4/"><img src="icon-doonang.png" width="100"></a>
   </div>
 </div>
 
@@ -1515,16 +1512,16 @@ width="100"></a>
 <span>📖Moon About Jao</span><br>
 <a href="https://www.facebook.com/phichychananthdrkhwaywra/"><img src="icon-my-fb.png" width="100"></a>
 <a href="https://www.instagram.com/kwunwara_pichayachanan/"><img src="icon-my-ig.png" width="100"></a>
-<a href="https://www.youtube.com/results?search_query=%40%E0%B8%AA%E0%B8%AD%E0%B8%87%E0%B8%95%E0%B8%B2%E0%B8%A2%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B9%84%E0%B8%9B%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B8%96%E0%B8%B4%E0%B9%88%E0%B8%99/"><img src="icon-ta-yay.png" width="100"></a><br>
+<a href="https://www.youtube.com/@kwunwarapichayachanan7597/"><img src="icon-ta-yay.png" width="100"></a><br>
 
 
 <span>📖Moon My Page</span><br>
-<a href="https://www.facebook.com/profile.php?id=100076154902785/"><img src="icon-yay.png" width="100"></a>
-<a href="https://www.facebook.com/profile.php?id=61559261327954/"><img src="icon-thailand.png" width="100"></a>
+<a href="https://www.youtube.com/channel/UCLb5no4cm-9LHJAF6ZJR4vA/"><img src="icon-jane.png" width="100"></a>
+<a href="https://www.youtube.com/@panyasak1/"><img src="icon-panyasak.png" width="100"></a>
 <a href="https://www.facebook.com/bin.deiyw.theiyw.thiy/"><img src="icon-tiawthaialone.png" width="100"></a><br>
-<a href="https://www.facebook.com/profile.php?id=100063246969593/"><img src="icon-food0.png" width="100"></a>
-<a href="https://www.facebook.com/profile.php?id=100076209340218/"><img src="icon-tiawthai.png" width="100"></a>
-<a href="https://www.facebook.com/profile.php?id=100066780887905/"><img src="icon-doonang.png" width="100"></a><br>
+<a href="https://www.youtube.com/watch?v=icA7V_LfE70/"><img src="icon-food0.png" width="100"></a>
+<a href="https://www.youtube.com/watch?v=Fi7gTAAB0Kc/"><img src="icon-tiawthai.png" width="100"></a>
+<a href="https://www.youtube.com/watch?v=L1zv-h_ZyS4/"><img src="icon-doonang.png" width="100"></a><br>
    </div>
 <!----------------------------------------------------Moon Quote -->
    <div class="moon-box quote-box">
@@ -1585,10 +1582,10 @@ quotes2[new Date().getDate() % quotes2.length];
   </aside>
 
 <footer class="footer">
-<p>@@@ บ้านแห่งแสงจันทร์ "จันทร์ & จ้าว" @@@</p>
+<p>@ บ้านแห่งแสงจันทร์ "จันทร์ & จ้าว" @</p>
 <p>🤍✨ บ้านที่อยากสร้างพลังบวก✨🤍</p>
 <p> 🌸 🌼และการส่งต่อความดี 🌼 🌸 </p> 
-<p>🌼 🌸 🌼ให้โลกนี้มีรอยยิ้มและสวยงาม🌼 🌸 🌼</p> 
+<p>🌼 🌸 🌼แให้โลกนี้มีรอยยิ้มและสวยงาม🌼 🌸 🌼</p> 
 </footer>
 
  </body>
