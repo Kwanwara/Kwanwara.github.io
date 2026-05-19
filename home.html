@@ -27,6 +27,7 @@ body{
 
 /* ===== HERO (ปกบ้าน) ===== */
 .hero{
+  width:100%;
   position:relative;
   height:100vh;
   display:flex;
@@ -118,8 +119,6 @@ body{
   line-height:1.5;
 }
 
-
-
 /* ===== คำโปรย ===== */
 
 .home-desc{
@@ -161,6 +160,7 @@ body{
   width:68px; !important;
   object-fit:cover;
   border-radius:50%;
+  margin-top:-5px;
 }
 
 header { 
@@ -476,8 +476,6 @@ header {
   left:100%;
 }
 
-เว้นไว้ใส่ข้อ3
-
 .reveal{
   opacity:0;
   transform:translateY(40px);
@@ -522,43 +520,43 @@ header {
 }
 
 /*=============================================================== เมนู */
-
 .moon-menu{
-  margin-top:-40px;
-  position:relative;
+  margin-top:-110px;
+  width:100%;
+  max-width:none;
   display:flex;
   justify-content:center;
   align-items:center;
   flex-wrap:wrap;
-  gap:12px;
-  padding:18px 14px;
-  z-index:10;
+  gap:10px;
+  padding:14px 18px;
+  position:relative;
+  align-items:center;
 }
 
-
-/* ===== ปุ่ม โลโก้===== */
-
 .moon-btn{
-    font-size:16px;
-  padding:8px 18px;
+  width:auto;
+  display:inline-block;
+  padding:8px 16px;
+  font-size:16px;
   border-radius:999px;
-  background:
-    rgba(8,12,24,0.72);
+  background:transparent;
   color:#f3d27a;
   text-decoration:none;
+  border:1px solid rgba(180,220,255,0.25);
+  box-shadow:none:
+  background:
+    rgba(180,220,255,0.10);
   border:
-    1px solid rgba(180,220,255,0.25);
-  text-shadow:
-    0 0 6px rgba(0,0,0,0.9);
+    1px solid rgba(255,255,255,0.10);
   box-shadow:
-    0 0 10px rgba(120,170,255,0.16);
-  transition:0.3s;
+    0 0 12px rgba(180,220,255,0.10);
 }
 
 .moon-btn:hover{
 
   background:
-    rgba(18,26,48,0.88);
+    rgba(18,26,48,0.48);
 
 }
 .moon-menu a:visited{
@@ -609,7 +607,6 @@ header {
  
   <div class="menu-top">
     <img src="logo.png" alt="logo" class="logo">
-    <div class="menu-links">
 
     <a href="home.html" class="moon-btn active">
     🏡Home 
