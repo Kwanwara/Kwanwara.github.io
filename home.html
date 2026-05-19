@@ -521,7 +521,7 @@ header {
 
 /*=============================================================== เมนู */
 .moon-menu{
-  margin-top:-50px;
+  margin-top:-20px;
   width:100%;
   max-width:none;
   display:flex;
@@ -543,19 +543,16 @@ header {
   background:transparent;
   color:#f3d27a;
   text-decoration:none;
-  border:1px solid rgba(180,220,255,0.25);
   box-shadow:none:
   box-shadow:
     0 0 12px rgba(0,0,0,0.35);
-  background:#9a8b82;
+  background:#01F2833;
   color:gold;
   border-radius:20px;
   padding:10px 18px;
   border:1px solid
   rgba(255,255,255,0.25);
 }
-
-
 
 .moon-btn:hover{
 
@@ -584,18 +581,18 @@ header {
   text-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
 
-.main-menu a{
+@media(max-width:768px){
 
-  background:#6b5b53;
+  .moon-menu{
+    grid-template-columns:
+      repeat(2, auto);
+  }
+}@media(max-width:768px){
 
-  color:white;
-
-  border-radius:20px;
-
-  padding:10px 18px;
-
-  border:1px solid
-  rgba(255,255,255,0.25);
+  .moon-btn{
+    padding:9px 18px;
+    font-size:15px;
+  }
 }
 
 /* ===== FOOTER ===== */
@@ -611,7 +608,7 @@ header {
   backdrop-filter:blur(8px);
   border-top:
     1px solid rgba(243,210,122,0.22);
-  color:#f3d27a;
+  color:gold;
 }
 
     </style>
