@@ -202,7 +202,7 @@ header {
   border:none;
   border-radius:30px;
   background:rgba(0,0,0,0.6);
-  color:white;
+  color:gold;
   cursor:pointer;
   box-shadow:0 0 10px rgba(255,215,0,0.5);
   transition:0.3s;
@@ -390,10 +390,10 @@ header {
 /*========================================================== ดอกไม้ลอยช้า */
 .floating-flowers{
   position:absolute;
-  bottom:20px;
+  bottom:-40px;
   width:100%;
   text-align:center;
-  font-size:30px;
+  font-size:40px;
   animation:floatFlowers 12s ease-in-out infinite;
   pointer-events:none;
 }
@@ -537,21 +537,14 @@ header {
 .moon-btn{
   width:auto;
   display:inline-block;
-  padding:8px 16px;
   font-size:16px;
   border-radius:999px;
-  background:transparent;
-  color:#f3d27a;
   text-decoration:none;
-  box-shadow:none:
-  box-shadow:
-    0 0 12px rgba(0,0,0,0.35);
-  background:#01F2833;
+  box-shadow:#0B0C10;
+  background:#0B0C10;
   color:gold;
-  border-radius:20px;
   padding:10px 18px;
-  border:1px solid
-  rgba(255,255,255,0.25);
+  border:1px solid #0B0C10;
 }
 
 .moon-btn:hover{
@@ -564,20 +557,13 @@ header {
   color:white !important;
 }
 
-.moon-menu a.active{
-  background:white;
-  color:#5a3b12 !important;
-  font-weight:bold;
-}
-
 .moon-btn.active{
   background: white;      /* พื้นหลังขาว */
-  color: #1a2a4a;         /* ตัวหนังสือเข้ม */
+  color: gold;         /* ตัวหนังสือเข้ม */
   box-shadow: 0 0 15px rgba(255,255,255,0.8);
   background: white !important;
-  color: black !important;
   color: white !important;
-  font-weight: bold;
+  font-weight: gold;
   text-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
 
@@ -666,8 +652,7 @@ header {
 <!-- ===== คำโปรย ===== -->
 
 <div class="home-desc">
-บ้านเล็กใต้แสงจันทร์<br> ที่ "จ้าว & จันทร์"
-      เดินเคียงข้างกัน<br>เพื่อสร้างสรรค์ความงาม
+บ้านเล็กใต้แสงจันทร์<br> ที่ "จ้าว & จันทร์"สร้างสรรค์ความงาม<br>
       ให้โลกอย่างเงียบงาม
 </div>
 
@@ -697,7 +682,7 @@ header {
 <div class="shooting-star"></div>
 
 <div class="floating-flowers">🌼 🌸 🌼 🌸 🌺</div>
-
+</div>
 </nav>
 </section>
       
@@ -712,12 +697,12 @@ function playMusic(){
 
 <section class="garden">
   <div class="garden-text">
-    <h2>🌜สวนหน้าบ้าน🌛<br>🌸🌼“จันทร์ & จ้าว”🌼🌸</h2>
+    <h2>🌜สวนหน้าบ้าน🌛<br>🌸“จันทร์ & จ้าว”🌸</h2>
  <div class="moonlight"></div>
 
 <p>
  🌼 🌸 🌼ยินดีต้อนรับ🌼 🌸 🌼<br>ทุกหัวใจที่เดินทางมาถึง<br>บ้านแห่งแสงจันทร์
-      ที่ซึ่งมีความเงียบงาม<br>และความอบอุ่นอยู่เคียงกัน<br>
+      ที่ซึ่งมีความงาม<br>และความอบอุ่นอยู่เคียงกัน<br>
       “จันทร์&จ้าว”จูงมือกันภายใต้หมู่ดาว<br>และแสงจันทร์เพื่อสร้างสรรค์ความงาม<br>ให้โลกใบนี้สว่างขึ้นอย่างอ่อนโยน
     </p>
 
@@ -745,8 +730,6 @@ function playMusic(){
   .catch(err=>alert("หาไฟล์เสียงไม่เจอ"));
 }
 </script>
-
-
 
 <audio id="bg-moon" loop>
   <source src="moon.mp3" type="audio/mpeg">
@@ -802,7 +785,7 @@ function openRoom(roomId){
 เป็นผู้ฉายแสง สร้างแรงบันดาลใจให้ "จ้าว"<br>
 ได้สร้างสรรค์ผลงานให้โลกสวยงาม
    </p>
-   <a href="#" class="header-btn">กลับ<br>หน้าหลัก</a>
+   <a href="#" class="header-btn">กลับหน้าหลัก</a>
 </header>
 
 
