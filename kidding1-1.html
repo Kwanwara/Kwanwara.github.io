@@ -31,74 +31,86 @@ body { margin: 0; }
 .text{
 
     position:fixed;
-
     left:50%;
-    bottom:90px;
-
+    top:clamp(10px,4vw,30px);
     transform:translateX(-50%);
-
     width:88%;
-
     z-index:9999;
-
-    color:white;
-
+    color:gold;
     text-align:center;
-
-    font-size:32px;
-
-    line-height:1.7;
-
+    font-size:28px;
+    line-height:1.8;
     text-shadow:
-      0 0 10px rgba(0,0,0,0.9);
+      0 0 12px rgba(255,215,120,0.45);
+}
 
+.text h1{
+  font-size:36px;
+  margin-bottom:18px;
+  color:#f3d27a;
+  text-shadow:
+    0 0 16px rgba(255,215,120,0.55);
 }
 
 .nav{
-
   position:fixed;
-
-  bottom:10px;
+  bottom:14px;
   left:50%;
-
   transform:translateX(-50%);
-
-  width:95%;
-
+  width:96%;
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-
-  gap:12px;
-
+  gap:14px;
   z-index:99999;
 }
 
 .nav a{
-
-  background:white !important;
-
-  color:#1e5eff !important;
-
-  border:2px solid #1e5eff !important;
-
+  background:
+    rgba(40,28,12,0.76);
+  color:#f3d27a !important;
+  border:
+    2px solid rgba(255,215,120,0.45);
   text-decoration:none;
-
-  padding:14px 20px;
-
-  border-radius:28px;
-
+  padding:12px 18px;
+  border-radius:30px;
   font-size:18px;
-
   font-weight:bold;
-
-  min-width:220px;
-
+  min-width:240px;
   text-align:center;
-
-  box-shadow:0 0 15px rgba(255,255,255,0.35);
+  box-shadow:
+    0 0 14px rgba(255,215,120,0.28);
+  text-shadow:
+    0 0 8px rgba(255,215,120,0.35);
 }
 
+/* 🌙 hover */
+.nav a:hover{
+  background:
+    rgba(70,48,18,0.88);
+  box-shadow:
+    0 0 20px rgba(255,215,120,0.45);
+
+}
+
+/* 📱 มือถือ */
+
+@media(max-width:768px){
+
+  .text{
+    top:8%;
+    font-size:24px;
+    width:92%;
+  }
+  .text h1{
+    font-size:40px;
+  }
+  .nav a{
+    min-width:160px;
+    font-size:16px;
+    padding:10px 14px;
+  }
+}
 /* ✨ เอฟเฟกต์ลอย + แสง */
 @keyframes floatText {
     0% {
@@ -120,6 +132,33 @@ body{
   filter: brightness(1.05);
 }
 
+.end-nav{
+  display:none;
+  position:fixed;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  width:96%;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  z-index:99999;
+}
+
+.end-nav a{
+  background:rgba(40,28,12,0.76);
+  color:#f3d27a;
+  border:2px solid rgba(255,215,120,0.45);
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:28px;
+  font-size:15px;
+  font-weight:bold;
+  min-width:150px;
+  text-align:center;
+}
+
+
 </style>
 </head>
 
@@ -138,10 +177,13 @@ body{
 </div>
 
 <!-- 🚪 ปุ่มนำทาง -->
-<div class="nav">
+<div class="end-nav" id=endNav>
   <a href="kidding1-1.html" class="btn">⬅️ ย้อนดู😍แซว!ภาค1</a>
   <a href="kidding.html#story-point" class="back-btn">⬅️กลับห้อง😍แซว!เล็กๆ</a>
   <a href="kidding1-2.html" class="btn">➡️ ไปดู😍แซว!ภาค2</a>
+
+</div>
+ 
 
 </div>
 
@@ -246,7 +288,70 @@ room.onclick = function () {
     }
 
     toggle = !toggle;
-};</script>
+};
+
+</script>
+let i = 0;
+let toggle = true;
+
+let room = document.getElementById("room");
+let bg1 = document.querySelector(".bg1");
+let bg2 = document.querySelector(".bg2");
+let textBox = document.querySelector(".text");
+
+/* 🌙 ปุ่ม */
+let partButtons = document.querySelector(".part-buttons");
+
+/* 🌙 เริ่มต้นซ่อนปุ่ม */
+partButtons.style.display = "none";
+
+/* 🌙 ภาพเริ่มต้น */
+bg1.style.backgroundImage = "url('" + images[0] + "')";
+textBox.innerHTML = texts[0];
+
+let partButtons = document.querySelector(".part-buttons");
+
+room.onclick = function () {
+
+    i = (i + 1) % images.length;
+
+    /* ✨ เปลี่ยนข้อความ */
+    textBox.innerHTML = texts[i];
+
+    /* 🌙 ถ้าภาพสุดท้าย ให้โชว์ปุ่ม */
+    if(i === images.length - 1){
+        partButtons.style.display = "flex";
+    } else {
+        partButtons.style.display = "none";
+    }
+
+    /* ✨ เปลี่ยนภาพ */
+    if (toggle) {
+        bg2.style.backgroundImage = "url('" + images[i] + "')";
+        bg2.style.opacity = 1;
+        bg1.style.opacity = 0;
+    } else {
+        bg1.style.backgroundImage = "url('" + images[i] + "')";
+        bg1.style.opacity = 1;
+        bg2.style.opacity = 0;
+    }
+
+    toggle = !toggle;
+};
+
+if(partButtons){
+
+    if(i === images.length - 1){
+        partButtons.style.display = "flex";
+    } else {
+        partButtons.style.display = "none";
+    }
+
+}
+
+</script>
+
+
 
 </body>
 </html>

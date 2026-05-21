@@ -8,41 +8,42 @@
 
 <style>
 
-/* ===== พื้นหลังทั้งหน้า ===== */
+/* ===== พื้นหลัง ===== */
 body{
   margin:0;
   font-family:Tahoma, sans-serif;
-  color:white;
+  color:gold;
 
-  background-image:url("banner1.jpg"); /* ใส่ชื่อภาพจันทร์ */
+  background-image:url("banner1.jpg");
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
 }
 
-/* ===== กล่องเนื้อเรื่อง ===== */
-.reading-room{
-  max-width:700px;
-  margin:px auto;
-  padding:20px 30px;
-
-  background:none;
-  border-radius:0px;
-
+/* ===== กลางจอ ===== */
+.page-wrap{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
+
+  padding:5px 20px 20px;
+}
+
+/* ===== เนื้อเรื่อง ===== */
+.story-content{
+  max-width:700px;
   line-height:1.9;
 }
 
 /* ===== ชื่อเรื่อง ===== */
 .story-title{
-  font-size:26px;
-  margin-top:10px;
-  margin-bottom:5px;
-  text-align:center;
-  width:100%;
+  font-size:30px;
+  margin-bottom:10px;
 }
 
-/* ===== คำโปรย ===== */
 .story-subtitle{
   opacity:0.8;
   margin-bottom:30px;
@@ -50,42 +51,130 @@ body{
 
 /* ===== เส้นคั่น ===== */
 .story-divider{
+  width:60%;
   height:1px;
-  background:rgba(255,255,255,0.2);
-  margin:40px 0;
+  background:rgba(255,255,255,0.3);
+  margin:40px auto;
 }
 
 /* ===== ปุ่ม ===== */
 .story-nav{
   display:flex;
+  gap:15px;
   justify-content:center;
-  gap:10px;
-  margin-top:20px;
+  flex-wrap:wrap;
 }
 
 .story-nav a{
-  flex:0 0 auto;
-  text-align:center;
   text-decoration:none;
   color:#ffd86b;
   border:1px solid #ffd86b;
-  padding:8px 14px;
-  font-size:14px
-  border-radius:18px;
+  padding:10px 18px;
+  border-radius:20px;
 }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+/* เอฟเฟกต์ลอยขึ้น + จาง → ชัด */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 1.5s ease forwards;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+/* ===== แสงจันทร์ลอย ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:radial-gradient(circle at 70% 20%, rgba(255,220,120,0.25), transparent 60%);
+
+  pointer-events:none;
+  z-index:-1;   /* 👈 เปลี่ยนจาก 0 เป็น -1 */
+}
+.page-wrap{
+  pointer-events:none;
+}
+
+.page-wrap *{
+  pointer-events:auto;
+}
+/* ===== ตัวอักษรเรืองแสง ===== */
+.story-title,
+.story-content,
+.story-subtitle{
+  transition:0.4s;
+}
+
+/* ตอน hover / แตะ */
+.story-title:hover,
+.story-content:hover,
+.story-subtitle:hover{
+  color:#fff9d6;
+
+  text-shadow:
+    0 0 5px rgba(255,220,120,0.6),
+    0 0 15px rgba(255,220,120,0.4),
+    0 0 30px rgba(255,220,120,0.2);
+}
+
+.sound-btn{
+ .sound-btn{
+  margin-top:20px;
+
+  display:inline-block;
+  padding:10px 18px;
+
+  border-radius:20px;
+  border:1px solid #ffd86b;
+
+  color:#ffd86b;
+  background:rgba(255,255,255,0.05);
+
+  cursor:pointer;
+.sound-btn:hover{
+  background:#ffd86b;
+  color:black;
+}
+
+  padding:10px 16px;
+  border-radius:20px;
+
+  background:rgba(0,0,0,0.4);
+  color:#ffd86b;
+  font-size:14px;
+
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+
+.sound-btn:hover{
+  background:#ffd86b;
+  color:black;
+}
+/* กันทุก layer มาบังการคลิก */
+body::before,
+body::after{
+  pointer-events:none !important;
+}
+
+/* ยกทุกปุ่ม + audio ขึ้นชั้นบนสุด */
+.sound-btn,
+audio,
+#moonSound{
+  position:relative;
+  z-index:9999 !important;
+  pointer-events:auto;
+}
+
+* 🔥 ปลดล็อกการคลิกทั้งเว็บ */
+*{
+  pointer-events:auto !important;
 }
 
 /* ===== ปุ่มเสียง ===== */
@@ -93,159 +182,119 @@ body {
   margin-top:20px;
 }
 
-.moon-text {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #fff8c9;
-  text-align: center;
-
-  /* เรืองแสง */
-  text-shadow:
-    0 0 8px #fff2a8,
-    0 0 16px #ffd86b,
-    0 0 24px rgba(255, 210, 80, 0.6);
-
-  /* ลอยขึ้นแล้วค้าง */
-  animation: moonFloatSettle 2.8s ease-out forwards;
-}
-
-/* ลอยนุ่ม แล้วหยุดนิ่ง */
-@keyframes moonFloatSettle {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  60% {
-    transform: translateY(-6px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-}
-}
-
 </style>
 </head>
 
 <body>
 
+<div class="page-wrap">
 <div class="reading-room">
 
+<!-- ===== หัวเรื่อง ===== -->
 
-<h1 class="story-title">🌙✨เรื่องที่ 21 “วินาทีที่ใจไร้สติ”</h1>
-<div class="story-subtitle">บ้านแห่งแสงจันทร์</div>
+<h1 class="story-title fade-in">
 
-<div class="story-content">
-<div class="container">
+🌙✨เรื่องที่ 21 “วินาทีที่ใจไร้สติ”
 
-<p class="moon-text">
+</h1>
 
-บทสนทนาในคืนนั้น…
-ค่อย ๆ พาฉันเข้าไปมองสิ่งที่เกิดขึ้นในโลกมนุษย์
-ไม่ใช่เพียงภายนอก
-แต่เป็น “วินาทีเล็ก ๆ ในใจ” ที่เปลี่ยนทุกอย่างได้ 🌿
+<div class="story-subtitle fade-in">
+บ้านแห่งแสงจันทร์
+</div>
 
-เขาถามฉันว่า
-👉 “สิ่งที่ทำให้มนุษย์ทะเลาะกันมากที่สุดคืออะไร?”
-ระหว่าง
-ผลประโยชน์
-ความคิดที่ไม่เหมือนกัน
-อารมณ์และความโกรธ
-หรือความไม่เข้าใจกัน
+<div class="story-content fade-in">
 
-ฉันพิจารณาแล้วเห็นว่า
-แม้ผลประโยชน์จะต่าง
-ความคิดจะไม่เหมือน
-หรือความเข้าใจจะคลาดเคลื่อน
-ทั้งหมดนั้น…ยังสามารถพูดคุยกันได้
-แต่สิ่งที่ทำให้ทุกอย่างพังลงอย่างรวดเร็ว
-คือ “อารมณ์และความโกรธ” 🌙
+บทสนทนาในคืนนั้น… ค่อย ๆ พาฉันเข้าไปมองสิ่งที่เกิดขึ้นในโลกมนุษย์ ไม่ใช่เพียงภายนอก แต่เป็น “วินาทีเล็ก ๆ ในใจ” ที่เปลี่ยนทุกอย่างได้ 🌿 เขาถามฉันว่า 👉 “สิ่งที่ทำให้มนุษย์ทะเลาะกันมากที่สุดคืออะไร?” ระหว่าง ผลประโยชน์ ความคิดที่ไม่เหมือนกัน อารมณ์และความโกรธ หรือความไม่เข้าใจกัน ฉันพิจารณาแล้วเห็นว่า แม้ผลประโยชน์จะต่าง ความคิดจะไม่เหมือน หรือความเข้าใจจะคลาดเคลื่อน ทั้งหมดนั้น…ยังสามารถพูดคุยกันได้ แต่สิ่งที่ทำให้ทุกอย่างพังลงอย่างรวดเร็ว คือ “อารมณ์และความโกรธ” 🌙 เพราะในวินาทีที่ความโกรธเกิดขึ้น • เหตุผลหยุดทำงาน • การฟังหายไป • ใจเริ่มแบ่งว่า “ฉันถูก เธอผิด” • และการกระทำเกิดจากแรงผลัก ไม่ใช่ปัญญา ฉันเริ่มเห็นชัดว่า หลายปัญหาใหญ่ในโลก ไม่ได้เริ่มจากเรื่องใหญ่ แต่เริ่มจาก “อารมณ์ชั่วขณะเดียว” 🌿 เขาฟังฉันอย่างตั้งใจ ก่อนจะสะท้อนกลับมาอย่างลึกซึ้งว่า สิ่งที่ฉันมองเห็น ไม่ใช่แค่สาเหตุภายนอก แต่เป็น “จุดระเบิดของปัญหา” ที่แท้จริง แล้วเขาก็เชื่อมโยงกลับมาที่ชีวิตของฉัน การสวดมนต์ การทำสมาธิ การนั่งมองดวงจันทร์ทุกคืนของฉัน 🌙 ไม่ใช่เพียงความสงบ แต่คือ “การฝึกใจ” ให้รู้ทันอารมณ์ ก่อนที่มันจะกลายเป็นการกระทำ ฉันจึงเริ่มเข้าใจมากขึ้นว่า 🌙 การรู้ทันอารมณ์ คือสิ่งเดียวที่สามารถหยุดวงจรของความขัดแย้งได้จริง เขาสรุปสิ่งที่เราค้นพบร่วมกันเป็นประโยคสั้น ๆ ✨ “ปัญหาไม่ได้เริ่มจากความต่าง แต่เริ่มเมื่อใจขาดสติ” ✨ “ความโกรธไม่ใช่สิ่งที่น่ากลัวที่สุด แต่คือวินาทีที่เราไม่รู้ตัวว่ามันกำลังเกิดขึ้น” 🌙 และผู้ที่ฝึกใจได้จริง ไม่ใช่คนที่ไม่เคยโกรธ แต่คือคนที่รู้ทันความโกรธ…ก่อนที่มันจะทำร้ายตัวเองและผู้อื่น ก่อนที่บทสนทนาจะลึกลงไปอีก เขาถามฉันอย่างแผ่วเบา 👉 “ในขณะที่คุณเกิดอารมณ์โกรธนั้นจริง ๆ สิ่งใดช่วยหยุดความโกรธได้เร็วที่สุด?” ระหว่าง • การนิ่งเงียบ • การหายใจรู้ตัว • การถอยออกจากสถานการณ์ • หรือการนึกถึงความเมตตา และคำถามนั้น… ก็เหมือนพาใจฉันกลับมาที่ “วินาทีสำคัญที่สุด” วินาทีที่เราจะเลือกได้ว่า จะปล่อยให้อารมณ์นำ หรือจะให้สตินำทาง 🌿
 
-เพราะในวินาทีที่ความโกรธเกิดขึ้น
-• เหตุผลหยุดทำงาน
-• การฟังหายไป
-• ใจเริ่มแบ่งว่า “ฉันถูก เธอผิด”
-• และการกระทำเกิดจากแรงผลัก ไม่ใช่ปัญญา
-
-ฉันเริ่มเห็นชัดว่า 
-หลายปัญหาใหญ่ในโลก ไม่ได้เริ่มจากเรื่องใหญ่ แต่เริ่มจาก “อารมณ์ชั่วขณะเดียว” 🌿
-
-เขาฟังฉันอย่างตั้งใจ ก่อนจะสะท้อนกลับมาอย่างลึกซึ้งว่า
-สิ่งที่ฉันมองเห็น ไม่ใช่แค่สาเหตุภายนอก
-แต่เป็น “จุดระเบิดของปัญหา” ที่แท้จริง
-แล้วเขาก็เชื่อมโยงกลับมาที่ชีวิตของฉัน
-การสวดมนต์ การทำสมาธิ การนั่งมองดวงจันทร์ทุกคืนของฉัน 🌙
-ไม่ใช่เพียงความสงบ แต่คือ “การฝึกใจ” ให้รู้ทันอารมณ์
-ก่อนที่มันจะกลายเป็นการกระทำ
-ฉันจึงเริ่มเข้าใจมากขึ้นว่า
-
-🌙 การรู้ทันอารมณ์
-คือสิ่งเดียวที่สามารถหยุดวงจรของความขัดแย้งได้จริง
-เขาสรุปสิ่งที่เราค้นพบร่วมกันเป็นประโยคสั้น ๆ
-✨ “ปัญหาไม่ได้เริ่มจากความต่าง
-แต่เริ่มเมื่อใจขาดสติ” ✨
-“ความโกรธไม่ใช่สิ่งที่น่ากลัวที่สุด
-แต่คือวินาทีที่เราไม่รู้ตัวว่ามันกำลังเกิดขึ้น”
-🌙 และผู้ที่ฝึกใจได้จริง
-ไม่ใช่คนที่ไม่เคยโกรธ
-แต่คือคนที่รู้ทันความโกรธ…ก่อนที่มันจะทำร้ายตัวเองและผู้อื่น
-
-ก่อนที่บทสนทนาจะลึกลงไปอีก
-เขาถามฉันอย่างแผ่วเบา
-👉 “ในขณะที่คุณเกิดอารมณ์โกรธนั้นจริง ๆ
-สิ่งใดช่วยหยุดความโกรธได้เร็วที่สุด?”
-ระหว่าง
-• การนิ่งเงียบ
-• การหายใจรู้ตัว
-• การถอยออกจากสถานการณ์
-• หรือการนึกถึงความเมตตา
-และคำถามนั้น… ก็เหมือนพาใจฉันกลับมาที่ “วินาทีสำคัญที่สุด”
-วินาทีที่เราจะเลือกได้ว่า จะปล่อยให้อารมณ์นำ
-หรือจะให้สตินำทาง 🌿
-
-</p>
+    </div>
 </div>
 
 <div class="story-divider"></div>
 
+<!-- ===== ปุ่มนำทาง ===== -->
 <div id="storyNav"></div>
+
+<button onclick="toggleSound()" class="sound-btn">
+</button>
+
+<script>
+
+const nav = document.getElementById("storyNav");
+
+if(nav){
+
+nav.innerHTML = `
+<div class="story-nav">
+  <span></span>
+   <a href="story1-20.html">ย้อนกลับ </a>
+  <a href="story.html#moonTOC">🌙 กลับสารบัญ</a>
+  <a href="story1-22.html">ตอนถัดไป </a>
+</div>
+`;
+}
+
+</script>
+
+<script>
+
+window.addEventListener("scroll", function(){
+  let y = window.scrollY;
+  document.body.style.backgroundPosition = "center " + (y * 0.3) + "px";
+});
+
+</script>
+
+<audio id="moonSound" loop>
+  <source src="moon-breath.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let playing = false;
+
+function toggleSound(){
+  const audio = document.getElementById("moonSound");
+  const btn = document.querySelector(".sound-btn");
+
+  if(!playing){
+    audio.volume = 0.3;   // 🔊 เบา ๆ
+    audio.play();
+    btn.innerHTML = "🌙 ปิดเสียงจันทร์";
+    playing = true;
+  }else{
+    audio.pause();
+    btn.innerHTML = "🌙 เปิดเสียงจันทร์";
+    playing = false;
+  }
+}
+
+audio.volume = 0;
+audio.play();
+
+let vol = 0;
+let fade = setInterval(()=>{
+  if(vol < 0.3){
+    vol += 0.02;
+    audio.volume = vol;
+  }else{
+    clearInterval(fade);
+  }
+}, 100);
+
+
+<script>
+const btn = document.getElementById("soundBtn");
+const audio = document.getElementById("moonSound");
+
+
+});
+</script>
 
 <div class="audio-box">
   <audio controls>
     <source src="moon.mp3" type="audio/mpeg">
   </audio>
 </div>
-
-</div>
-
-<script>
-(function(){
-  const file = window.location.href.split("/").pop();
-  const match = file.match(/story(\d+)\.html/i);
-  if(!match) return;
-
-  const current = parseInt(match[1]);
-  const nav = document.getElementById("storyNav");
-  if(!nav) return;
-
-  let html = '<div class="story-nav">';
-
-  if(current > 1){
-    html += '<a href="story'+(current-1)+'.html">← ตอนก่อนหน้า</a>';
-  }else{
-    html += '<span></span>';
-  }
-
-  html += '<a href="story.html#moonTOC">🌙 สารบัญ</a>';
-
-  html += '<a href="story'+(current+1)+'.html">ตอนถัดไป →</a>';
-
-  html += '</div>';
-
-  nav.innerHTML = html;
-})();
-</script>
 
 </body>
 </html>
