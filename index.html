@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home</title>
+<title>บ้านแห่งแสงจันทร์</title>
 
 <style>
 
@@ -556,7 +556,7 @@ header {
 }
 
 .moon-btn.active{
-  background:red ;      /* พื้นหลังขาว */
+  background:FFFF00 ;      /* พื้นหลังขาว */
   color: gold;         /* ตัวหนังสือเข้ม */
   box-shadow: 0 0 15px rgba(255,255,255,0.8);
   font-weight: gold;
@@ -715,7 +715,7 @@ function playMusic(){
 </p>
 </div>
 
-</div>
+</nav>
 </section>
 
 
@@ -731,20 +731,6 @@ function playMusic(){
   .catch(err=>alert("หาไฟล์เสียงไม่เจอ"));
 }
 </script>
-
-<audio id="bg-moon" loop>
-  <source src="moon.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-function playMusic(){
-  const music = document.getElementById("bg-moon");
-  music.volume = 0.4;
-  music.play().then(()=>console.log("เล่นเพลงแล้ว"))
-  .catch(err=>alert("หาไฟล์เสียงไม่เจอ"));
-}
-</script>
-</section>
 
 
 <script>
