@@ -2,37 +2,51 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>🔆แสงธรรม 1🔆</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    color: white;
 
-    /* 🌙 ใส่ภาพพื้นเองตรงนี้ */
-    background: url("dharma-photo2.jpg") no-repeat center center fixed;
-    background-size: cover;
+/* ===== พื้นหลัง ===== */
+body{
+  margin:0;
+  font-family:Tahoma, sans-serif;
+  color:gold;
+
+  background-image:url("dharma-photo2.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }
 
-/* 🌙 ชั้นมืดให้อ่านง่าย */
-.overlay {
-    min-height: 100vh;
-    background: rgba(0,0,0,0.4);
+/* ===== กลางจอ ===== */
+.page-wrap{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 60px;
+  padding:5px 20px 20px;
+}
+
+/* ===== เนื้อเรื่อง ===== */
+.story-content{
+  max-width:700px;
+  line-height:1.9;
+  font-size:17px;
+  margin-top:30px;
+  color:#000000 ;
 }
 
 /* 🌜 หัวข้อเรือง */
 .title {
     font-size: 34px;
-    color: gold;
+    color:#000000 ;
     text-align: center;
-
+         text-shadow: 0 0 8px rgba(255,255,255,0.6);
     text-shadow: 
         0 0 10px gold,
         0 0 20px gold,
@@ -45,7 +59,7 @@ body {
 .subtitle {
     font-size: 22px;
     margin-top: 10px;
-    color: white;
+    color:#000000 ;
     text-shadow: 0 0 8px rgba(255,255,255,0.6);
 }
 
@@ -55,83 +69,138 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 📖 เนื้อเรื่อง (ไม่มีพื้น) */
-.story {
-    margin-top: 40px;
-    width: 65%;
-    max-width: 700px;
 
-    text-align: center;
-    line-height: 2;
-    font-size: 18px;
-
-    animation: fadeUp 1.5s ease;
+/* ===== เส้นคั่น ===== */
+.story-divider{
+  width:60%;
+  height:1px;
+  background:rgba(255,255,255,0.3);
+  margin:40px auto;
 }
 
-/* ✨ ลอยขึ้นแล้วนิ่ง */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* ===== ปุ่ม ===== */
+.story-nav{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
-/* 🔘 ปุ่ม */
-.nav {
-    margin-top: 40px;
+.story-nav a{
+  text-decoration:none;
+  color:#ffd86b;
+  border:1px solid #ffd86b;
+  padding:10px 18px;
+  border-radius:20px;
 }
 
-.nav a {
-    margin: 10px;
-    padding: 10px 16px;
-
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-
-    color: white;
-    text-decoration: none;
-
-    transition: 0.3s;
+/* เอฟเฟกต์ลอยขึ้น + จาง → ชัด */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 1.5s ease forwards;
 }
 
-.nav a:hover {
-    background: gold;
-    color: black;
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+/* ===== แสงจันทร์ลอย ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:radial-gradient(circle at 70% 20%, rgba(255,220,120,0.25), transparent 60%);
+
+  pointer-events:none;
+  z-index:-1;   /* 👈 เปลี่ยนจาก 0 เป็น -1 */
+}
+.page-wrap{
+  pointer-events:none;
 }
 
-/* 🎵 เพลงล่างกลาง */
-.music {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    background: rgba(0,0,0,0.6);
-    padding: 10px;
-    border-radius: 12px;
-
-    box-shadow: 0 0 15px gold;
+.page-wrap *{
+  pointer-events:auto;
+}
+/* ===== ตัวอักษรเรืองแสง ===== */
+.story-title,
+.story-content,
+.story-subtitle{
+  transition:0.4s;
 }
 
-.bottom-nav {
-    position: fixed;
-    bottom: 90px;  /* 🔥 อยู่เหนือเพลง */
-    left: 50%;
-    transform: translateX(-50%);
+/* ตอน hover / แตะ */
+.story-title:hover,
+.story-content:hover,
+.story-subtitle:hover{
+  color:#fff9d6;
 
-    display: flex;
-    gap: 20px;
+  text-shadow:
+    0 0 5px rgba(255,220,120,0.6),
+    0 0 15px rgba(255,220,120,0.4),
+    0 0 30px rgba(255,220,120,0.2);
 }
 
-.bottom-nav a {
-    padding: 10px 16px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-    color: white;
-    text-decoration: none;
+.sound-btn{
+ .sound-btn{
+  margin-top:20px;
+
+  display:inline-block;
+  padding:10px 18px;
+
+  border-radius:20px;
+  border:1px solid #ffd86b;
+
+  color:#ffd86b;
+  background:rgba(255,255,255,0.05);
+
+  cursor:pointer;
+.sound-btn:hover{
+  background:#ffd86b;
+  color:black;
 }
 
-.bottom-nav a:hover {
-    background: gold;
-    color: black;
+  padding:10px 16px;
+  border-radius:20px;
+
+  background:rgba(0,0,0,0.4);
+  color:#ffd86b;
+  font-size:14px;
+
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+
+.sound-btn:hover{
+  background:#ffd86b;
+  color:black;
+}
+/* กันทุก layer มาบังการคลิก */
+body::before,
+body::after{
+  pointer-events:none !important;
+}
+
+/* ยกทุกปุ่ม + audio ขึ้นชั้นบนสุด */
+.sound-btn,
+audio,
+#moonSound{
+  position:relative;
+  z-index:9999 !important;
+  pointer-events:auto;
+}
+
+* 🔥 ปลดล็อกการคลิกทั้งเว็บ */
+*{
+  pointer-events:auto !important;
+}
+
+/* ===== ปุ่มเสียง ===== */
+.audio-box{
+  margin-top:20px;
 }
 
 </style>
@@ -139,65 +208,118 @@ body {
 
 <body>
 
-<div class="overlay">
+<div class="page-wrap">
+<div class="reading-room">
 
-   <!-- 🌜 หัวข้อ -->
-    <div class="title">🔆แสงธรรม 1🔆
-</div>
-    <div class="subtitle">🤍1. สวรรค์ในอก นรกในใจ🤍</div>
-    <div class="subtitle">1.11 “การเปรียบเทียบคือไฟในใจ” </div>
+<!-- ===== หัวเรื่อง ===== -->
 
-    <!-- 📖 เนื้อเรื่อง -->
-    <div class="story">
+<h1 class="title fade-in">
 
-เมื่อใจเริ่มเปรียบเทียบ  
-ความสงบมักจะค่อย ๆ หายไป  
+🔆แสงธรรม 1🔆
 
-เพราะการเปรียบเทียบ  
-ทำให้เรามองเห็น “สิ่งที่เรายังไม่มี” มากกว่าสิ่งที่มีอยู่  
+</h1>
 
-จากนั้นความรู้สึกขาด  
-จะค่อย ๆ เกิดขึ้นในใจ  
+<div class="subtitle fade-in">
 
-แม้ชีวิตจะไม่ได้แย่ลง  
-แต่ใจกลับรู้สึกไม่พอ  
+ <div class="subtitle">🤍1.สวรรค์ในอก นรกในใจ🤍</div>
+    <div class="subtitle">1.11 “การเปรียบเทียบคือไฟในใจ”</div>
 
-เพราะสายตาไม่ได้อยู่กับตัวเอง  
-แต่อยู่กับคนอื่นหรือสิ่งอื่น  
+<div class="story-content fade-in">
 
-การเปรียบเทียบจึงเหมือน “ไฟเงียบ”  
-ที่เผาความพอใจทีละน้อย  
 
-เมื่อหยุดเปรียบเทียบ  
-ใจจะเริ่มกลับมามองสิ่งที่มีจริง  
+เมื่อใจเริ่มเปรียบเทียบ ความสงบมักจะค่อย ๆ หายไป เพราะการเปรียบเทียบ ทำให้เรามองเห็น “สิ่งที่เรายังไม่มี” มากกว่าสิ่งที่มีอยู่ จากนั้นความรู้สึกขาด จะค่อย ๆ เกิดขึ้นในใจ แม้ชีวิตจะไม่ได้แย่ลง แต่ใจกลับรู้สึกไม่พอ เพราะสายตาไม่ได้อยู่กับตัวเอง แต่อยู่กับคนอื่นหรือสิ่งอื่น การเปรียบเทียบจึงเหมือน “ไฟเงียบ” ที่เผาความพอใจทีละน้อย เมื่อหยุดเปรียบเทียบ ใจจะเริ่มกลับมามองสิ่งที่มีจริง และความสงบจะค่อย ๆ กลับมา 🌙 🌿 เปรียบเทียบมาก = ใจร้อนและขาด 🌿 เห็นตัวเองมาก = ใจนิ่งและพอ
 
-และความสงบจะค่อย ๆ กลับมา 🌙  
-
-🌿 เปรียบเทียบมาก = ใจร้อนและขาด  
-🌿 เห็นตัวเองมาก = ใจนิ่งและพอ
-	
-
+    </div>
 </div>
 
-       <!-- 🔘 ปุ่ม -->
-    <div class="nav">
+<div class="story-divider"></div>
 
-     <a href="dharma1-10.html">⬅ ตอนก่อนหน้า</a>
-     <a href="dharma.html#story-point" class="back-btn">
-        ⬅️ กลับสารบัญ🔆แสงธรรม🔆
+<!-- ===== ปุ่มนำทาง ===== -->
+<div id="storyNav"></div>
+
+<button onclick="toggleSound()" class="sound-btn">
+</button>
+
+<script>
+
+const nav = document.getElementById("storyNav");
+
+if(nav){
+
+nav.innerHTML = `
+<div class="story-nav">
+  <span></span>
+   <a href="dharma1-10.html">ย้อนกลับ </a>
+   <a href="dharma0.html#story-point" class="back-btn">
+        ⬅️ กลับห้อง🔆แสงธรรม  
     </a>
-    <a href="dharma1-12.html">➡ ตอนต่อไป</a>
-
+  <a href="dharma1-12.html">ตอนถัดไป </a>
 </div>
+`;
+}
 
-<!-- 🎵 เพลง -->
-<div class="music">
-   
-    <audio controls autoplay loop>
-        <source src="dharma-song.mp3" type="audio/mpeg">
-    </audio>
+</script>
+
+<script>
+
+window.addEventListener("scroll", function(){
+  let y = window.scrollY;
+  document.body.style.backgroundPosition = "center " + (y * 0.3) + "px";
+});
+
+</script>
+
+<audio id="moonSound" loop>
+  <source src="moon-breath.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let playing = false;
+
+function toggleSound(){
+  const audio = document.getElementById("moonSound");
+  const btn = document.querySelector(".sound-btn");
+
+  if(!playing){
+    audio.volume = 0.3;   // 🔊 เบา ๆ
+    audio.play();
+    btn.innerHTML = "🌙 ปิดเสียงจันทร์";
+    playing = true;
+  }else{
+    audio.pause();
+    btn.innerHTML = "🌙 เปิดเสียงจันทร์";
+    playing = false;
+  }
+}
+
+audio.volume = 0;
+audio.play();
+
+let vol = 0;
+let fade = setInterval(()=>{
+  if(vol < 0.3){
+    vol += 0.02;
+    audio.volume = vol;
+  }else{
+    clearInterval(fade);
+  }
+}, 100);
+
+
+<script>
+const btn = document.getElementById("soundBtn");
+const audio = document.getElementById("moonSound");
+
+
+});
+</script>
+
+<div class="audio-box">
+  <audio controls>
+    <source src="dharma-song.mp3" type="audio/mpeg">
+  </audio>
 </div>
 
 </body>
-</html>
-       
+</html> 
