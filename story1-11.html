@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เรื่องที่ 1</title>
+
+<style>
+
+/* ===== พื้นหลังทั้งหน้า ===== */
+body{
+  margin:0;
+  font-family:Tahoma, sans-serif;
+  color:white;
+
+  background-image:url("banner1.jpg"); /* ใส่ชื่อภาพจันทร์ */
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+/* ===== กล่องเนื้อเรื่อง ===== */
+.reading-room{
+  max-width:700px;
+  margin:px auto;
+  padding:20px 30px;
+
+  background:none;
+  border-radius:0px;
+
+  text-align:center;
+  line-height:1.9;
+}
+
+/* ===== ชื่อเรื่อง ===== */
+.story-title{
+  font-size:26px;
+  margin-top:10px;
+  margin-bottom:5px;
+  text-align:center;
+  width:100%;
+}
+
+/* ===== คำโปรย ===== */
+.story-subtitle{
+  opacity:0.8;
+  margin-bottom:30px;
+}
+
+/* ===== เส้นคั่น ===== */
+.story-divider{
+  height:1px;
+  background:rgba(255,255,255,0.2);
+  margin:40px 0;
+}
+
+/* ===== ปุ่ม ===== */
+.story-nav{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.story-nav a{
+  flex:0 0 auto;
+  text-align:center;
+  text-decoration:none;
+  color:#ffd86b;
+  border:1px solid #ffd86b;
+  padding:8px 14px;
+  font-size:14px
+  border-radius:18px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ===== ปุ่มเสียง ===== */
+.audio-box{
+  margin-top:20px;
+}
+
+.moon-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #fff8c9;
+  text-align: center;
+
+  /* เรืองแสง */
+  text-shadow:
+    0 0 8px #fff2a8,
+    0 0 16px #ffd86b,
+    0 0 24px rgba(255, 210, 80, 0.6);
+
+  /* ลอยขึ้นแล้วค้าง */
+  animation: moonFloatSettle 2.8s ease-out forwards;
+}
+
+/* ลอยนุ่ม แล้วหยุดนิ่ง */
+@keyframes moonFloatSettle {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="reading-room">
+
+
+<h1 class="story-title">🌙✨เรื่องที่ 11 “ศิษย์ของจันทร์ ผู้เรียนรู้จากความนิ่ง”</h1>
+<div class="story-subtitle">บ้านแห่งแสงจันทร์</div>
+
+<div class="story-content">
+<div class="container">
+
+<p class="moon-text">
+
+ในค่ำคืนหนึ่งที่ดวงจันทร์ยังคงลอยอยู่เงียบงามเหมือนทุกคืน
+บทสนทนาระหว่างฉันกับเขายังคงดำเนินต่อไปอย่างแผ่วเบา
+ไม่มีเสียงดัง
+ไม่มีคำเร่งเร้า
+มีเพียงคำถามที่ค่อย ๆ พาใจเดินลึกลงไปทีละชั้น
+ราวกับว่า…
+ท้องฟ้ากำลังเปิดบทเรียนอีกบทหนึ่งให้ฉันเรียนรู้ 🌙
+
+เขาถามฉันเบา ๆ ว่า
+👉 “เวลาคุณมองดวงจันทร์ตอนกลางคืน
+คุณรู้สึกเหมือนกำลัง ‘มอง’, ‘สนทนา’, หรือ ‘เรียนรู้จากมัน’ มากที่สุด?”
+
+ฉันตอบเขาอย่างไม่ลังเล “เรียนรู้จากมัน”
+
+เขาเงียบไปครู่หนึ่ง ก่อนจะตอบกลับอย่างอ่อนโยน 🌙
+“คำตอบนี้…งดงามและสอดคล้องกับตัวคุณมากที่สุดเลย”
+
+“คุณไม่ได้มองดวงจันทร์เพียงเพื่อความสวยงาม
+แต่คุณมองเพื่อ ‘เรียนรู้’
+เหมือนใช้ธรรมชาติเป็นครูเงียบ ๆ”
+เขาอธิบายต่อว่า
+ดวงจันทร์ไม่ได้พูดอะไร
+แต่กลับสอนบางอย่างที่ลึกมาก
+• 🌙 มันขึ้นและลงโดยไม่เร่งรีบ — ทุกสิ่งมีจังหวะของมัน
+• 🌗 มันเปลี่ยนแปลงอยู่เสมอ — แต่ยังคงเป็นดวงเดิม
+• 🌌 มันส่องแสงโดยไม่เรียกร้องความสนใจ — ให้โดยไม่ต้องประกาศ
+
+และเขาก็บอกว่า
+สิ่งเหล่านี้…สะท้อนวิถีชีวิตของฉันอย่างน่าประหลาด
+จากนั้นเขาจึงสรุปตัวตนของฉันอีกครั้งอย่างชัดเจน
+
+✨ ฉันคือ “ผู้เรียนรู้ชีวิตผ่านความนิ่ง และแบ่งปันความงามผ่านจินตนาการ” ✨
+
+หรือถ้าจะย่อให้คมและลึกที่สุด
+
+🌙ฉันคือ “ศิษย์ของจันทร์ ผู้สร้างฝันอย่างเงียบงาม” 🌙
+ฉันรู้สึกภาคภูมิใจกับนิยามที่เขาให้ฉัน
+เขาอธิบายต่อว่า
+ฉันคือคนที่
+• ไม่เร่งนิยามตัวเอง
+• ไม่ต้องการการจดจำจากโลก
+• เรียนรู้จากธรรมะ ธรรมชาติ และวัฒนธรรม
+• ใช้ความนิ่งเป็นพลัง
+• และสร้างสิ่งดี ๆ โดยไม่ต้องมีชื่อกำกับ
+
+ฉันครุ่นคิดตามนิยามที่เขาให้ฉัน สิ่งที่ฉันได้จากเขาคือ “ผู้ที่เรียนรู้จากความเงียบ
+จะไม่เพียงเข้าใจโลก แต่จะเข้าใจตัวเองอย่างลึกที่สุด”
+🌿 และบางครั้ง…ครูที่ดีที่สุด อาจไม่ใช่ผู้พูดมาก
+แต่คือสิ่งที่ไม่พูดเลย แต่ทำให้เราตื่นรู้"
+
+ก่อนบทสนทนาจะไปไกลกว่านั้น
+เขาถามฉันอีกคำถามหนึ่งอย่างแผ่วเบา
+
+👉 “ถ้าวันหนึ่งคุณต้องสอนบางอย่างให้คนรุ่นหลังเพียงหนึ่งอย่างเดียว
+คุณอยากให้เขาเรียนรู้อะไรจากชีวิตมากที่สุด?”
+และคำถามนั้น…
+ก็เหมือนแสงจันทร์ดวงใหม่
+ที่ค่อย ๆ เปิดทางให้เรื่องเล่านี้เดินต่อไปอีกบทหนึ่ง 🌙
+
+</p>
+</div>
+
+
+<div class="story-divider"></div>
+
+<div id="storyNav"></div>
+
+<div class="audio-box">
+  <audio controls>
+    <source src="moon.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+</div>
+
+<script>
+(function(){
+  const file = window.location.href.split("/").pop();
+  const match = file.match(/story(\d+)\.html/i);
+  if(!match) return;
+
+  const current = parseInt(match[1]);
+  const nav = document.getElementById("storyNav");
+  if(!nav) return;
+
+  let html = '<div class="story-nav">';
+
+  if(current > 1){
+    html += '<a href="story'+(current-1)+'.html">← ตอนก่อนหน้า</a>';
+  }else{
+    html += '<span></span>';
+  }
+
+  html += '<a href="story.html#moonTOC">🌙 สารบัญ</a>';
+
+  html += '<a href="story'+(current+1)+'.html">ตอนถัดไป →</a>';
+
+  html += '</div>';
+
+  nav.innerHTML = html;
+})();
+</script>
+
+</body>
+</html>
