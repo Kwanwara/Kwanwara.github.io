@@ -29,19 +29,23 @@ body { margin: 0; }
 /* ✨ ข้อความ */
 
 .text{
-
-    position:fixed;
+    position:absolute;
+    top:5%;
     left:50%;
-    top:clamp(10px,4vw,30px);
     transform:translateX(-50%);
-    width:88%;
+    width:90%;
+    max-width:700px;
     z-index:9999;
-    color:gold;
+    color:#f3d27a;
     text-align:center;
-    font-size:clamp(18px, 4vw, 30px);
-    line-height:1.6;
+    font-size:clamp(18px, 4.2vw, 30px);
+    line-height:1.5;
+    font-weight:bold;
+    padding:12px 18px;
     text-shadow:
-      0 0 12px rgba(255,215,120,0.45);
+      2px 2px 6px rgba(0,0,0,0.95),
+      0 0 12px rgba(0,0,0,0.9),
+      0 0 18px rgba(255,215,120,0.45);
 }
 
 .text h1{
@@ -217,7 +221,7 @@ let texts = [
     "ยิ่งช่วยกันแก้…<br>ยิ่งพากันหลง😂",
     "ยังไม่มีใครพูดอะไรแรง ๆ หรอก…<br>แต่ลมหายใจเริ่มแรงแล้ว😭🌙",
     "ต้องหาไม้ตาย…<br>ในการเผด็จศึก🔨😂",
-    "เมื่อคืนพังยังไง…<br<ตื่นมาก็ยังพังแบบนั้น 😂",
+    "เมื่อคืนพังยังไง…<br>ตื่นมาก็ยังพังแบบนั้น 😂",
     "ช่างจันทร์ยังไม่ยอมแพ้…<br>แม้เว็บจะยอมแพ้ไปแล้ว 😆🌙",
     "ตอนนั้นยังไม่เถียงแล้ว…<br>เพราะเริ่มเหนื่อยกว่าโกรธ 😂",
     "และแล้ว…<br>สิ่งที่ไม่ควรพังก็พังอีกจนได้ 😭",
