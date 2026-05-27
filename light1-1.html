@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>แสงนำทาง 1</title>
+
+<style>
+
+body { margin: 0; }
+
+#room {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 🌄 ภาพ */
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease;
+}
+
+.bg1 { opacity: 1; }
+.bg2 { opacity: 0; }
+
+/* ✨ ลอยนุ่ม */
+@keyframes floatTitle {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ ข้อความบนภาพ */
+.text{
+  position:absolute;
+  top:4%;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  max-width:680px;
+  z-index:9999;
+
+  color:#f3d27a;
+  text-align:center;
+  font-size:clamp(17px, 4.2vw, 18px);
+  line-height:1.4;
+  font-weight:bold;
+
+  padding:8px 12px;
+
+  text-shadow:
+    2px 2px 6px rgba(0,0,0,0.95),
+    0 0 12px rgba(0,0,0,0.9);
+}
+
+.text h1{
+  font-size:clamp(24px, 5vw, 38px);
+  margin:0 0 10px;
+  color:#f3d27a;
+}
+
+/* 🚪 ปุ่มนำทาง */
+.nav,
+.end-nav{
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:96%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  z-index:99999;
+}
+
+.nav a,
+.end-nav a{
+  background:rgba(40,28,12,0.78);
+  color:#f3d27a !important;
+  border:2px solid rgba(255,215,120,0.45);
+  text-decoration:none;
+
+  padding:8px 12px;
+  border-radius:24px;
+  font-size:clamp(17px, 4vw, 18px);
+    line-height:1.4;
+  font-weight:bold;
+  min-width:120px;
+  text-align:center;
+
+  box-shadow:0 0 10px rgba(0,0,0,0.65);
+}
+
+/* 📱 มือถือ */
+@media(max-width:768px){
+
+  .text{
+    top:5%;
+    width:92%;
+      font-size:clamp(17px, 4vw, 18px);
+    line-height:1.4;
+    padding:6px 10px;
+  }
+
+  .text h1{
+font-size:clamp(17px, 4vw, 18px);
+    line-height:1.4;
+    margin-bottom:8px;
+  }
+
+  .nav,
+  .end-nav{
+    bottom:8px;
+    gap:6px;
+  }
+
+  .nav a,
+  .end-nav a{
+     font-size:clamp(17px, 4vw, 18px);
+    line-height:1.4;
+    min-width:105px;
+    padding:7px 10px;
+    border-radius:22px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<section>
+
+<div id="room">
+
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+
+    <div class="text">
+      <h1>แสงนำทาง 1</h1>
+        <p>"แตะที่พื้นภาพ… <br>แล้วคุณจะเห็นแสงนำทาง</p>
+    </div>
+
+</div>
+
+<!-- 🚪 ปุ่มนำทาง -->
+<div class="end-nav" id=endNav>
+  <a href="light1-1.html" class="btn">ย้อนดูแสงนำทาง1</a>
+  <a href="light.html#story-point" class="back-btn">กลับห้อง</a>
+  <a href="light1-2.html" class="btn">ไปดูแสงนำ2</a>
+
+</div>
+ 
+
+</div>
+
+<script>
+let images = ["light-photo1-1.1.jpg","light-photo1-1.2.jpg","light-photo1-1.3.jpg","light-photo1-1.4.jpg","light-photo1-1.5.jpg"
+];
+
+let texts = [
+    "แตะที่พื้นภาพ เพื่อเข้าไปพบ<br>✨แสงนำทาง ภาค 1<br>✨จุดกำเนิดของแสง✨",
+    "ขอเพลงหน่อยได้ไหมค่ะ<br>“May I request a song?”"];
+
+let i = 0;
+let toggle = true;
+
+let room = document.getElementById("room");
+let bg1 = document.querySelector(".bg1");
+let bg2 = document.querySelector(".bg2");
+let textBox = document.querySelector(".text");
+
+/* 🌙 ภาพเริ่มต้น */
+bg1.style.backgroundImage = "url('" + images[0] + "')";
+textBox.innerHTML = texts[0];
+
+room.onclick = function () {
+
+    i = (i + 1) % images.length;
+
+    /* ✨ เปลี่ยนข้อความตามภาพ */
+
+    textBox.innerHTML = texts[i];
+
+    if (toggle) {
+        bg2.style.backgroundImage = "url('" + images[i] + "')";
+        bg2.style.opacity = 1;
+        bg1.style.opacity = 0;
+    } 
+else {
+        bg1.style.backgroundImage = "url('" + images[i] + "')";
+        bg1.style.opacity = 1;
+        bg2.style.opacity = 0;
+    }
+
+    toggle = !toggle;
+};
+
+</script>
+
+</section>
+
+</body>
+</html>
+                                           
