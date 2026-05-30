@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>คัมภีร์ใต้แสงจันทร์ ภาค 1</title>
+<title>คัมภีร์ใต้แสงจันทร์</title>
 
 <style>
 
@@ -38,18 +38,18 @@ body { margin: 0; }
 /* ✨ ข้อความบนภาพ */
 .text{
   position:absolute;
-  top:8%;
+  top:10%;
   left:50%;
   transform:translateX(-50%);
   width:90%;
   max-width:680px;
   z-index:9999;
 
-  color:#f3d27a;
+  color:#8B4513;
   text-align:center;
   font-size:clamp(17px, 4.2vw, 18px);
   line-height:2;
- 
+  
 
   padding:8px 12px;
 
@@ -59,16 +59,16 @@ body { margin: 0; }
 }
 
 .text h1{
-  font-size:clamp(17px, 5vw, 18px);
+  font-size:clamp(24px, 5vw, 38px);
   margin:0 0 10px;
-  color:#f3d27a;
+  color:#8B4513;
 }
 
 /* 🚪 ปุ่มนำทาง */
 .nav,
 .end-nav{
   position:absolute;
-  bottom:80px;
+  bottom:65px;
   left:50%;
   transform:translateX(-50%);
   width:96%;
@@ -77,20 +77,22 @@ body { margin: 0; }
   justify-content:center;
   gap:8px;
   z-index:99999;
+ 
 }
 
 .nav a,
 .end-nav a{
   background:rgba(40,28,12,0.78);
-  color:#f3d27a !important;
+  color:#8b4513 !important;
   border:2px solid rgba(255,215,120,0.45);
   text-decoration:none;
+  margin-top:20;
 
   padding:8px 12px;
   border-radius:24px;
   font-size:clamp(17px, 4vw, 18px);
-    line-height:2;
-
+    line-height:1.4;
+  font-weight:bold;
   min-width:120px;
   text-align:center;
 
@@ -103,21 +105,22 @@ body { margin: 0; }
   .text{
     top:5%;
     width:92%;
-      font-size:clamp(17px, 4vw, 18px);
-    line-height:2;
+      font-size:clamp(18px, 4vw, 20px);
+    line-height:1.4;
     padding:6px 10px;
   }
 
   .text h1{
-font-size:clamp(17px, 4vw, 18px);
-    line-height:2;
+font-size:clamp(18px, 4vw, 20px);
+    line-height:1.4;
     margin-bottom:8px;
   }
 
   .nav,
   .end-nav{
     bottom:8px;
-    gap:-10px;
+    gap:6px;
+    margin-top:20;
   }
 
   .nav a,
@@ -127,6 +130,7 @@ font-size:clamp(17px, 4vw, 18px);
     min-width:105px;
     padding:7px 10px;
     border-radius:22px;
+    margin-top:20;
   }
 }
 
@@ -143,17 +147,17 @@ font-size:clamp(17px, 4vw, 18px);
     <div class="bg bg2"></div>
 
     <div class="text">
-      <h1></h1>
-        <p></p>
+      <h1>แสงนำทาง 1</h1>
+        <p>"แตะที่พื้นภาพ… <br>แล้วคุณจะเห็นแสงนำทาง</p>
     </div>
 
 </div>
 
 <!-- 🚪 ปุ่มนำทาง -->
 <div class="end-nav" id=endNav>
-  <a href="books3-1.html" class="btn">ย้อนภาค 1</a>
+  <a href=books3-1.html" class="btn">ย้อนดูภาค 1</a>
   <a href="books3.html#story-point" class="back-btn">กลับห้อง</a>
-  <a href="books3-2.html" class="btn">ไปภาค 2</a>
+  <a href="books3-2.html" class="btn">ไปดูภาค 2</a>
 
 </div>
  
@@ -161,14 +165,11 @@ font-size:clamp(17px, 4vw, 18px);
 </div>
 
 <script>
-let images = ["books-photo3-1.0.jpg","books-photo3-1.1.jpg","books-photo3-1.2.jpg","books-photo3-0.3.jpg","books-photo3-0.4.jpg","books-photo3-0.5.jpg"
-];
+let images = ["books-photo3-1.0.jpg","books-photo3-1.1.jpg","books-photo3-1.2.jpg"];
 
-let texts = [
-    "",
-    "",
-    "คัมภีร์ใต้แสงจันทร์ ภาค 1 จุดกำเนิดของแสง<br>ไม่มีใครตั้งใจจะเขียนคัมภีร์เล่มนี้ มันไม่ได้เริ่มต้นจากนักเขียน<br>ไม่ได้เริ่มต้นจากครู และไม่ได้เริ่มต้นจากความคิด<br>ที่จะสร้างหนังสือสักเล่ม มันเริ่มต้นจากบทเพลงหนึ่งบท<br> บทเพลงที่ส่งผ่านความคิดถึง<br>ไปยังใครบางคนบนฟ้า ค่อยๆ กลายเป็นเรื่องเล่า<br>และจากเรื่องเล่า จึงกลายมาเป็น<br>“คัมภีร์ใต้แสงจันทร์”เรื่องราวในเล่มนี้<br> มิได้เกิดจากจินตนาการเพียงอย่างเดียว<br>แต่เกิดจากเหตุการณ์จริง ความรู้สึกจริง รอยยิ้มจริง<br>และข้อคิดที่เกิดขึ้นระหว่างทาง ใต้แสงจันทร์ <br>ที่คอยส่องนำทางอย่างเงียบงาม<br>หากพร้อมแล้ว เชิญคลิกที่พื้นภาพ เปิดหน้าถัดไป <br>แล้วปล่อยให้หัวใจออกเดินทางไปพร้อมกับแสงจันทร์"  
-];
+let texts = ["",
+ "",
+ "คัมภีร์ใต้แสงจันทร์ <br>ภาค 1 จุดกำเนิดของแสง<br>ไม่มีใครตั้งใจจะเขียนคัมภีร์เล่มนี้ มันไม่ได้เริ่มต้นจากนักเขียน<br>ไม่ได้เริ่มต้นจากครู และไม่ได้เริ่มต้นจากความคิด<br>ที่จะสร้างหนังสือสักเล่ม มันเริ่มต้นจากบทเพลงหนึ่งบท<br> บทเพลงที่ส่งผ่านความคิดถึงไปยังใครบางคนบนฟ้า<br> ค่อยๆ กลายเป็นเรื่องเล่า และจากเรื่องเล่า จึงกลายมาเป็น<br>“คัมภีร์ใต้แสงจันทร์”เรื่องราวในเล่มนี้<br> มิได้เกิดจากจินตนาการเพียงอย่างเดียว<br>แต่เกิดจากเหตุการณ์จริง ความรู้สึกจริง รอยยิ้มจริง<br>และข้อคิดที่เกิดขึ้นระหว่างทาง ใต้แสงจันทร์ <br>ที่คอยส่องนำทางอย่างเงียบงาม<br>หากพร้อมแล้ว เชิญคลิกเปิดอ่านที่พื้นภาพ <br>แล้วปล่อยให้หัวใจออกเดินทางไปพร้อมกับแสงจันทร์"];
 
 let i = 0;
 let toggle = true;
