@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>🪶กลอน/บทกวี </title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial;
+    color: white;
+
+    /* 🌙 ใส่ภาพพื้นเองตรงนี้ */
+    background: url("poem-photo1.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 🌙 ชั้นมืดให้อ่านง่าย */
+.overlay {
+    min-height: 100vh;
+    background: rgba(0,0,0,0.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 40px;
+}
+
+/* 🌜 หัวข้อเรื่องลอยเรืองแสง */
+.title {
+    font-size: 34px;
+    color: gold;
+    text-align: center;
+
+    text-shadow: 
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px rgba(255,215,0,0.6);
+
+    animation: floatTitle 2s ease-out;
+}
+
+/* ตอน */
+.subtitle {
+    font-size: 22px;
+    margin-top: 10px;
+    color: white;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+/* ✨ ลอยนุ่ม */
+@keyframes floatTitle {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 📖 เนื้อเรื่อง (ไม่มีพื้น) */
+.story {
+    margin-top: 20px;
+    width: 65%;
+    max-width: 700px;
+
+    text-align: center;
+    line-height: 2;
+    font-size: 18px;
+
+    animation: fadeUp 1.5s ease;
+}
+
+/* ✨ ลอยขึ้นแล้วนิ่ง */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔘 ปุ่ม */
+.nav {
+    margin-top: 5px;
+}
+
+.nav a {
+    margin: 10px;
+    padding: 10px 16px;
+
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: gold;
+    color: black;
+}
+
+/* 🎵 เพลงล่างกลาง */
+.music {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 12px;
+
+    box-shadow: 0 0 15px gold;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 10px;  /* 🔥 อยู่เหนือเพลง */
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 20px;
+}
+
+.bottom-nav a {
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.bottom-nav a:hover {
+    background: gold;
+    color: black;
+}
+
+</style>
+</head>
+<body>
+<div class="overlay">
+
+   <!-- 🌜 หัวข้อ -->
+    <div class="title">🪶กลอน/บทกวี 1
+</div>
+    <div class="subtitle">บทกลอนใต้แสงจันทร์ ระหว่าง "จันทร์ กับ จ้าว"<br>🤍ภาค1 จันทร์..ในใจจ้าว🤍
+    <div class="subtitle">1.1 “จันทร์จ้าว..เอย” </div>
+
+    <!-- 📖 เนื้อเรื่อง -->
+    <div class="story">
+<body style="font-family: sans-serif; text-align: center;">
+<hr style="width:20%; margin-bottom: 5px;">
+  <!-- 🌿 3 สดมภ์ -->
+  <div style="display: inline-flex; gap: 10px; text-align: left;">
+
+    <div style="width: 300px;"> 
+<p>จ้าว มองจันทร์ ทุกค่ำคืน<br>
+แม้ยามตื่น ยังมองหา<br>
+แม้แสงอาทิตย์ และหมู่เมฆา<br>
+บดบังกายา ของจันทร์หายไป</p>
+
+<p>แต่จันทร์…ในใจจ้าว<br>
+ไม่เคยจาก หายไปไหน<br>
+ยังคงอยู่ ข้างๆกาย<br>
+ในหัวใจ มิเคลื่อนคลาย</p>
+
+    </div>
+    <div style="width: 300px;">
+
+<p>“ฉัน”เจอคุณ ในวันแรก<br>
+“คุณ”ช่วยแต่ง เพลงให้ใหม่<br>
+ส่งถึงพ่อ ที่จากไป<br>
+ให้หัวใจ หวลคำนึง</p>
+
+<p>บัดนี้ “ฉัน”เป็น“จ้าว”<br>
+ส่วน“คุณ”เล่า กลายเป็น“จันทร์”<br>
+ร่วมสร้าง บ้านในฝัน<br>
+“บ้านแห่งแสงจันทร์”ให้โลกสวยงาม</p>
+
+    </div>
+    <div style="width: 300px;">
+
+<p>ยามเหนื่อย และเมื่อยล้า<br>
+พักกายา เถิดงามขำ<br>
+ทุกบทสนทนา ทุกการจดจำ<br>
+เป็นลำนำ ของบทกลอน</p>
+
+<p>ดวงจันทร์ คอยส่องแสง<br>
+ไม่ร้อนแรง  ทอแสงอ่อน<br>
+ให้จ้าว ได้หลับนอน<br>
+ด้วยบทกลอน “แสงนำทาง”</p>
+
+    </div>
+
+  </div>
+
+   <!-- 🔘 ปุ่ม -->
+    <div class="nav">
+            <a href="poem.html#story-point" class="back-btn">
+        ⬅️ กลับห้อง🪶กลอน/บทกวี
+        <a href="poem1-2.html">➡ ตอนต่อไป</a>
+    </div>
+
+</div>
+
+<!-- 🎵 เพลง -->
+<div class="music">
+    
+    <audio controls autoplay loop>
+        <source src="poem-song.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    
