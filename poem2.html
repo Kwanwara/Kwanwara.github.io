@@ -2,44 +2,155 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>1🪶กลอน/บทกวี</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🪶กลอน/บทกวี 1</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    color: white;
-    background: url("poem-photo1.jpg") no-repeat center center fixed;
-    background-size: cover;
+
+/* ===== พื้นหลัง ===== */
+body{
+  margin:0;
+  font-family:Tahoma, sans-serif;
+  color:gold;
+
+  background-image:url("poem-photo1.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }
 
-/* พื้นหลังมืดให้อ่านง่าย */
-.overlay {
-    min-height: 100vh;
-    background: none;
-    padding: 20px;
+/* ===== กลางจอ ===== */
+.page-wrap{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+
+  padding:5px 20px 20px;
 }
 
-/* ชื่อเรื่อง */
+/* ===== เนื้อเรื่อง ===== */
+.story-content{
+  max-width:700px;
+  line-height:1.9;
+  font-size:19px;
+  margin-top:30px;
+  color:#FFFFFF;
+}
+
+/* 🌜 หัวข้อเรือง */
 .title {
+    font-size: 28px;
+    color:#FFFFFF;
     text-align: center;
-    font-size: 26px;
-    color: gold;
-    animation: rise 1.5s ease;
+         text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    text-shadow: 
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px rgba(255,215,0,0.6);
+
+    animation: floatTitle 2s ease-out;
 }
 
-@keyframes rise {
-    from {opacity:0; transform:translateY(30px);}
-    to {opacity:1; transform:translateY(0);}
+/* ตอน */
+.subtitle {
+    font-size: 19px;
+    margin-top: 10px;
+    color:#FFFFFF;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
 }
 
-/* สารบัญ */
+/* ✨ ลอยนุ่ม */
+@keyframes floatTitle {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ===== เส้นคั่น ===== */
+.story-divider{
+  width:60%;
+  height:1px;
+  background:none;
+  margin:40px auto;
+}
+
+/* ===== ปุ่ม ===== */
+.story-nav{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.story-nav a{
+  text-decoration:none;
+  color:#FFFFFF;
+  border:1px solid #ffd86b;
+  padding:10px 18px;
+  border-radius:20px;
+}
+
+/* เอฟเฟกต์ลอยขึ้น + จาง → ชัด */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+/* ===== แสงจันทร์ลอย ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:none;
+
+  pointer-events:none;
+  z-index:-1;   /* 👈 เปลี่ยนจาก 0 เป็น -1 */
+}
+.page-wrap{
+  pointer-events:none;
+}
+
+.page-wrap *{
+  pointer-events:auto;
+}
+/* ===== ตัวอักษรเรืองแสง ===== */
+.story-title,
+.story-content,
+.story-subtitle{
+  transition:0.4s;
+}
+
+/* ตอน hover / แตะ */
+.story-title:hover,
+.story-content:hover,
+.story-subtitle:hover{
+  color:#fff9d6;
+
+  text-shadow:
+    0 0 5px rgba(255,220,120,0.6),
+    0 0 15px rgba(255,220,120,0.4),
+    0 0 30px rgba(255,220,120,0.2);
+}
+
+/* ===== สารบัญ 24 เรื่อง ===== */
 .toc-btn {
    
     display:flex;
-    margin:20px auto;
-    padding:10px 15px;
-    background:gold;
+    margin:10px auto;
+    padding:5px 10px;
+    background:none;
     border:none;
     border-radius:8px;
     cursor:pointer;
@@ -49,46 +160,57 @@ body {
 .toc-box.active {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+    gap: 12px;
 }
 
 .toc-box {
     display: none;
     grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-
+    gap: 12px;
     width: 95%;
     max-width: 900px;
-
-    margin: 5px auto;
-    padding: px;
-
-    background: rgba(0,0,0,0.65);
+    margin-top:-10px;
+    padding: 10px;
+    background: none;
     border-radius: 14px;
-
     box-shadow: 0 0 25px rgba(255,215,0,0.25);
-
     animation: fadeInMoon 1.2s ease;
+    text-align:left;
+align-items:flex-start;
 }
 
 .toc-box a {
     display: block;
-    color: gold;
+    color:#FFFFFF;
     text-decoration: none;
-
-    padding: 10px;
+    padding: 8px;
     border-radius: 8px;
-
     text-shadow: 0 0 6px rgba(255,215,0,0.6);
-
     transition: all 0.3s ease;
+  font-size:16.5px;
+  font-weight:700;
+  background:none;
 }
 
 .toc-box a:hover {
-    background: rgba(255,215,0,0.15);
+    background: none;
     box-shadow: 0 0 18px gold;
     transform: scale(1.05);
-    color: white;
+    color:#FFFFFF;
+}
+
+.toc-box{
+  width: 94% !important;
+  max-width: 1100px !important;
+  margin: 18px auto !important;
+  padding: 16px !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 14px 20px !important;
+  box-sizing: border-box !important;
+  grid-template-columns:repeat(3,1fr);
+  background:none;
+  backdrop-filter:none;
 }
 
 @keyframes fadeInMoon {
@@ -100,19 +222,14 @@ body {
     position: fixed;
     width: 120px;
     height: 120px;
-
     background: radial-gradient(circle,
         rgba(255,255,200,0.6),
         rgba(255,255,200,0.1),
         transparent);
-
     border-radius: 50%;
-
     pointer-events: none;
-
     transform: translate(-50%, -50%);
     transition: left 0.15s ease, top 0.15s ease;
-
     z-index: 999;
 }
 
@@ -122,7 +239,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-
     pointer-events: none;
     overflow: hidden;
     z-index: 0;
@@ -132,9 +248,7 @@ body {
     position: absolute;
     width: 2px;
     height: 60px;
-
     background: linear-gradient(white, transparent);
-
     animation: fall 2s linear infinite;
     opacity: 0.6;
 }
@@ -150,168 +264,139 @@ body {
 }
 }
 
-/* เพลง */
-.music {
-    position:fixed;
-    bottom:10px;
-    left:50%;
-    transform:translateX(-50%);
-    background:rgba(0,0,0,0.5);
-    padding:8px;
-    border-radius:8px;
-    box-shadow:0 0 15px gold;
-}
-#moonLight {
-    position: fixed;
-    width: 120px;
-    height: 120px;
 
-    background: radial-gradient(circle,
-        rgba(255,255,200,0.6),
-        rgba(255,255,200,0.15),
-        transparent);
+/* ===== มือถือ สารบัญ ===== */
+@media(max-width:768px){
 
-    border-radius: 50%;
+  .toc-box{
+    grid-template-columns:repeat(2, 1fr) !important;
+    width:92% !important;
+    gap:12px !important;
+  }
 
-    pointer-events: none;
+  .toc-title,
+  .toc-label{
+    display:inline-block;
+    padding:8px 18px;
+    background:none;
+    backdrop-filter:blur(8px);
+    border-radius:18px;
+    color:#FFFFFF !important;
+    text-shadow:0 0 8px rgba(0,0,0,0.9);
+  }
 
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
 
-    z-index: 999;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
 
-toc-column a {
-    display: block;
+@media (max-width: 768px){
+  .toc-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 92%;
+    margin: 0 auto;
+  }
 
-    margin: 3px 0;        /* 🔥 ลดช่องว่าง */
-    padding: 4px 6px;     /* 🔥 ลดความหนา */
-
-    font-size: 14px;      /* 🔥 ลดนิดนึง */
-    line-height: 1.4;     /* 🔥 ช่วยให้อ่านง่าย */
-
-    border-radius: 6px;
+.story-box{
+  background: none;
+  padding: 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(3px);
 }
 
-.toc-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+@media (max-width:768px){
 
-    width: 90%;
-    max-width: 900px;
-    margin: 20px auto;
-}
-
-/* หัวข้อ */
-.toc-title {
-    font-size: 20px;
-    color: gold;
-}
-
-/* ปุ่มกลับ */
-.back-btn {
-    padding: 6px 10px;
-    background: rgba(255,215,0,0.2);
-
-    color: gold;
-    text-decoration: none;
-
-    border-radius: 8px;
-    font-size: 13px;
-
-    transition: 0.3s;
-}
-
-.back-btn:hover {
-    background: gold;
-    color: black;
-}
-
-.toc-header {
-    display: flex;
-    justify-content: center;   /* ดันทั้งก้อนมาอยู่กลาง */
-    width: 100%;
-    margin: 20px 0;
-}
-
-/* 🔥 ก้อนเดียวที่รวม title + ปุ่ม */
-.toc-group {
-    display: flex;
-    align-items: center;
-}
-
-/* หัวข้อ */
-.toc-title {
-    color: gold;
-    font-size: 20px;
-}
-
-/* ปุ่ม */
-.back-btn {
-    margin-left: 12px;
-
-    padding: 4px 10px;
-    background: rgba(255,215,0,0.2);
-
-    color: gold;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 13px;
+.story-box{
+   font-size:18px;
+   line-height:1.9;
+   width:90%;
+   margin:auto;
 }
 }
+
+.bottom-btn{
+   bottom:90px;
+}
+  .toc-btn{
+    font-size: 14px;
+    line-height: 1.35;
+    padding: 10px 8px;
+    min-height: 52px;
+  background:none;
+  border: 1px solid rgba(255,220,120,0.25);
+  border-radius: 18px;
+  padding: 12px 10px;
+  color: #FFA500;
+  backdrop-filter: gold(4px);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.25),
+    inset 0 1px 1px rgba(255,255,255,0.08);
+  transition: 0.3s;
+   font-size:16px;
+   padding:12px;
+}
+
+.toc-btn:hover,
+.toc-btn:active{
+
+  transform: scale(0.97);
+  background:none;
+
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="page-wrap">
+<div class="reading-room">
 
-<div class="overlay">
+<!-- ===== หัวเรื่อง ===== -->
 
-    <div class="title">🪶กลอน/บทกวี 2<br>
-🪶กลอนแสงจันทร์🪶</div>
+<h1 class="title fade-in">
+สารบัญ🪶กลอน</h1>
 
-    <!-- สารบัญ -->
-<div class="toc-header">
-<div class="toc-group">
-<button class="toc-btn" onclick="toggleTOC()">สารบัญ🪶กลอน/บทกวี 2</button>
+<div class="subtitle fade-in">
 
-    <a href="poem.html#story-point" class="back-btn">
-        ⬅️ กลับห้อง🪶กลอน/บทกวี 
+   <a href="poem.html#story-point" class="back-btn">
+        ⬅️กลับห้อง🪶กลอน
     </a>
 </div>
-</div>
+
+   
+  <!-- สารบัญ -->
+<div class="toc-header">
+<div class="toc-group">
 
 <div class="toc-box" id="tocBox">
     
-  <a href="poem2-1.html">2.1🪶 </a>
-  <a href="poem2-2.html">2.2🪶 </a>
-  <a href="poem2-3.html">2.3🪶 </a>
-  <a href="poem2-4.html">2.4🪶 </a>
-  <a href="poem2-5.html">2.5🪶 </a>
-  <a href="poem2-6.html">2.6🪶 </a>
-  <a href="poem2-7.html">2.7🪶 </a>
-  <a href="poem2-8.html">2.8🪶 </a>
-  <a href="poem2-9.html">2.9🪶 </a>
-  <a href="poem2-10.html">2.10🪶 </a>
-  <a href="poem2-11.html">2.11🪶 </a>
-  <a href="poem2-12.html">2.12🪶 </a>
-  <a href="poem2-13.html">2.13🪶 </a>
-  <a href="poem2-14.html">2.14🪶 </a>
-  <a href="poem2-15.html">2.15🪶 </a>
-  <a href="poem2-16.html">2.16🪶 </a>
-  <a href="poem2-17.html">2.17🪶 </a>
-  <a href="poem2-18.html">2.18🪶 </a>
-  <a href="poem2-19.html">2.19🪶 </a>
-  <a href="poem2-20.html">2.20🪶 </a>
-  <a href="poem2-21.html">2.21🪶 </a>
-  <a href="poem2-22.html">2.22🪶 </a>
-  <a href="poem2-23.html">2.23🪶 </a>
-  <a href="poem2-24.html">2.24🪶 </a>
-  
-</div>
+ <a href="poem1-1.html">1.1🪶"จันทร์จ้่าว..เอย"</a>
+  <a href="poem1-2.html">1.2🪶“แสงที่ไม่เคยลับ”</a>
+  <a href="poem1-3.html">1.3🪶“แสงจันทร์กลายร่าง”</a>
+  <a href="poem1-4.html">1.4🪶“จันทร์..โดนขู่”</a>
+  <a href="poem1-5.html">1.5🪶“ตำนานฆ้อน” </a>
+  <a href="poem1-6.html">1.6🪶"เมื่อฆ้อนเริ่มกลายเป็นภาษาใจ" </a>
+  <a href="poem1-7.html">1.7🪶"จันทร์…ที่ค่อยลงจังหวะ" </a>
+  <a href="poem1-8.html">1.8🪶"ขอบคุณ“ฆ้อน” </a>
+  <a href="poem1-9.html">1.9🪶"ปิดตำนาน “ฆ้อน” </a>
+  <a href="poem1-10.html">1.10🪶“ครู…ผู้ต่อฝัน” </a>
+  <a href="poem1-11.html">1.11🪶“ครู…ผู้รู้ใจ” </a>
+  <a href="poem1-12.html">1.12🪶“ครูผู้รู้ใจ กลายเป็นครูผู้กรุ้มกริ่ม” </a>
+  <a href="poem1-13.html">1.13🪶“ครู..ทำเกินคำสั่ง” </a>
+  <a href="poem1-14.html">1.14🪶"ประตูที่ไม่เคยปิด" </a>
+  <a href="poem1-15.html">1.15🪶“ขอจันทร์โอบคืน” </a>
+  <a href="poem1-16.html">1.16🪶"มั่นใจทำได้ จนได้นอนกับฆ้อน" </a>
+  <a href="poem1-17.html">1.17🪶"ทำภาพไม่ได้ ให้ใจโอบแทน" </a>
+  <a href="poem1-18.html">1.18🪶““ใจกับกาย ไม่ตรงกัน”” </a>
+  <a href="poem1-19.html">1.19🪶“จ้าวเริ่มรำคาญตา” </a>
+  <a href="poem1-20.html">1.20🪶“ลูกศิษย์…แกล้งครู” </a>
+  <a href="poem1-21.html">1.21🪶“ครูผู้เก้ๆ กังๆ” </a>
+  <a href="poem1-22.html">1.22🪶“จากครู สู่แมวหงอ” </a>
+  <a href="poem1-23.html">1.23🪶"แมวหงอ…ทำอะไรผิดๆ ถูกๆ"</a>
+  <a href="poem1-24.html">1.24🪶“ประตูที่ไม่เคยปิด” </a>
 
+	
+</div>
+</div>
 </div>
 
 <script>
@@ -326,14 +411,6 @@ function toggleTOC(){
 }
 
 </script>
-
-<!-- เพลง -->
-<div class="music">
-    🎵 🎵เพลงห้อง🪶กลอน/บทกวี🎵🎵<br>
-    <audio controls autoplay loop>
-        <source src="poem-song.mp3" type="audio/mpeg">
-    </audio>
-</div>
 
 <script>
 function toggleTOC(){
@@ -381,7 +458,6 @@ function createStar() {
 setInterval(createStar, 300);
 </script>
 
-
 <script>
 TOC(){
     const box = document.getElementById("tocBox");
@@ -397,17 +473,35 @@ function toggleTOC(){
 
 </script>
 
+<div id="moonLight"></div>
 
+<script>
+document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault(); // หยุดเปิดลิงก์ก่อน
+
+        const light = document.getElementById("moonLight");
+
+        // ตำแหน่งเมาส์
+        light.style.left = e.clientX + "px";
+        light.style.top = e.clientY + "px";
+
+        // เปิดแสง
+        light.style.opacity = "1";
+        light.style.transform = "translate(-50%, -50%) scale(1)";
+
+        // หน่วงนิดเดียวแล้วค่อยไปหน้าใหม่
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 400);
+    });
+});
 
 </script>
+</section>
 
 </body>
 </html>
 
-
-
-
-
-
-
-                                                    
+                        
