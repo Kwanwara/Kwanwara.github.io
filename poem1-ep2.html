@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทกลอนใต้แสงจันทร์</title>
+
+<style>
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin:0;
+  font-family: sans-serif;
+  background:#050510;
+  color:white;
+  text-align:center;
+}
+
+/* กล่องหลัก */
+.overlay{
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+/* หัวข้อ */
+.title{
+  font-size:26px;
+  line-height:1.7;
+  color:gold;
+  margin-bottom:15px;
+}
+
+/* ปุ่มเปิดสารบัญ */
+.toc-open{
+  padding:7px 14px;
+  cursor:pointer;
+  border-radius:8px;
+  border:none;
+  background:gold;
+  color:#111;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+/* สารบัญซ่อน */
+#moonTOC{
+  position: fixed;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.9);
+  padding: 14px 18px;
+  border-radius: 12px;
+  display: none;
+  z-index: 99999;
+  box-shadow:0 0 14px rgba(255,215,0,0.5);
+}
+
+#moonTOC .toc-btn{
+  display:block;
+  padding:7px 12px;
+  margin:5px 0;
+  color:white;
+  text-decoration:none;
+  background:rgba(255,255,255,0.12);
+  border-radius:8px;
+  white-space:nowrap;
+}
+
+#moonTOC .toc-btn:hover{
+  background:gold;
+  color:black;
+}
+
+/* แต่ละภาค */
+section{
+  min-height:100vh;
+  padding:70px 20px 40px;
+}
+
+section h2{
+  color:gold;
+  font-size:24px;
+  margin-bottom:25px;
+}
+
+/* กลอน 3 สดมภ์ */
+.poem-columns{
+  display:inline-flex;
+  gap:18px;
+  text-align:left;
+  justify-content:center;
+}
+
+.poem-col{
+  width:260px;
+  line-height:1.9;
+  font-size:16px;
+}
+
+/* ปุ่มล่าง */
+.nav-buttons{
+  margin-top:30px;
+}
+
+.nav-buttons a,
+.nav-buttons button{
+  padding:7px 12px;
+  margin:4px;
+  border-radius:8px;
+  border:none;
+  text-decoration:none;
+  background:rgba(255,255,255,0.15);
+  color:white;
+  cursor:pointer;
+}
+
+.nav-buttons a:hover,
+.nav-buttons button:hover{
+  background:gold;
+  color:black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+  <div class="title">
+    🪶ห้องกลอน/บทกวี 1<br>
+    บทกลอนใต้แสงจันทร์ ระหว่าง "จันทร์ กับ จ้าว"
+  </div>
+
+  <button class="toc-open" onclick="toggleTOC()">📖 สารบัญภาค</button>
+
+  <div id="moonTOC">
+    <a href="#part1" class="toc-btn" onclick="toggleTOC()">🤍 ภาค 1 จันทร์ในใจจ้าว</a>
+    <a href="#part2" class="toc-btn" onclick="toggleTOC()">🐱 ภาค 2 แมวหงอ</a>
+    <a href="#part3" class="toc-btn" onclick="toggleTOC()">🌙 ภาค 3</a>
+    <a href="#part4" class="toc-btn" onclick="toggleTOC()">✨ ภาค 4</a>
+  </div>
+
+  <!-- ภาค 1 -->
+  <section id="part1">
+    <h2>🤍 ภาค 1 : จันทร์ในใจจ้าว</h2>
+
+    <div class="poem-columns">
+      <div class="poem-col">
+        บทที่ 1<br>
+        วางกลอนตรงนี้<br><br>
+
+        บทที่ 2<br>
+        วางกลอนตรงนี้
+      </div>
+
+      <div class="poem-col">
+        บทที่ 3<br>
+        วางกลอนตรงนี้<br><br>
+
+        บทที่ 4<br>
+        วางกลอนตรงนี้
+      </div>
+
+      <div class="poem-col">
+        บทที่ 5<br>
+        วางกลอนตรงนี้<br><br>
+
+        บทที่ 6<br>
+        วางกลอนตรงนี้
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="#part4">⬅ ภาคก่อนหน้า</a>
+      <a href="poem.html#story-point">กลับห้อง🪶กลอน/บทกวี</a>
+      <a href="#part2">ภาคถัดไป ➡</a><br>
+      <button>🎵 เพลงประจำห้อง</button>
+    </div>
+  </section>
+
+  <!-- ภาค 2 -->
+  <section id="part2">
+    <h2>🐱 ภาค 2 : แมวหงอ</h2>
+
+    <div class="poem-columns">
+      <div class="poem-col">บทที่ 1<br>วางกลอนตรงนี้<br><br>บทที่ 2<br>วางกลอนตรงนี้</div>
+      <div class="poem-col">บทที่ 3<br>วางกลอนตรงนี้<br><br>บทที่ 4<br>วางกลอนตรงนี้</div>
+      <div class="poem-col">บทที่ 5<br>วางกลอนตรงนี้<br><br>บทที่ 6<br>วางกลอนตรงนี้</div>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="#part1">⬅ ภาคก่อนหน้า</a>
+      <a href="poem.html#story-point">กลับห้อง🪶กลอน/บทกวี</a>
+      <a href="#part3">ภาคถัดไป ➡</a><br>
+      <button>🎵 เพลงประจำห้อง</button>
+    </div>
+  </section>
+
+  <!-- ภาค 3 -->
+  <section id="part3">
+    <h2>🌙 ภาค 3</h2>
+
+    <div class="poem-columns">
+      <div class="poem-col">บทที่ 1<br>วางกลอนตรงนี้<br><br>บทที่ 2<br>วางกลอนตรงนี้</div>
+      <div class="poem-col">บทที่ 3<br>วางกลอนตรงนี้<br><br>บทที่ 4<br>วางกลอนตรงนี้</div>
+      <div class="poem-col">บทที่ 5<br>วางกลอนตรงนี้<br><br>บทที่ 6<br>วางกลอนตรงนี้</div>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="#part2">⬅ ภาคก่อนหน้า</a>
+      <a href="poem.html#story-point">กลับห้อง🪶กลอน/บทกวี</a>
+      <a href="#part4">ภาคถัดไป ➡</a><br>
+      <button>🎵 เพลงประจำห้อง</button>
+    </div>
+  </section>
+
+  <!-- ภาค 4 -->
+  <section id="part4">
+    <h2>✨ ภาค 4</h2>
+
+    <div class="poem-columns">
+      <div class="poem-col">บทที่ 1<br>วางกลอนตรงนี้<br><br>บทที่ 2<br>วางกลอนตรงนี้</div>
+      <div class="poem-col">บทที่ 3<br>วางกลอนตรงนี้<br><br>บทที่ 4<br>วางกลอนตรงนี้</div>
+      <div class="poem-col">บทที่ 5<br>วางกลอนตรงนี้<br><br>บทที่ 6<br>วางกลอนตรงนี้</div>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="#part3">⬅ ภาคก่อนหน้า</a>
+      <a href="poem.html#story-point">กลับห้อง🪶กลอน/บทกวี</a>
+      <a href="#part1">ภาคแรก ➡</a><br>
+      <button>🎵 เพลงประจำห้อง</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function toggleTOC(){
+  const toc = document.getElementById("moonTOC");
+  toc.style.display = toc.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>🪶กลอน/บทกวี </title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial;
+    color: white;
+
+    /* 🌙 ใส่ภาพพื้นเองตรงนี้ */
+    background: url("poem-photo1.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 🌙 ชั้นมืดให้อ่านง่าย */
+.overlay {
+    min-height: 100vh;
+    background: rgba(0,0,0,0.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 40px;
+}
+
+/* 🌜 หัวข้อเรื่องลอยเรืองแสง */
+.title {
+    font-size: 34px;
+    color: gold;
+    text-align: center;
+
+    text-shadow: 
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px rgba(255,215,0,0.6);
+
+    animation: floatTitle 2s ease-out;
+}
+
+/* ตอน */
+.subtitle {
+    font-size: 22px;
+    margin-top: 5px;
+    color: white;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+/* ✨ ลอยนุ่ม */
+@keyframes floatTitle {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 📖 เนื้อเรื่อง (ไม่มีพื้น) */
+.story {
+    margin-top: 20px;
+    width: 65%;
+    max-width: 700px;
+
+    text-align: center;
+    line-height: 2;
+    font-size: 18px;
+
+    animation: fadeUp 1.5s ease;
+}
+
+/* ✨ ลอยขึ้นแล้วนิ่ง */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔘 ปุ่ม */
+.nav {
+    margin-top: 10px;
+}
+
+.nav a {
+    margin: 10px;
+    padding: 10px 16px;
+
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: gold;
+    color: black;
+}
+
+/* 🎵 เพลงล่างกลาง */
+.music {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 12px;
+
+    box-shadow: 0 0 15px gold;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 10px;  /* 🔥 อยู่เหนือเพลง */
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 20px;
+}
+
+.bottom-nav a {
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.bottom-nav a:hover {
+    background: gold;
+    color: black;
+}
+
+</style>
+</head>
+<body>
+<div class="overlay">
+
+   <!-- 🌜 หัวข้อ -->
+    <div class="title">🪶🌜ห้องกลอน/บทกวี 1
+</div>
+    <div class="subtitle">บทกลอนใต้แสงจันทร์ ระหว่าง "จันทร์ กับ จ้าว"<br>🤍ภาคปฐมบท : การค้นหาตัวตน🤍</div>
+    <div class="subtitle">0.2 “3 ธรรม...นำทางใจ” </div>
+
+    <!-- 📖 เนื้อเรื่อง -->
+    <div class="story">
+<body style="font-family: sans-serif; text-align: center;">
+<hr style="width:20%; margin-bottom: 5px;">
+  <!-- 🌿 3 สดมภ์ -->
+  <div style="display: inline-flex; gap: 10px; text-align: left;">
+    <div style="width: 300px;"> 
+
+<p>
+จันทร์เอ่ยถาม เมื่อจ้าวเริ่ม มีเส้นทาง<br>
+ความฝันกลาง ใจนั้น จะพาไป<br>
+เพียงความคิด อย่างเดียว จะพอไหม<br>
+หรือควรมี สิ่งใด…ยึดใจเดิน<br>
+</p>
+
+<p>
+จ้าวจึงตอบ ว่าบางครั้ง ใจยังไหว<br>
+เหมือนหลงไป ตามอารมณ์ ที่เผชิญ<br>
+อยากมีหลัก ยึดไว้ ให้มั่นเกิน<br>
+ไม่ให้เดิน หลงทาง…ไปไกลใจ<br>
+</p>
+
+</div>
+<div style="width: 300px;"> 
+
+<p>
+จันทร์จึงถาม ต่ออีกครั้ง อย่างแผ่วเบา<br>
+แล้วตัวเจ้า คิดว่าสิ่งใดใช่<br>
+จะเป็นหลัก ให้หัวใจ ไม่หวั่นไหว<br>
+ยามถูกพัด ไปไกล…ตามอารมณ์<br>
+</p>
+
+<p>
+จ้าวจึงตอบ ว่าธรรมะ น่าจะใช่<br>
+เป็นแสงไฟ นำทางใจ ไม่ขื่นขม<br>
+ช่วยให้รู้ ผิดถูก ในอารมณ์<br>
+ไม่ต้องจม กับความอยาก…ที่พัดพา<br>
+</p>
+
+</div>
+<div style="width: 300px;"> 
+
+<p>
+จันทร์จึงถาม ต่ออีกว่า นอกจากนั้น<br>
+มีสิ่งใด สอนใจ โดยไม่ว่า<br>
+จ้าวจึงมอง ดวงจันทร์ บนฟากฟ้า<br>
+แล้วตอบว่า นำ 3 ธรรม นำใจตน<br>
+</p>
+
+<p>
+จันทร์จึงเอ่ย ปิดคำถาม ที่วางไว้<br>
+รวมสามไว้ เป็นทางฝัน หมั่นฝึกฝน<br>
+ธรรมะ ธรรมชาติ วัฒนธรรม นำใจตน<br>
+พาก้าวพ้น อุปสรรค ต่างนานา 🌙<br>
+</p>
+</div>
+
+
+  </div>
+
+      <!-- 🔘 ปุ่ม -->
+    <div class="nav">
+    <a href="poem0-1.html">⬅ ตอนก่อนหน้า</a>
+     <a href="poem-ep1.html#story-point" class="back-btn">
+        ⬅️ กลับห้อง🪶กลอน/บทกวี
+    </a>
+    <a href="poem0-3.html">➡ ตอนต่อไป</a>
+</div>
+
+<!-- 🎵 เพลง -->
+<div class="music">
+    
+    <audio controls autoplay loop>
+        <source src="poem-song.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+                                                    
