@@ -2,38 +2,51 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>🪶กลอน/บทกวี </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🪶กลอน/บทกวี 1</title>
 
 <style>
 
-body {
-    margin: 0;
-    font-family: Arial;
-    color: white;
+/* ===== พื้นหลัง ===== */
+body{
+  margin:0;
+  font-family:Tahoma, sans-serif;
+  color:gold;
 
-    /* 🌙 ใส่ภาพพื้นเองตรงนี้ */
-    background: url("poem-photo1.jpg") no-repeat center center fixed;
-    background-size: cover;
+  background-image:url("poem-photo1.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }
 
-/* 🌙 ชั้นมืดให้อ่านง่าย */
-.overlay {
-    min-height: 100vh;
-    background: rgba(0,0,0,0.4);
+/* ===== กลางจอ ===== */
+.page-wrap{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 40px;
+  padding:5px 20px 20px;
 }
 
-/* 🌜 หัวข้อเรื่องลอยเรืองแสง */
+/* ===== เนื้อเรื่อง ===== */
+.story-content{
+  max-width:700px;
+  line-height:1.9;
+  font-size:19px;
+  margin-top:30px;
+  color:#FFFFFF;
+}
+
+/* 🌜 หัวข้อเรือง */
 .title {
-    font-size: 34px;
-    color: gold;
+    font-size: 24px;
+    color:#FFFFFF;
     text-align: center;
-
+         text-shadow: 0 0 8px rgba(255,255,255,0.6);
     text-shadow: 
         0 0 10px gold,
         0 0 20px gold,
@@ -44,9 +57,9 @@ body {
 
 /* ตอน */
 .subtitle {
-    font-size: 22px;
+    font-size: 19px;
     margin-top: 10px;
-    color: white;
+    color:#FFFFFF;
     text-shadow: 0 0 8px rgba(255,255,255,0.6);
 }
 
@@ -56,105 +69,308 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 📖 เนื้อเรื่อง (ไม่มีพื้น) */
-.story {
-    margin-top: 20px;
-    width: 65%;
-    max-width: 700px;
 
-    text-align: center;
-    line-height: 2;
-    font-size: 18px;
-
-    animation: fadeUp 1.5s ease;
+/* ===== เส้นคั่น ===== */
+.story-divider{
+  width:60%;
+  height:1px;
+  background:none;
+  margin:40px auto;
 }
 
-/* ✨ ลอยขึ้นแล้วนิ่ง */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* ===== ปุ่ม ===== */
+.story-nav{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
-/* 🔘 ปุ่ม */
-.nav {
-    margin-top: 5px;
+.story-nav a{
+  text-decoration:none;
+  color:#FFFFFF;
+  border:1px solid #ffd86b;
+  padding:10px 18px;
+  border-radius:20px;
 }
 
-.nav a {
-    margin: 10px;
-    padding: 10px 16px;
-
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-
-    color: white;
-    text-decoration: none;
-
-    transition: 0.3s;
+/* เอฟเฟกต์ลอยขึ้น + จาง → ชัด */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 1.5s ease forwards;
 }
 
-.nav a:hover {
-    background: gold;
-    color: black;
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+/* ===== แสงจันทร์ลอย ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:none;
+
+  pointer-events:none;
+  z-index:-1;   /* 👈 เปลี่ยนจาก 0 เป็น -1 */
+}
+.page-wrap{
+  pointer-events:none;
 }
 
-/* 🎵 เพลงล่างกลาง */
-.music {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+.page-wrap *{
+  pointer-events:auto;
+}
+/* ===== ตัวอักษรเรืองแสง ===== */
+.story-title,
+.story-content,
+.story-subtitle{
+  transition:0.4s;
+}
 
-    background: rgba(0,0,0,0.6);
+/* ตอน hover / แตะ */
+.story-title:hover,
+.story-content:hover,
+.story-subtitle:hover{
+  color:#fff9d6;
+
+  text-shadow:
+    0 0 5px rgba(255,220,120,0.6),
+    0 0 15px rgba(255,220,120,0.4),
+    0 0 30px rgba(255,220,120,0.2);
+}
+
+/* ===== สารบัญ 24 เรื่อง ===== */
+.toc-btn {
+   
+    display:flex;
+    margin:10px auto;
+    padding:5px 10px;
+    background:none;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.toc-box.active {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.toc-box {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 95%;
+    max-width: 900px;
+    margin-top:-10px;
     padding: 10px;
-    border-radius: 12px;
-
-    box-shadow: 0 0 15px gold;
+    background: none;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(255,215,0,0.25);
+    animation: fadeInMoon 1.2s ease;
+    text-align:left;
+align-items:flex-start;
 }
 
-.bottom-nav {
-    position: fixed;
-    bottom: 10px;  /* 🔥 อยู่เหนือเพลง */
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    gap: 20px;
-}
-
-.bottom-nav a {
-    padding: 10px 16px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-    color: white;
+.toc-box a {
+    display: block;
+    color:#FFFFFF;
     text-decoration: none;
+    padding: 8px;
+    border-radius: 8px;
+    text-shadow: 0 0 6px rgba(255,215,0,0.6);
+    transition: all 0.3s ease;
+  font-size:16.5px;
+  font-weight:700;
+  background:none;
 }
 
-.bottom-nav a:hover {
-    background: gold;
-    color: black;
+.toc-box a:hover {
+    background: none;
+    box-shadow: 0 0 18px gold;
+    transform: scale(1.05);
+    color:#FFFFFF;
+}
+
+.toc-box{
+  width: 94% !important;
+  max-width: 1100px !important;
+  margin: 18px auto !important;
+  padding: 16px !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 14px 20px !important;
+  box-sizing: border-box !important;
+  grid-template-columns:repeat(3,1fr);
+  background:none;
+  backdrop-filter:none;
+}
+
+@keyframes fadeInMoon {
+    from {opacity:0; transform:translateY(-20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+#moonLight {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle,
+        rgba(255,255,200,0.6),
+        rgba(255,255,200,0.1),
+        transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: left 0.15s ease, top 0.15s ease;
+    z-index: 999;
+}
+
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(white, transparent);
+    animation: fall 2s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100px) translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100vh) translateX(50px);
+        opacity: 0;
+}
+}
+
+
+/* ===== มือถือ สารบัญ ===== */
+@media(max-width:768px){
+
+  .toc-box{
+    grid-template-columns:repeat(2, 1fr) !important;
+    width:92% !important;
+    gap:12px !important;
+  }
+
+  .toc-title,
+  .toc-label{
+    display:inline-block;
+    padding:8px 18px;
+    background:none;
+    backdrop-filter:blur(8px);
+    border-radius:18px;
+    color:#FFFFFF !important;
+    text-shadow:0 0 8px rgba(0,0,0,0.9);
+  }
+
+
+
+@media (max-width: 768px){
+  .toc-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 92%;
+    margin: 0 auto;
+  }
+
+.story-box{
+  background: none;
+  padding: 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(3px);
+}
+
+@media (max-width:768px){
+
+.story-box{
+   font-size:18px;
+   line-height:1.9;
+   width:90%;
+   margin:auto;
+}
+}
+
+.bottom-btn{
+   bottom:90px;
+}
+  .toc-btn{
+    font-size: 14px;
+    line-height: 1.35;
+    padding: 10px 8px;
+    min-height: 52px;
+  background:none;
+  border: 1px solid rgba(255,220,120,0.25);
+  border-radius: 18px;
+  padding: 12px 10px;
+  color: #FFA500;
+  backdrop-filter: gold(4px);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.25),
+    inset 0 1px 1px rgba(255,255,255,0.08);
+  transition: 0.3s;
+   font-size:16px;
+   padding:12px;
+}
+
+.toc-btn:hover,
+.toc-btn:active{
+
+  transform: scale(0.97);
+  background:none;
+
 }
 
 </style>
 </head>
+
 <body>
-<div class="overlay">
 
-   <!-- 🌜 หัวข้อ -->
-    <div class="title">🪶กลอน/บทกวี 1
+<div class="page-wrap">
+<div class="reading-room">
+
+<!-- ===== หัวเรื่อง ===== -->
+
+<h1 class="title fade-in">
+สารบัญ🪶กลอน 1<br>
+บทกลอนใต้แสงจันทร์ "จันทร์ กับ จ้าว"<br>
+🤍ภาคปฐมบท : การค้นหาตัวตน🤍</h1>
+
+<div class="subtitle fade-in">
+
+   <a href="poem.html#story-point" class="back-btn">
+        ⬅️กลับห้อง🪶กลอน
+    </a>
 </div>
-    <div class="subtitle">บทกลอนใต้แสงจันทร์ ระหว่าง "จันทร์ กับ จ้าว"<br>🤍ภาคปฐมบท : การค้นหาตัวตน🤍
-    <div class="subtitle">0.1 “นักจินตนาการสร้างฝัน” </div>
 
-    <!-- 📖 เนื้อเรื่อง -->
-    <div class="story">
-<body style="font-family: sans-serif; text-align: center;">
-<hr style="width:20%; margin-bottom: 5px;">
-  <!-- 🌿 3 สดมภ์ -->
-  <div style="display: inline-flex; gap: 10px; text-align: left;">
+   
+  <!-- สารบัญ -->
+<div class="toc-header">
+<div class="toc-group">
 
-    <div style="width: 300px;"> 
-
+<div class="toc-box" id="tocBox">
+    
 <p>
 ในคืนหนึ่ง ที่ความคิด เริ่มก่อตัว<br>
 มีบางตัว ของความฝัน ค่อยค่อยฉาย<br>
@@ -168,9 +384,6 @@ body {
 จากสิ่งเล็ก ค่อยขยาย ให้เห็นจริง<br>
 กลายเป็นสิ่ง โลกหนึ่ง…ในหัวใจ<br>
 </p>
-
-</div>
-<div style="width: 300px;">
 
 <p>
 ทั้งภาพ เสียง และอารมณ์ ประสมผสาน<br>
@@ -186,9 +399,6 @@ body {
 แม้เพียงครู่ ก็เป็นทุน ของหัวใจ<br>
 </p>
 
-</div>
-<div style="width: 300px;">
-
 <p>
 ความฝันนั้น จึงไม่ใช่ แค่ของตน<br>
 แต่เป็นผล ที่อยากส่ง ให้โลกใหม่<br>
@@ -203,43 +413,114 @@ body {
 แต่รู้แน่ว่า “หัวใจ”…ได้เริ่มเดิน 🌙<br>
 </p>
 
-    </div>
-
-  </div>
-
-   <!-- 🔘 ปุ่ม -->
-    <div class="nav">
-            <a href="poem.html#story-point" class="back-btn">
-        ⬅️ กลับห้อง🪶กลอน/บทกวี
-        <a href="poem0-2.html">➡ ตอนต่อไป</a>
-    </div>
-
+	
+</div>
+</div>
 </div>
 
-<!-- 🎵 เพลง -->
-<div class="music">
-    
-    <audio controls autoplay loop>
-        <source src="poem-song.mp3" type="audio/mpeg">
-    </audio>
-</div>
+<script>
+function toggleTOC(){
+    const box = document.getElementById("tocBox");
 
+    if (box.classList.contains("active")) {
+        box.classList.remove("active");
+    } else {
+        box.classList.add("active");
+    }
+}
+
+</script>
+
+<script>
+function toggleTOC(){
+    let box = document.getElementById("tocBox");
+    box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+</script>
+
+<script>
+function openChapter(id){
+    document.querySelectorAll(".chapter").forEach(c=>{
+        c.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+
+<div id="moonLight"></div>
+<script>
+document.addEventListener("mousemove", function(e) {
+    const light = document.getElementById("moonLight");
+    light.style.left = e.clientX + "px";
+    light.style.top = e.clientY + "px";
+});
+</script>
+
+<div id="stars"></div>
+
+<script>
+function createStar() {
+    const star = document.createElement("div");
+    star.className = "star";
+
+    star.style.left = Math.random() * window.innerWidth + "px";
+    star.style.animationDuration = (1 + Math.random() * 2) + "s";
+
+    document.getElementById("stars").appendChild(star);
+
+    setTimeout(() => {
+        star.remove();
+    }, 3000);
+}
+
+setInterval(createStar, 300);
+</script>
+
+<script>
+TOC(){
+    const box = document.getElementById("tocBox");
+    box.classList.toggle("active");
+</script>
+
+<script>
+
+function toggleTOC(){
+    const box = document.getElementById("tocBox");
+    box.classList.toggle("active");
+}
+
+</script>
+
+<div id="moonLight"></div>
+
+<script>
+document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault(); // หยุดเปิดลิงก์ก่อน
+
+        const light = document.getElementById("moonLight");
+
+        // ตำแหน่งเมาส์
+        light.style.left = e.clientX + "px";
+        light.style.top = e.clientY + "px";
+
+        // เปิดแสง
+        light.style.opacity = "1";
+        light.style.transform = "translate(-50%, -50%) scale(1)";
+
+        // หน่วงนิดเดียวแล้วค่อยไปหน้าใหม่
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 400);
+    });
+});
+
+</script>
+</section>
 
 </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                    
+                        
