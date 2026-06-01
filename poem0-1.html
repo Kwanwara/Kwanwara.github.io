@@ -144,7 +144,7 @@ body::before{
     0 0 30px rgba(255,220,120,0.2);
 }
 
-/* ===== สารบัญ 24 เรื่อง ===== */
+/* ===== กลอน ===== */
 .toc-btn {
    
     display:flex;
@@ -269,7 +269,7 @@ align-items:flex-start;
 @media(max-width:768px){
 
   .toc-box{
-    grid-template-columns:repeat(2, 1fr) !important;
+    grid-template-columns:repeat(1, 1fr) !important;
     width:92% !important;
     gap:12px !important;
   }
@@ -289,7 +289,7 @@ align-items:flex-start;
 
 @media (max-width: 768px){
   .toc-grid{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 10px;
     width: 92%;
     margin: 0 auto;
@@ -342,6 +342,73 @@ align-items:flex-start;
 
 }
 
+/* 🚪 ปุ่มนำทาง */
+.nav,
+.end-nav{
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:96%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  z-index:99999;
+}
+
+.nav a,
+.end-nav a{
+  background:rgba(40,28,12,0.78);
+  color:#f3d27a !important;
+  border:2px solid rgba(255,215,120,0.45);
+  text-decoration:none;
+
+  padding:8px 12px;
+  border-radius:24px;
+  font-size:clamp(17px, 4vw, 18px);
+    line-height:1.4;
+  font-weight:bold;
+  min-width:120px;
+  text-align:center;
+
+  box-shadow:0 0 10px rgba(0,0,0,0.65);
+}
+
+/* 📱 มือถือ */
+@media(max-width:768px){
+
+  .text{
+    top:5%;
+    width:92%;
+      font-size:clamp(18px, 4vw, 20px);
+    line-height:1.4;
+    padding:6px 10px;
+  }
+
+  .text h1{
+font-size:clamp(18px, 4vw, 20px);
+    line-height:1.4;
+    margin-bottom:8px;
+  }
+
+  .nav,
+  .end-nav{
+    bottom:8px;
+    gap:6px;
+  }
+
+  .nav a,
+  .end-nav a{
+     font-size:clamp(17px, 4vw, 18px);
+    line-height:1.4;
+    min-width:105px;
+    padding:7px 10px;
+    border-radius:22px;
+  }
+}
+
+
 </style>
 </head>
 
@@ -353,8 +420,8 @@ align-items:flex-start;
 <!-- ===== หัวเรื่อง ===== -->
 
 <h1 class="title fade-in">
-สารบัญ🪶กลอน 1<br>
-บทกลอนใต้แสงจันทร์ "จันทร์ กับ จ้าว"<br>
+🪶กลอน 1<br>
+บทกลอนใต้แสงจันทร์"จันทร์กับจ้าว"<br>
 🤍ภาคปฐมบท : การค้นหาตัวตน🤍</h1>
 
 <div class="subtitle fade-in">
@@ -365,7 +432,7 @@ align-items:flex-start;
 </div>
 
    
-  <!-- สารบัญ -->
+  <!-- กลอน -->
 <div class="toc-header">
 <div class="toc-group">
 
@@ -518,6 +585,15 @@ document.querySelectorAll("a").forEach(link => {
 });
 
 </script>
+
+<!-- 🚪 ปุ่มนำทาง -->
+<div class="end-nav" id=endNav>
+  <a href="poem1-1.html" class="btn">ย้อนอ่าน</a>
+  <a href="poem1.html#story-point" class="back-btn">สารบัญ</a>
+  <a href="poem1-2.html" class="btn">ถัดไป</a>
+
+</div>
+
 </section>
 
 </body>
