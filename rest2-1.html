@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ห้องพักใจ 2</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    color: white;
+
+    /* 🌙 ใส่ภาพพื้นเองตรงนี้ */
+    background: url("rest-photo.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 🌙 ชั้นมืดให้อ่านง่าย */
+.overlay {
+    min-height: 100vh;
+    background: rgba(0,0,0,0.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 60px;
+}
+
+/* 🌜 หัวข้อเรือง ห้องพักใจ*/
+.title {
+    font-size: 34px;
+    color: gold;
+    text-align: center;
+
+    text-shadow: 
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px rgba(255,215,0,0.6);
+
+    animation: floatTitle 2s ease-out;
+}
+
+/* ตอน */
+.subtitle {
+    font-size: 22px;
+    margin-top: 10px;
+    color: white;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+/* ✨ ลอยนุ่ม */
+@keyframes floatTitle {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 📖 เนื้อเรื่อง (ไม่มีพื้น) */
+.story {
+    margin-top: 80px;
+    width: 65%;
+    max-width: 700px;
+
+    text-align: center;
+    line-height: 2;
+    font-size: 18px;
+
+    animation: fadeUp 1.5s ease;
+}
+
+/* ✨ ลอยขึ้นแล้วนิ่ง */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔘 ปุ่ม */
+.nav {
+    margin-top: 40px;
+}
+
+.nav a {
+    margin: 10px;
+    padding: 10px 16px;
+
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: gold;
+    color: black;
+}
+
+/* 🎵 เพลงล่างกลาง */
+.music {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 12px;
+
+    box-shadow: 0 0 15px gold;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 90px;  /* 🔥 อยู่เหนือเพลง */
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 20px;
+}
+
+.bottom-nav a {
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.bottom-nav a:hover {
+    background: gold;
+    color: black;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+       <!-- 🌜 หัวข้อ -->
+    <div class="title">จุดพักใจ🤍ที่ 2</div>
+    <div class="subtitle">🤍เมื่อใจเหนื่อย…ไม่ต้องรีบเข้มแข็ง🤍</div>
+    <div class="subtitle">"วันที่ใจไม่อยากสู้ต่อ" </div>
+
+    <!-- 📖 เนื้อเรื่อง -->
+    <div class="story">
+
+
+บางวัน…มันไม่ได้มีเหตุผลชัดเจน
+ว่าทำไมใจถึงไม่อยากไปต่อ 🌿
+
+ไม่ใช่เพราะอ่อนแอ
+ไม่ใช่เพราะไม่เก่งพอ
+แต่เพราะ “ใจมันเหนื่อยมากเกินไปแล้ว” เท่านั้นเอง
+
+
+ในวันที่รู้สึกแบบนั้น
+คุณไม่จำเป็นต้องฝืนลุกขึ้นมาทันที
+
+ไม่ต้องรีบหาคำตอบ
+ไม่ต้องรีบหาทางออก
+
+แค่ยอมรับว่า
+ตอนนี้…คุณกำลังเหนื่อยอยู่จริง ๆ 🌙
+
+
+บางครั้ง การอยู่เฉย ๆ
+ไม่ใช่การยอมแพ้
+
+แต่มันคือการ “หยุดพักเพื่อไม่ให้ตัวเองแตกสลาย” 🌿
+
+
+ถ้าวันนี้คุณไม่อยากสู้ต่อ
+ไม่เป็นไรเลย
+
+แค่ยังอยู่ตรงนี้
+แค่นั้นก็เพียงพอแล้ว
+
+และโลก…ยังคงอ่อนโยนพอ
+ที่จะรอให้คุณค่อย ๆ กลับมาในจังหวะของตัวเอง 🌙
+
+    </div>
+
+       <!-- 🔘 ปุ่ม -->
+    <div class="nav">
+    <a href="rest2-0.html">⬅ ตอนก่อนหน้า</a>
+    <a href="rest.html">📑 สารบัญ</a>
+    <a href="rest2-2.html">➡ ตอนต่อไป</a>
+</div>
+
+<!-- 🎵 เพลง -->
+<div class="music">
+    🎵🎵เพลงห้องพักใจ ใต้แสงจัทร์🎵🎵  <br>
+    <audio controls autoplay loop>
+        <source src="rest-room.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+                                                    
