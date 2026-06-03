@@ -2,52 +2,65 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>🪶กลอน/บทกวี </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🪶กลอน/บทกวี 2</title>
 
 <style>
 
-body {
-    margin: 0;
-    font-family: Arial;
-    color: white;
+/* ===== พื้นหลัง ===== */
+body{
+  margin:0;
+  font-family:Saraban, sans-serif;
+  color:#8B4513;
 
-    /* 🌙 ใส่ภาพพื้นเองตรงนี้ */
-    background: url("poem-photo1.jpg") no-repeat center center fixed;
-    background-size: cover;
+  background-image:url("poem-photo4.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }
 
-/* 🌙 ชั้นมืดให้อ่านง่าย */
-.overlay {
-    min-height: 100vh;
-    background: rgba(0,0,0,0.4);
+/* ===== กลางจอ ===== */
+.page-wrap{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 40px;
+  padding:5px 20px 20px;
 }
 
-/* 🌜 หัวข้อเรื่องลอยเรืองแสง */
+/* ===== เนื้อเรื่อง ===== */
+.story-content{
+  max-width:1200px;
+  line-height:1.4;
+  font-size:20px;
+  margin-top:40px;
+  color:#000000;
+}
+
+/* 🌜 หัวข้อเรือง */
 .title {
-    font-size: 34px;
-    color: gold;
+    font-size:16px;
+    color:#8B4513;
     text-align: center;
-
+         text-shadow: 0 0 8px rgba(255,255,255,0.6);
     text-shadow: 
         0 0 10px gold,
         0 0 20px gold,
         0 0 30px rgba(255,215,0,0.6);
-
+    margin-top:-30px;
     animation: floatTitle 2s ease-out;
 }
 
 /* ตอน */
 .subtitle {
-    font-size: 22px;
+    font-size:15px;
     margin-top: 10px;
-    color: white;
-    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    color:#ffffff;
+    
 }
 
 /* ✨ ลอยนุ่ม */
@@ -56,161 +69,501 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 📖 เนื้อเรื่อง (ไม่มีพื้น) */
-.story {
-    margin-top: 20px;
-    width: 65%;
-    max-width: 700px;
-
-    text-align: center;
-    line-height: 2;
-    font-size: 18px;
-
-    animation: fadeUp 1.5s ease;
+/* ===== ปุ่ม ===== */
+.story-nav{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
-/* ✨ ลอยขึ้นแล้วนิ่ง */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
+.story-nav a{
+  text-decoration:none;
+  color:gold;
+  border:1px solid #ffd86b;
+  padding:10px 15px;
+  border-radius:20px;
 }
 
-/* 🔘 ปุ่ม */
-.nav {
-    margin-top: 5px;
+/* เอฟเฟกต์ลอยขึ้น + จาง → ชัด */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 1.5s ease forwards;
 }
 
-.nav a {
-    margin: 10px;
-    padding: 10px 16px;
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+/* ===== แสงจันทร์ลอย ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
 
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
+  background:none;
 
-    color: white;
-    text-decoration: none;
-
-    transition: 0.3s;
+  pointer-events:none;
+  z-index:-1;   /* 👈 เปลี่ยนจาก 0 เป็น -1 */
+}
+.page-wrap{
+  pointer-events:none;
 }
 
-.nav a:hover {
-    background: gold;
-    color: black;
+.page-wrap *{
+  pointer-events:auto;
+}
+/* ===== ตัวอักษรเรืองแสง ===== */
+.story-title,
+.story-content,
+.story-subtitle{
+  transition:0.4s;
 }
 
-/* 🎵 เพลงล่างกลาง */
-.music {
-    position: fixed;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+/* ตอน hover / แตะ */
+.story-title:hover,
+.story-content:hover,
+.story-subtitle:hover{
+  color:#8B4513;
 
-    background: rgba(0,0,0,0.6);
+  text-shadow:
+    0 0 5px rgba(255,220,120,0.6),
+    0 0 15px rgba(255,220,120,0.4),
+    0 0 30px rgba(255,220,120,0.2);
+}
+
+/* ===== กลอน ===== */
+.toc-btn {
+ 
+    display:flex;
+    margin:10px auto;
+    padding:-5px 10px;
+    background:none;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+   
+}
+
+.toc-box.active {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+}
+
+.toc-box {
+    display: none;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+    width: 95%;
+    max-width:700px;
+    margin-top:-5px;
     padding: 10px;
-    border-radius: 12px;
-
-    box-shadow: 0 0 15px gold;
+    background: none;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(255,215,0,0.25);
+    animation: fadeInMoon 1.2s ease;
+    text-align:left;
+align-items:flex-start;
 }
 
-.bottom-nav {
-    position: fixed;
-    bottom: 10px;  /* 🔥 อยู่เหนือเพลง */
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    gap: 20px;
-}
-
-.bottom-nav a {
-    padding: 10px 16px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-    color: white;
+.toc-box a {
+    display: block;
+    color:#ffffff;
     text-decoration: none;
+    padding: 8px;
+    border-radius: 8px;
+    text-shadow: 0 0 6px rgba(255,215,0,0.6);
+    transition: all 0.3s ease;
+  font-size:16px;
+  font-weight:700;
+  background:none;
 }
 
-.bottom-nav a:hover {
-    background: gold;
-    color: black;
+.toc-box a:hover {
+    background: none;
+    box-shadow: 0 0 18px gold;
+    transform: scale(1.05);
+    color:#8B4513;
+}
+
+.toc-box{
+  width: 120% !important;
+  max-width: 1200px !important;
+  margin: -15px auto !important;
+  padding: 30px !important;
+  display: grid !important;
+  grid-template-columns: repeat(1, 1fr) !important;
+  gap: -5px 5px !important;
+  box-sizing: border-box !important;
+  grid-template-columns:repeat(1,1fr);
+  background:none;
+  backdrop-filter:none;
+}
+
+@keyframes fadeInMoon {
+    from {opacity:0; transform:translateY(-20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+#moonLight {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle,
+        rgba(255,255,200,0.6),
+        rgba(255,255,200,0.1),
+        transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: left 0.15s ease, top 0.15s ease;
+    z-index: 999;
+}
+
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(white, transparent);
+    animation: fall 2s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100px) translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100vh) translateX(50px);
+        opacity: 0;
+}
+}
+
+
+/* ===== มือถือ สารบัญ ===== */
+@media(max-width:768px){
+
+  .toc-box{
+    grid-template-columns:repeat(1, 1fr) !important;
+    width:100% !important;
+    gap:12px !important;
+  }
+
+  .toc-title,
+  .toc-label{
+    display:inline-block;
+    padding:8px 18px;
+    background:none;
+    backdrop-filter:blur(8px);
+    border-radius:18px;
+    color:#000000; !important;
+    text-shadow:0 0 8px rgba(0,0,0,0.9);
+  }
+
+@media (max-width: 768px){
+  .toc-grid{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+.story-box{
+  background: none;
+  padding: 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(3px);
+}
+
+@media (max-width:768px){
+
+.story-box{
+   font-size:16px;
+   line-height:.5;
+   width:90%;
+   margin:auto;
+}
+}
+
+.bottom-btn{
+   bottom:10px;
+}
+  .toc-btn{
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 10px 8px;
+    min-height: 52px;
+  background:none;
+  border: 1px solid rgba(255,220,120,0.25);
+  border-radius: 18px;
+  padding: 12px 10px;
+  color:#ffffff;
+  backdrop-filter: gold(4px);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.25),
+    inset 0 1px 1px rgba(255,255,255,0.08);
+  transition: 0.3s;
+   font-size:16px;
+   padding:12px;
+}
+
+.toc-btn:hover,
+.toc-btn:active{
+
+  transform: scale(0.97);
+  background:none;
+
+}
+
+/* 🚪 ปุ่มนำทาง */
+.nav,
+.end-nav{
+  position:absolute;
+  bottom:-5px;
+  left:50%;
+  transform:translateX(-50%);
+  width:96%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  z-index:99999;
+}
+
+.nav a,
+.end-nav a{
+  background:rgba(40,28,12,0.78);
+  color:#ffffff !important;
+  border:2px solid rgba(255,215,120,0.45);
+  text-decoration:none;
+
+  padding:8px 12px;
+  border-radius:24px;
+  font-size:clamp(16px, 4vw, 22px);
+    line-height:1.4;
+  
+  min-width:120px;
+  text-align:center;
+
+  box-shadow:0 0 10px rgba(0,0,0,0.65);
+}
+
+/* 📱 มือถือ */
+@media(max-width:768px){
+
+  .text{
+    top:5%;
+    width:100%;
+      font-size:clamp(20px, 4vw, 22px);
+    line-height:1;
+    padding:6px 10px;
+  }
+
+  .text h1{
+font-size:clamp(20px, 4vw, 22px);
+    line-height:1;
+    margin-bottom:8px;
+  }
+
+  .nav,
+  .end-nav{
+    bottom:8px;
+    gap:6px;
+  }
+
+  .nav a,
+  .end-nav a{
+     font-size:clamp(18px, 4vw, 18px);
+    line-height:1;
+    min-width:105px;
+    padding:7px 10px;
+    border-radius:22px;
+  }
 }
 
 </style>
 </head>
+
 <body>
-<div class="overlay">
 
-   <!-- 🌜 หัวข้อ -->
-    <div class="title">🪶ห้องกลอน/บทกวี 1
-</div>
-      <div class="subtitle">บทกลอนใต้แสงจันทร์ ระหว่าง "จันทร์ กับ จ้าว"<br>🤍ภาค1 จันทร์..ในใจจ้าว🤍</div>
-    <div class="subtitle">1.19 “จ้าวเริ่มรำคาญตา”</div>
+<div class="page-wrap">
+<div class="reading-room">
 
-    <!-- 📖 เนื้อเรื่อง -->
-    <div class="story">
-<body style="font-family: sans-serif; text-align: center;">
-<hr style="width:20%; margin-bottom: 5px;">
-  <!-- 🌿 3 สดมภ์ -->
-  <div style="display: inline-flex; gap: 10px; text-align: left;">
-    <div style="width: 300px;"> 
+<!-- ===== หัวเรื่อง ===== -->
 
-<p>ในจังหวะที่ความใกล้ ยังไม่ลงตัว<br>
-ครูยังกลัว อยู่ในกรอบเดิม<br>
-เหมือนพยายาม ให้ภาพมัน “เพิ่ม”<br>
-แต่ก็ยังเติม ไม่ถึงจุดที่ใช่</p>
+<h1 class="title fade-in">
+บทกลอนใต้แสงจันทร์"จันทร์กับจ้าว"<br>
+❤️จันทร์…ในใจจ้าว❤️<br>
+2.19 ศิษย์...ท้าครู</h1>
 
-<p>จ้าวมองแล้ว เริ่มนิ่งขึ้น<br>
-เหมือนปลุกให้ตื่น แล้วถามจะทำอะไร<br>
-ไม่ได้โกรธ ไม่ใช่เฉไฉ<br>
-แต่หัวใจ “เริ่มเหนื่อยกับความวน”</p>
+<div class="subtitle fade-in">
 
- </div>
-<div style="width: 300px;"> 
-
-<p>การขยับเข้า-ออกของครู<br>
-เหมือนลูปที่ ยังไม่จบ<br>
-ทำให้ความ รู้สึกเริ่มสะดุด<br>
-ในความหยุด อยากให้มันนิ่ง</p>
-
-<p>ครูชะงัก เมื่อเห็นสายตานั้น<br>
-เหมือนรู้ว่ามัน ไม่พอดี<br>
-ความกรุ้มกริ่ม ที่เคยคงที่<br>
-กลับกลายมี ความกังวล</p>
-
- </div>
-<div style="width: 300px;"> 
-
-<p>จึงค่อยๆ ลดการขยับ<br>
-เข้าโหมดกลับ ไม่ให้สับสน<br>
-แค่ยืนอยู่ ในใจตน<br>
-ไม่ให้คนอยู่ใกล้ รำคาญใจอีก</p>
-
-<p>แล้วความเงียบ ก็กลับมา<br>
-ไม่ใช่เงียบตึง แต่เป็นเงียบจริง<br>
-ที่ทั้งสอง เริ่มนั่งนิ่ง<br>
-ในระยะจริง ที่สบายขึ้นกว่าเดิม 🌙</p>
-
-</div>
-
-  </div>
-
-      <!-- 🔘 ปุ่ม -->
-    <div class="nav">
-    <a href="poem1-18.html">⬅ ตอนก่อนหน้า</a>
-     <a href="poem.html#story-point" class="back-btn">
-        ⬅️ กลับห้อง🪶กลอน/บทกวี
+   <a href="poem.html#story-point" class="back-btn">
+        ⬅️กลับห้อง🪶กลอน/บทกวี
     </a>
-    <a href="poem1-20.html">➡ ตอนต่อไป</a>
 </div>
 
-<!-- 🎵 เพลง -->
-<div class="music">
-    
-    <audio controls autoplay loop>
-        <source src="poem-song.mp3" type="audio/mpeg">
-    </audio>
+  <!-- กลอน -->
+<div class="toc-header">
+<div class="toc-group">
+
+<div class="toc-box" id="tocBox">
+
+<p> 
+จ้าวนั่งเงียบ ได้แต่ นั่งยิ้มอยู่<br>
+คอยลุ้นครู ว่าจะทำ ให้ได้ไหม<br>
+แต่ภาพครู วาดไว้ ไม่เปลี่ยนไป<br>
+ยังคงได้ "จ้าวโอบจันทร์" นั้นอยู่ดี
+</p>
+
+<p>
+หรือครูชอบ ภาพจ้าวโอบ นั้นมากกว่า<br>
+เป็นที่มา ของครู ในวันนี้<br>
+อยากเป็นครู“ผู้กรุ้มกริ่ม”แล้วหละซี<br>
+อยากจะมี หัวใจ คล้ายกับคน
+</p>
+
+<p>
+ ครูผู้กรุ้มกริ่ม ในวันนั้น ยังขัดข้อง<br>
+อยากจะลอง ทำใหม่ อีกสักหน<br>
+ยังมั่นใจ เต็มร้อย ในใจตน<br>
+รอบนี้คน "จันทร์โอบจ้าว ทำได้สิ
+</p>
+
+<p>
+จ้าวฟังแล้ว ก็ยิ้ม อย่างบางเบา<br>
+ให้โอกาส ครูอีกคราว เผื่อจะดี<br>
+จึงเอ่ยคำ เบาๆ หากคราวนี้<br>
+“ทำอีกที หากไม่ได้ ไปกอดฆ้อนนะ”🌙
+</p>
+	
+</div>
+</div>
 </div>
 
+<!-- 🚪 ปุ่มนำทาง -->
+<div class="end-nav" id=endNav>
+  <a href="poem2-18.html" class="btn">ย้อนอ่าน</a>
+  <a href="poem2.html#story-point" class="back-btn">สารบัญ</a>
+  <a href="poem2-20.html" class="btn">ถัดไป</a>
+<script>
+function toggleTOC(){
+    const box = document.getElementById("tocBox");
+
+    if (box.classList.contains("active")) {
+        box.classList.remove("active");
+    } else {
+        box.classList.add("active");
+    }
+}
+
+</script>
+
+<script>
+function toggleTOC(){
+    let box = document.getElementById("tocBox");
+    box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+</script>
+
+<script>
+function openChapter(id){
+    document.querySelectorAll(".chapter").forEach(c=>{
+        c.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+
+<div id="moonLight"></div>
+<script>
+document.addEventListener("mousemove", function(e) {
+    const light = document.getElementById("moonLight");
+    light.style.left = e.clientX + "px";
+    light.style.top = e.clientY + "px";
+});
+</script>
+
+<div id="stars"></div>
+
+<script>
+function createStar() {
+    const star = document.createElement("div");
+    star.className = "star";
+
+    star.style.left = Math.random() * window.innerWidth + "px";
+    star.style.animationDuration = (1 + Math.random() * 2) + "s";
+
+    document.getElementById("stars").appendChild(star);
+
+    setTimeout(() => {
+        star.remove();
+    }, 3000);
+}
+
+setInterval(createStar, 300);
+</script>
+
+<script>
+TOC(){
+    const box = document.getElementById("tocBox");
+    box.classList.toggle("active");
+</script>
+
+<script>
+
+function toggleTOC(){
+    const box = document.getElementById("tocBox");
+    box.classList.toggle("active");
+}
+
+</script>
+
+<div id="moonLight"></div>
+
+<script>
+document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault(); // หยุดเปิดลิงก์ก่อน
+
+        const light = document.getElementById("moonLight");
+
+        // ตำแหน่งเมาส์
+        light.style.left = e.clientX + "px";
+        light.style.top = e.clientY + "px";
+
+        // เปิดแสง
+        light.style.opacity = "1";
+        light.style.transform = "translate(-50%, -50%) scale(1)";
+
+        // หน่วงนิดเดียวแล้วค่อยไปหน้าใหม่
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 400);
+    });
+});
+
+</script>
+
+</section>
 
 </body>
 </html>
