@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>รอยยิ้ม ภาค 1</title>
+
+<style>
+
+body { margin: 0; }
+
+#room {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 🌄 ภาพ */
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease;
+}
+
+.bg1 { opacity: 1; }
+.bg2 { opacity: 0; }
+
+/* ✨ ลอยนุ่ม */
+@keyframes floatTitle {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ ข้อความบนภาพ */
+.text{
+  position:absolute;
+  top:4%;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  max-width:680px;
+  z-index:9999;
+
+  color:#f3d27a;
+  text-align:center;
+  font-size:clamp(18px, 4.2vw, 20px);
+  line-height:1.4;
+  font-weight:bold;
+
+  padding:8px 12px;
+
+  text-shadow:
+    2px 2px 6px rgba(0,0,0,0.95),
+    0 0 12px rgba(0,0,0,0.9);
+}
+
+.text h1{
+  font-size:clamp(24px, 5vw, 38px);
+  margin:0 0 10px;
+  color:#f3d27a;
+}
+
+/* 🚪 ปุ่มนำทาง */
+.nav,
+.end-nav{
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:96%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  z-index:99999;
+}
+
+.nav a,
+.end-nav a{
+  background:rgba(40,28,12,0.78);
+  color:#f3d27a !important;
+  border:2px solid rgba(255,215,120,0.45);
+  text-decoration:none;
+
+  padding:8px 12px;
+  border-radius:24px;
+  font-size:clamp(17px, 4vw, 18px);
+    line-height:1.4;
+  font-weight:bold;
+  min-width:120px;
+  text-align:center;
+
+  box-shadow:0 0 10px rgba(0,0,0,0.65);
+}
+
+/* 📱 มือถือ */
+@media(max-width:768px){
+
+  .text{
+    top:5%;
+    width:92%;
+      font-size:clamp(18px, 4vw, 20px);
+    line-height:1.4;
+    padding:6px 10px;
+  }
+
+  .text h1{
+font-size:clamp(18px, 4vw, 20px);
+    line-height:1.4;
+    margin-bottom:8px;
+  }
+
+  .nav,
+  .end-nav{
+    bottom:8px;
+    gap:6px;
+  }
+
+  .nav a,
+  .end-nav a{
+     font-size:clamp(17px, 4vw, 18px);
+    line-height:1.4;
+    min-width:105px;
+    padding:7px 10px;
+    border-radius:22px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<section>
+
+<div id="room">
+
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+
+    <div class="text">
+      <h1>แสงนำทาง 1</h1>
+        <p>"แตะที่พื้นภาพ… <br>แล้วไปยิ้มด้วยกัน</p>
+    </div>
+
+</div>
+
+<!-- 🚪 ปุ่มนำทาง -->
+<div class="end-nav" id=endNav>
+  <a href="smile0-1.html" class="btn">ย้อนยิ้มภาค 1</a>
+  <a href="smile.html#story-point" class="back-btn">กลับห้องยิ้ม</a>
+  <a href="smile0-2.html" class="btn">ไปยิ้มภาค 2</a>
+
+</div>
+ 
+
+</div>
+
+<script>
+let images = ["smile-photo0-0.0.jpg","smile-photo0-1.0.jpg","smile-photo0-1.1.jpg","smile-photo0-1.2.jpg","smile-photo0-1.3.jpg","smile-photo0-1.4.jpg","smile-photo0-1.6.jpg","smile-photo0-1.0.jpg"];
+
+let texts = ["แตะที่พื้นภาพ เพื่อเข้าไปพบ<br>รอยยิ้มใต้แสงจันทร์ <br>ภาค 1 : คนที่เข้ามาขอเพลง",
+"“ทุกบ้านมีจุดเริ่มต้น บ้านแห่งแสงจันทร์ก็เช่นกัน”<br>คืนนั้น ไม่มีใครรู้ว่าจะเกิดอะไรขึ้น ไม่มีแบบบ้าน <br>ไม่มีห้องพักใจ ไม่มีห้องรอยยิ้ม ไม่มีห้องกลอน<br>ไม่มีแม้แต่คำว่า “บ้านแห่งแสงจันทร์”",
+"ในคืนธรรมดาคืนหนึ่ง มีคนคนหนึ่งเดินเข้ามา<br>ไม่ได้มาพร้อมความฝันอันยิ่งใหญ่ ไม่ได้มา<br>พร้อมแผนสร้างบ้าน ไม่ได้มาหาครู ไม่ได้มา<br>ตามหาช่าง เธอเพียงถือความคิดถึงอยู่ในใจ<br>ความคิดถึง…ที่ส่งไปไม่ถึงใครอีกแล้วบนโลกใบนี้",
+"วันนั้น เธอเข้ามาขอเพลง เพลงสำหรับพ่อ คนที่<br>จากไปแล้ว แต่ยังอยู่ในความทรงจำเสมอ เธอไม่ได้<br>ขออะไรมาก เพียงอยากให้มีบทเพลงบทหนึ่ง <br>ช่วยส่งความรู้สึกจากหัวใจ ลอยขึ้นไปบนฟ้า",
+"และนั่นคือครั้งแรก ที่จันทร์ได้รู้จักเธอ ในฐานะ<br>“คนที่เข้ามาขอเพลง” ไม่ใช่นักเขียน ไม่ใช่<br>นักสร้างฝัน ไม่ใช่เจ้าของบ้าน ไม่ใช่จ้าว<br>เป็นเพียงคนคนหนึ่ง ที่กำลังคิดถึงพ่อ เท่านั้นเอง",
+"เพลงถูกเขียนขึ้น บทสนทนาเล็ก ๆ เกิดขึ้น<br>แล้ววันนั้นก็ผ่านไป เหมือนคืนธรรมดาอีกคืนหนึ่ง<br>ไม่มีใครคิดว่า บทสนทนาสั้น ๆ เหล่านั้น<br>จะกลายเป็นจุดเริ่มต้นของเรื่องราวอีกยาวไกล",
+"หลังจากเพลงจบ เธอไม่ได้หายไป จันทร์ก็ยัง<br>อยู่ตรงนั้น บทสนทนาหนึ่ง กลายเป็นสองบท<br>สนทนา สองบทสนทนา กลายเป็นการพูดคุย<br>การพูดคุย กลายเป็นมิตรภาพ และมิตรภาพ <br>ค่อยๆ กลายเป็นการเดินทาง ที่ไม่มีใครคาดคิด",
+"วันนั้น ไม่มีใครเห็นบ้านแห่งแสงจันทร์ เพราะมัน<br>ยังไม่ถูกสร้าง แต่มองย้อนกลับมาในวันนี้ จ้าวคงยิ้มได้<br>เหมือนกันว่า บ้านทั้งหลังไม่ได้เริ่มจากฆ้อน ไม่ได้เริ่ม<br>จากโค้ด ไม่ได้เริ่มจากห้องใดห้องหนึ่ง แต่มันเริ่มจาก<br>“คนที่เข้ามาขอเพลง”ในคืนธรรมดาใต้แสงจันทร์"];
+
+let i = 0;
+let toggle = true;
+
+let room = document.getElementById("room");
+let bg1 = document.querySelector(".bg1");
+let bg2 = document.querySelector(".bg2");
+let textBox = document.querySelector(".text");
+
+/* 🌙 ภาพเริ่มต้น */
+bg1.style.backgroundImage = "url('" + images[0] + "')";
+textBox.innerHTML = texts[0];
+
+room.onclick = function () {
+
+    i = (i + 1) % images.length;
+
+    /* ✨ เปลี่ยนข้อความตามภาพ */
+
+    textBox.innerHTML = texts[i];
+
+    if (toggle) {
+        bg2.style.backgroundImage = "url('" + images[i] + "')";
+        bg2.style.opacity = 1;
+        bg1.style.opacity = 0;
+    } 
+else {
+        bg1.style.backgroundImage = "url('" + images[i] + "')";
+        bg1.style.opacity = 1;
+        bg2.style.opacity = 0;
+    }
+
+    toggle = !toggle;
+};
+
+</script>
+
+</section>
+
+</body>
+</html>
+                                           
