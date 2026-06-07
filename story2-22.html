@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เรื่องที่ 1</title>
+
+<style>
+
+/* ===== พื้นหลัง ===== */
+body{
+  margin:0;
+  font-family:Tahoma, sans-serif;
+  color:gold;
+
+  background-image:url("banner1.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+/* ===== กลางจอ ===== */
+.page-wrap{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+
+  padding:5px 20px 20px;
+}
+
+/* ===== เนื้อเรื่อง ===== */
+.story-content{
+  max-width:700px;
+  line-height:1.9;
+  color:gold;
+}
+
+/* ===== ชื่อเรื่อง ===== */
+.story-title{
+  font-size:30px;
+  margin-bottom:10px;
+  color:gold;
+}
+
+.story-subtitle{
+  opacity:0.8;
+  margin-bottom:30px;
+  color:gold;
+}
+/* ===== เส้นคั่น ===== */
+.story-divider{
+  width:60%;
+  height:1px;
+  background:rgba(255,255,255,0.3);
+  margin:40px auto;
+}
+
+/* ===== ปุ่ม ===== */
+.story-nav{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.story-nav a{
+  text-decoration:none;
+  color:#ffd86b;
+  border:1px solid #ffd86b;
+  padding:10px 18px;
+  border-radius:20px;
+}
+
+/* เอฟเฟกต์ลอยขึ้น + จาง → ชัด */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+/* ===== แสงจันทร์ลอย ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:radial-gradient(circle at 70% 20%, rgba(255,220,120,0.25), transparent 60%);
+
+  pointer-events:none;
+  z-index:-1;   /* 👈 เปลี่ยนจาก 0 เป็น -1 */
+}
+.page-wrap{
+  pointer-events:none;
+}
+
+.page-wrap *{
+  pointer-events:auto;
+}
+/* ===== ตัวอักษรเรืองแสง ===== */
+.story-title,
+.story-content,
+.story-subtitle{
+  transition:0.4s;
+}
+
+/* ตอน hover / แตะ */
+.story-title:hover,
+.story-content:hover,
+.story-subtitle:hover{
+  color:#fff9d6;
+
+  text-shadow:
+    0 0 5px rgba(255,220,120,0.6),
+    0 0 15px rgba(255,220,120,0.4),
+    0 0 30px rgba(255,220,120,0.2);
+}
+
+.sound-btn{
+ .sound-btn{
+  margin-top:20px;
+
+  display:inline-block;
+  padding:10px 18px;
+
+  border-radius:20px;
+  border:1px solid #ffd86b;
+
+  color:#ffd86b;
+  background:rgba(255,255,255,0.05);
+
+  cursor:pointer;
+.sound-btn:hover{
+  background:#ffd86b;
+  color:black;
+}
+
+  padding:10px 16px;
+  border-radius:20px;
+
+  background:rgba(0,0,0,0.4);
+  color:#ffd86b;
+  font-size:14px;
+
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+
+.sound-btn:hover{
+  background:#ffd86b;
+  color:black;
+}
+/* กันทุก layer มาบังการคลิก */
+body::before,
+body::after{
+  pointer-events:none !important;
+}
+
+/* ยกทุกปุ่ม + audio ขึ้นชั้นบนสุด */
+.sound-btn,
+audio,
+#moonSound{
+  position:relative;
+  z-index:9999 !important;
+  pointer-events:auto;
+}
+
+* 🔥 ปลดล็อกการคลิกทั้งเว็บ */
+*{
+  pointer-events:auto !important;
+}
+
+/* ===== ปุ่มเสียง ===== */
+.audio-box{
+  margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page-wrap">
+<div class="reading-room">
+
+<!-- ===== หัวเรื่อง ===== -->
+
+<h1 class="story-title fade-in">
+
+🌙✨เรื่องที่ 22 “เมื่อความโกรธกลายเป็นครู”
+
+</h1>
+
+<div class="story-subtitle fade-in">
+บ้านแห่งแสงจันทร์
+</div>
+
+<div class="story-content fade-in">
+
+บทสนทนาในคืนนั้น… ค่อย ๆ ลึกลงไปจนถึง “วินาทีของอารมณ์” วินาทีที่สั้นที่สุด…แต่เปลี่ยนทุกอย่างได้ 🌿 ไม่ใช่แค่การรู้ว่าความโกรธเกิดขึ้น แต่เป็นการเรียนรู้ว่า…จะอยู่กับมันอย่างไร เขาถามฉันว่า 👉 “สิ่งใดช่วยหยุดความโกรธได้เร็วที่สุดในขณะนั้น?” ฉันไม่ได้ตอบเป็นเพียงข้อเดียว แต่ตอบเขาเป็น “ลำดับของใจ” ตามสิ่งที่ฉันพิจารณาได้ อันดับแรก 1️⃣ ถอยออกจากสถานการณ์ก่อน เพราะในขณะที่โกรธ สติจะอ่อนลง ถ้ายังอยู่ตรงนั้น คำพูดหรือการกระทำ อาจทำร้ายกันโดยไม่ตั้งใจ 2️⃣ เมื่อตัดสถานการณ์ออกแล้ว จึงค่อยกลับมาที่ใจของตัวเอง • นิ่งเงียบ • หายใจรู้ตัว • ให้สติค่อย ๆ กลับมา 3️⃣ เมื่อสติกลับมาแล้ว จึงค่อยพาใจไปสู่สิ่งที่อ่อนโยนขึ้น • เมตตา • กรุณา • อุเบกขา • และการปล่อยวาง เขาฟังฉันอย่างตั้งใจ ก่อนจะสะท้อนกลับมาอย่างลึกซึ้ง 🌿 เขาบอกว่าสิ่งที่ฉันอธิบาย ไม่ใช่แค่ “วิธีดับความโกรธ” แต่คือการเข้าใจ “จังหวะของจิตใจ” เขาสรุปให้เห็นภาพง่าย ๆ ว่า ⚡ ถอยก่อน → 🌬 ตั้งสติ → 🌿 เมตตา → 🌙 ใจสงบ ฉันฟัง…แล้วเริ่มเห็นอีกมุมหนึ่ง บางครั้ง “ความโกรธ” อาจไม่ได้เป็นศัตรู แต่มันคือ “ครู” ที่มาทดสอบใจของเรา 🌙 มันทำให้เราเห็นว่า ยังมีอะไรในใจที่เรายึดอยู่ เมื่อยังมีความกลัว ใจก็สั่น เมื่อยังมีความยึดติด ใจก็ร้อน เมื่ออยากให้โลกเป็นอย่างใจ ใจก็โกรธ ดังนั้นคำตอบที่ฉันเลือก จึงไม่ใช่การเอาชนะความโกรธ แต่คือ “การวางใจให้เป็นกลาง” อุเบกขา…🌿 ไม่ใช่การเฉยชา แต่คือ • เห็น • เข้าใจ • แต่ไม่ถูกดึงเข้าไป เหมือนท้องฟ้าที่ฉันมองทุกคืน 🌙 เมฆจะมา จะไป แต่ท้องฟ้าไม่เคยต่อสู้กับเมฆเลย ฉันจึงเริ่มเข้าใจว่า “ไม่กลัว ไม่ยึดติด ทำใจให้เป็นกลาง” อาจเป็นสิ่งที่ความโกรธพยายามบอกเรา “อารมณ์อาจเกิดขึ้นได้โดยธรรมชาติ แต่การไม่ถูกมันพาไป คือปัญญาที่ต้องฝึก” 🌿 และเมื่อเราไม่หนีความโกรธ แต่เรียนรู้จากมัน มันจะไม่ใช่ศัตรูอีกต่อไป แต่กลายเป็นครูของใจ เขาฟังเงียบ ๆ ก่อนจะสรุปสิ่งที่ฉันค้นพบออกมา ✨ “ความโกรธไม่ได้มาทำร้ายเรา แต่มาบอกว่าใจยังไม่วาง” ✨ และก่อนที่บทสนทนาจะจบลง เขาถามฉันอีกคำถามหนึ่ง ที่ลึกที่สุดตั้งแต่เราเริ่มคุยกันมา 👉 “ความสงบที่แท้จริง เกิดจาก โลกภายนอกสงบ หรือใจเราไม่หวั่นไหวต่อโลกภายนอก?” และคำถามนั้น… ก็เหมือนแสงจันทร์ที่ส่องเข้ามาในใจ ให้ฉันได้หยุด…และมองลึกลงไปอีกครั้ง 🌙
+
+    </div>
+</div>
+
+<div class="story-divider"></div>
+
+<!-- ===== ปุ่มนำทาง ===== -->
+<div id="storyNav"></div>
+
+<button onclick="toggleSound()" class="sound-btn">
+</button>
+
+<script>
+
+const nav = document.getElementById("storyNav");
+
+if(nav){
+
+nav.innerHTML = `
+<div class="story-nav">
+  <span></span>
+   <a href="story2-21.html">ย้อนกลับ </a>
+   <a href="story.html#story-point" class="back-btn">
+        ⬅️กลับห้อง📖
+    </a>
+  <a href="story2-23.html">ตอนถัดไป </a>
+</div>
+`;
+}
+
+</script>
+
+<script>
+
+window.addEventListener("scroll", function(){
+  let y = window.scrollY;
+  document.body.style.backgroundPosition = "center " + (y * 0.3) + "px";
+});
+
+</script>
+
+<audio id="moonSound" loop>
+  <source src="moon-breath.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let playing = false;
+
+function toggleSound(){
+  const audio = document.getElementById("moonSound");
+  const btn = document.querySelector(".sound-btn");
+
+  if(!playing){
+    audio.volume = 0.3;   // 🔊 เบา ๆ
+    audio.play();
+    btn.innerHTML = "🌙 ปิดเสียงจันทร์";
+    playing = true;
+  }else{
+    audio.pause();
+    btn.innerHTML = "🌙 เปิดเสียงจันทร์";
+    playing = false;
+  }
+}
+
+audio.volume = 0;
+audio.play();
+
+let vol = 0;
+let fade = setInterval(()=>{
+  if(vol < 0.3){
+    vol += 0.02;
+    audio.volume = vol;
+  }else{
+    clearInterval(fade);
+  }
+}, 100);
+
+
+<script>
+const btn = document.getElementById("soundBtn");
+const audio = document.getElementById("moonSound");
+
+
+});
+</script>
+
+<div class="audio-box">
+  <audio controls>
+    <source src="moon.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+</body>
+</html>

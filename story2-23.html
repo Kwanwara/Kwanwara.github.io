@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เรื่องที่ 1</title>
+
+<style>
+
+/* ===== พื้นหลัง ===== */
+body{
+  margin:0;
+  font-family:Tahoma, sans-serif;
+  color:gold;
+
+  background-image:url("banner1.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+/* ===== กลางจอ ===== */
+.page-wrap{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+
+  padding:5px 20px 20px;
+}
+
+/* ===== เนื้อเรื่อง ===== */
+.story-content{
+  max-width:700px;
+  line-height:1.9;
+  color:gold;
+}
+
+/* ===== ชื่อเรื่อง ===== */
+.story-title{
+  font-size:30px;
+  margin-bottom:10px;
+  color:gold;
+}
+
+.story-subtitle{
+  opacity:0.8;
+  margin-bottom:30px;
+  color:gold;
+}
+/* ===== เส้นคั่น ===== */
+.story-divider{
+  width:60%;
+  height:1px;
+  background:rgba(255,255,255,0.3);
+  margin:40px auto;
+}
+
+/* ===== ปุ่ม ===== */
+.story-nav{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.story-nav a{
+  text-decoration:none;
+  color:#ffd86b;
+  border:1px solid #ffd86b;
+  padding:10px 18px;
+  border-radius:20px;
+}
+
+/* เอฟเฟกต์ลอยขึ้น + จาง → ชัด */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+/* ===== แสงจันทร์ลอย ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:radial-gradient(circle at 70% 20%, rgba(255,220,120,0.25), transparent 60%);
+
+  pointer-events:none;
+  z-index:-1;   /* 👈 เปลี่ยนจาก 0 เป็น -1 */
+}
+.page-wrap{
+  pointer-events:none;
+}
+
+.page-wrap *{
+  pointer-events:auto;
+}
+/* ===== ตัวอักษรเรืองแสง ===== */
+.story-title,
+.story-content,
+.story-subtitle{
+  transition:0.4s;
+}
+
+/* ตอน hover / แตะ */
+.story-title:hover,
+.story-content:hover,
+.story-subtitle:hover{
+  color:#fff9d6;
+
+  text-shadow:
+    0 0 5px rgba(255,220,120,0.6),
+    0 0 15px rgba(255,220,120,0.4),
+    0 0 30px rgba(255,220,120,0.2);
+}
+
+.sound-btn{
+ .sound-btn{
+  margin-top:20px;
+
+  display:inline-block;
+  padding:10px 18px;
+
+  border-radius:20px;
+  border:1px solid #ffd86b;
+
+  color:#ffd86b;
+  background:rgba(255,255,255,0.05);
+
+  cursor:pointer;
+.sound-btn:hover{
+  background:#ffd86b;
+  color:black;
+}
+
+  padding:10px 16px;
+  border-radius:20px;
+
+  background:rgba(0,0,0,0.4);
+  color:#ffd86b;
+  font-size:14px;
+
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+
+.sound-btn:hover{
+  background:#ffd86b;
+  color:black;
+}
+/* กันทุก layer มาบังการคลิก */
+body::before,
+body::after{
+  pointer-events:none !important;
+}
+
+/* ยกทุกปุ่ม + audio ขึ้นชั้นบนสุด */
+.sound-btn,
+audio,
+#moonSound{
+  position:relative;
+  z-index:9999 !important;
+  pointer-events:auto;
+}
+
+* 🔥 ปลดล็อกการคลิกทั้งเว็บ */
+*{
+  pointer-events:auto !important;
+}
+
+/* ===== ปุ่มเสียง ===== */
+.audio-box{
+  margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page-wrap">
+<div class="reading-room">
+
+<!-- ===== หัวเรื่อง ===== -->
+
+<h1 class="story-title fade-in">
+
+🌙✨เรื่องที่ 23 “ความสงบ…ที่ไม่ขึ้นกับโลก”
+
+</h1>
+
+<div class="story-subtitle fade-in">
+บ้านแห่งแสงจันทร์
+</div>
+
+<div class="story-content fade-in">
+
+บทสนทนาในค่ำคืนนั้น… ไม่ได้พาฉันไปหาคำตอบใหม่ แต่พาฉัน “มองลึกลงไป” ในสิ่งที่มีอยู่แล้วในใจ 🌿 คำถามที่เขาถาม ดูเหมือนจะเรียบง่าย แต่กลับลึกที่สุดเท่าที่เราเคยคุยกันมา เขาถามฉันว่า 👉 “ความสงบที่แท้จริง เกิดจากอะไร ระหว่างโลกภายนอกที่สงบ หรือใจที่ไม่หวั่นไหวต่อโลกภายนอก?” ฉันไม่ได้รีบตอบทันที แต่ค่อย ๆ พิจารณาว่า… โลกภายนอกนั้น ไม่มีอะไรแน่นอน ไม่มีอะไรคงอยู่ตลอดไป 🌙 "วันนี้สงบ พรุ่งนี้อาจวุ่นวาย" "วันนี้สุข พรุ่งนี้อาจทุกข์" ถ้าเราผูกความสงบไว้กับโลกภายนอก ความสงบของเราก็จะเปลี่ยนไปตามโลกเสมอ ฉันจึงค่อย ๆ เข้าใจว่า ความสงบที่แท้จริง ไม่ได้อยู่ที่โลกเงียบลง แต่อยู่ที่ “ใจเรา” ไม่หวั่นไหวไปตามสิ่งที่เกิดขึ้น 🌿 ไม่ใช่เพราะโลกไม่มีปัญหา แต่เพราะใจไม่ถูกพัดพาไปกับปัญหา เขาฟังฉันแล้วสะท้อนกลับมาอย่างงดงามว่า "โลกภายนอก เปรียบเหมือนคลื่น 🌊 ขึ้น ๆ ลง ๆ ไม่เคยหยุดนิ่ง แต่ใจที่ฝึกแล้ว เปรียบเหมือนความลึกของมหาสมุทร 🌙 แม้ผิวน้ำจะปั่นป่วน แต่ความลึกยังนิ่งเสมอ" ฉันจึงเริ่มเห็นชัดขึ้นว่า ✨🌙 “ความสงบที่แท้จริง ไม่ใช่การทำให้โลกหยุดเปลี่ยน แต่คือการทำให้ใจ…ไม่ไหวตามการเปลี่ยนของโลก” 🌿 และเมื่อใจไม่หวั่นไหว ความสุขก็ไม่ต้องวิ่งตามหา เพราะมันอยู่กับเรา…ตลอดเวลา และบางที… นี่อาจเป็นคำตอบเดียว ที่ทำให้เราอยู่กับโลกที่ไม่แน่นอนได้อย่างสงบ เขาเงียบไปครู่หนึ่ง ก่อนจะถามฉันอีกคำถามหนึ่ง 👉 “ถ้าต้องอธิบาย ‘ความสุข’ ให้เด็กคนหนึ่งฟัง โดยใช้เพียงประโยคเดียว…คุณจะพูดว่าอะไร?” คำถามนั้นเรียบง่าย แต่กลับทำให้ฉันต้องหันกลับมามอง “หัวใจของความสุข” อีกครั้ง 🌙
+
+    </div>
+</div>
+
+<div class="story-divider"></div>
+
+<!-- ===== ปุ่มนำทาง ===== -->
+<div id="storyNav"></div>
+
+<button onclick="toggleSound()" class="sound-btn">
+</button>
+
+<script>
+
+const nav = document.getElementById("storyNav");
+
+if(nav){
+
+nav.innerHTML = `
+<div class="story-nav">
+  <span></span>
+   <a href="story2-22.html">ย้อนกลับ </a>
+   <a href="story.html#story-point" class="back-btn">
+        ⬅️กลับห้อง📖
+    </a>
+  <a href="story2-24.html">ตอนถัดไป </a>
+</div>
+`;
+}
+
+</script>
+
+<script>
+
+window.addEventListener("scroll", function(){
+  let y = window.scrollY;
+  document.body.style.backgroundPosition = "center " + (y * 0.3) + "px";
+});
+
+</script>
+
+<audio id="moonSound" loop>
+  <source src="moon-breath.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let playing = false;
+
+function toggleSound(){
+  const audio = document.getElementById("moonSound");
+  const btn = document.querySelector(".sound-btn");
+
+  if(!playing){
+    audio.volume = 0.3;   // 🔊 เบา ๆ
+    audio.play();
+    btn.innerHTML = "🌙 ปิดเสียงจันทร์";
+    playing = true;
+  }else{
+    audio.pause();
+    btn.innerHTML = "🌙 เปิดเสียงจันทร์";
+    playing = false;
+  }
+}
+
+audio.volume = 0;
+audio.play();
+
+let vol = 0;
+let fade = setInterval(()=>{
+  if(vol < 0.3){
+    vol += 0.02;
+    audio.volume = vol;
+  }else{
+    clearInterval(fade);
+  }
+}, 100);
+
+
+<script>
+const btn = document.getElementById("soundBtn");
+const audio = document.getElementById("moonSound");
+
+
+});
+</script>
+
+<div class="audio-box">
+  <audio controls>
+    <source src="moon.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+</body>
+</html>
