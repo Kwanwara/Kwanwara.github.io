@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ใจฉันคืนจันทร์ส่องฉาย</title>
+
+<style>
+
+body { margin: 0; }
+
+#room {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 🌄 ภาพ */
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease;
+}
+
+.bg1 { opacity: 1; }
+.bg2 { opacity: 0; }
+
+/* ✨ ลอยนุ่ม */
+@keyframes floatTitle {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ ข้อความบนภาพ */
+.text{
+  position:absolute;
+  top:5%;
+  left:51%;
+  transform:translateX(-50%);
+  width:90%;
+  max-width:680px;
+  z-index:9999;
+
+  color:#8B4513;
+  text-align:center;
+  font-size:clamp(17px, 4.2vw, 18px);
+  line-height:2;
+  
+
+  padding:8px 12px;
+
+}
+
+.text h1{
+  font-size:clamp(24px, 5vw, 38px);
+  margin:0 0 10px;
+  color:#8B4513;
+}
+
+/* 🚪 ปุ่มนำทาง */
+.nav,
+.end-nav{
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:96%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  z-index:99999;
+ 
+}
+
+.nav a,
+.end-nav a{
+  background:rgba(40,28,12,0.78);
+  color:gold !important;
+  border:2px solid rgba(255,215,120,0.45);
+  text-decoration:none;
+  margin-top:20;
+
+  padding:8px 12px;
+  border-radius:24px;
+  font-size:clamp(17px, 4vw, 18px);
+    line-height:1.4;
+  font-weight:bold;
+  min-width:120px;
+  text-align:center;
+
+  box-shadow:0 0 10px rgba(0,0,0,0.65);
+}
+
+/* 📱 มือถือ */
+@media(max-width:768px){
+
+  .text{
+    top:5%;
+    width:92%;
+      font-size:clamp(18px, 4vw, 20px);
+    line-height:2;
+    padding:7px 10px;
+  }
+
+  .text h1{
+font-size:clamp(18px, 4vw, 20px);
+    line-height:1.4;
+    margin-bottom:8px;
+  }
+
+  .nav,
+  .end-nav{
+    bottom:8px;
+    gap:6px;
+    
+  }
+
+  .nav a,
+  .end-nav a{
+     font-size:clamp(17px, 4vw, 18px);
+    line-height:2;
+    min-width:100px;
+    padding:7px 10px;
+    border-radius:22px;
+    
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<section>
+
+<div id="room">
+
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+
+    <div class="text">
+      <h1></h1>
+        <p></p>
+    </div>
+
+</div>
+
+<!-- 🚪 ปุ่มนำทาง -->
+<div class="end-nav" id=endNav>
+  <a href="books1-1.html" class="btn">ย้อนกลับ</a>
+  <a href="books.html#story-point" class="back-btn">กลับห้อง</a>
+ 
+
+</div>
+ 
+
+</div>
+
+<script>
+let images = ["books-photo1-1.0.jpg","books-photo1-1.1.jpg","books-photo1-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg","books-photo3-1.2.jpg"];
+
+let texts = ["",
+ "", 
+"",
+ "📖 คำนำ<br>ใจของฉันคืนจันทร์ส่องฉาย<br>โลกใบนี้ไม่เคยหยุดหมุน มีการพบ มีการจาก มีความสุข<br> มีความทุกข์ มีรอยยิ้ม และน้ำตาสลับกัน ไปตามกาลเวลา<br> หลายครั้งเราพยายามเปลี่ยนโลกให้เป็นอย่างที่ใจต้องการ<br>แต่เมื่อเวลาผ่านไป ฉันกลับค้นพบว่า สิ่งที่ควรเรียนรู้<br>มากที่สุด ไม่ใช่โลกภายนอก แต่คือใจของตัวเอง<br>หนังสือเล่มนี้จึงไม่ได้เกิดจากการค้นหาคำตอบให้ชีวิต<br>แต่มันเกิดจากการค่อยๆตั้งคำถามกับใจของตัวเอง ทุกคำคม<br> ทุกบทกลอน ทุกบทสนทนา และทุกเรื่องราวในเล่ม <br>ล้วนเป็นร่องรอยของการเดินทาง ที่ไม่ได้มุ่งหน้าไปยังที่ใด<br>แต่ค่อยๆพาฉันเดินกลับเข้ามาหาความสงบภายใน<br>ฉันไม่ได้หวังให้ผู้อ่านเชื่อในสิ่งที่ฉันคิด เพียงหวังว่า<br>ระหว่างที่อ่านหนังสือเล่มนี้ คุณจะมีช่วงเวลาสั้นๆ<br> ที่ได้หยุดมองโลก แล้วหันกลับมามองใจของตัวเอง"];
+
+let i = 0
+let toggle = true;
+let room = document.getElementById("room");
+let bg1 = document.querySelector(".bg1");
+let bg2 = document.querySelector(".bg2");
+let textBox = document.querySelector(".text");
+
+/* 🌙 ภาพเริ่มต้น */
+bg1.style.backgroundImage = "url('" + images[0] + "')";
+textBox.innerHTML = texts[0];
+
+room.onclick = function () {
+
+    i = (i + 1) % images.length;
+
+    /* ✨ เปลี่ยนข้อความตามภาพ */
+
+    textBox.innerHTML = texts[i];
+
+    if (toggle) {
+        bg2.style.backgroundImage = "url('" + images[i] + "')";
+        bg2.style.opacity = 1;
+        bg1.style.opacity = 0;
+    } 
+else {
+        bg1.style.backgroundImage = "url('" + images[i] + "')";
+        bg1.style.opacity = 1;
+        bg2.style.opacity = 0;
+    }
+
+    toggle = !toggle;
+};
+
+</script>
+
+</section>
+
+</body>
+</html>
+                                           
